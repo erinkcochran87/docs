@@ -1,7 +1,0 @@
-1. **The number of tables set to replicate**. [The more tables that you select]({{ link.replication.syncing | prepend: site.baseurl }}), the potential higher number of rows.
-
-2. **The Replication Methods used by the replicating tables**. Tables using [Full Table Replication]({{ link.replication.rep-methods | prepend: site.baseurl }}) can increase your row usage.
-
-3. **Integrations' replication schedules**. Integrations [scheduled to replicate on a frequent basis]({{ link.replication.rep-scheduling | prepend: site.baseurl }}) can lead to increased row usage.
-
-4. **The volume and structure of the data in the selected tables.** Some Stitch destinations - like Redshift and PostgreSQL - will break apart nested records and count each sub-record as a row. Refer to the [Nested data structures guide]({{ link.destinations.storage.nested-structures | prepend: site.baseurl }}) for more info and examples.

@@ -1,5 +1,0 @@
-{% assign whitelist-ips-required = site.saas-integrations | where:"whitelist-ips","true" | sort:"display_name" %}
-
-{% for integration in whitelist-ips-required %}
-- [{{ integration.display_name }}]({{ integration.url | prepend: site.baseurl | append:"#whitelist-stitch-ips" }})
-{% endfor %}
