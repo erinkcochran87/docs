@@ -1,0 +1,749 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  
+
+
+  
+  
+  
+  
+  <url>
+    <loc>http://localhost:4005/announcements/</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4005/index.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4005/announcements/integration-scheduling-changes-july-25</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4005/js/mydoc_scroll.html</loc>
+  </url>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <url>
+    <loc>http://localhost:4005/css/theme-stitch.css</loc>
+  </url>
+  
+  
+  
+  
+  
+  <url>
+    <loc>http://localhost:4005/account-security/stitch-security</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4005/account-security/post-load-notifications</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4005/analysis-integrations/</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4005/stitch-connect/api</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4005/stitch-connect/guides</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4005/stitch-connect/javascript-client</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4005/stitch-connect/</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4005/stitch-connect/guides/field-selection-compatibility-rules</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4005/stitch-connect/guides/stitch-partner-authentication-guide</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4005/stitch-connect/guides/replication-scheduling-for-sources</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4005/stitch-connect/guides/select-streams-and-fields-with-connect-api</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4005/integrations/import-api/revoking-an-api-access-token</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4005/developers/import-api/guides/import-api-access-tokens</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4005/integrations/import-api/</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4005/integrations/import-api/faq</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4005/developers/webhooks</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4005/destinations/bigquery/apply-table-partitioning-clustering</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4005/destinations/bigquery/changing-google-bigquery-destination-data-locations</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4005/destinations/google-bigquery/changing-google-bigquery-destination-data-locations</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4005/destinations/bigquery/understanding-stitch-impact-on-bigquery-costs</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4005/destinations/bigquery/connecting-google-bigquery-to-stitch</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4005/destinations/choosing-a-destination</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4005/destinations/microsoft-azure-sql-data-warehouse/connecting-a-microsoft-azure-sql-data-warehouse-to-stitch</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4005/destinations/microsoft-azure-sql-data-warehouse/connecting-microsoft-azure-sql-data-warehouse-to-stitch-ssh-tunnel</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4005/destinations/microsoft-azure-sql-data-warehouse</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4005/destinations/microsoft-azure-sql-data-warehouse/reference</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4005/destinations/postgresq/connecting-a-google-cloudsql-postgresql-data-warehouse</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4005/destinations/redshift/connecting-redshift-data-warehouse-to-stitch-ssh-tunnel</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4005/destinations/redshift/connecting-redshift-data-warehouse-to-stitch</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4005/destinations/redshift/apply-encodings-sort-dist-keys-redshift</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4005/destinations/redshift/remove-database-integration-columns-redshift</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4005/destinations/redshift</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4005/account-security/understanding-stitch-billing-replicated-rows</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4005/replication/integration-extraction-logs</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4005/replication/replication-frequency</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4005/replication/data-typing</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4005/replication/supported-data-types</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4005/replication/syncing-data</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4005/replication/replicating-database-views</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4005/replication/syncing-new-additional-columns</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4005/replication/reference/amazon-redshift/</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4005/data-structure/redshift-data-loading-behavior</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4005/replication/reference/panoply/</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4005/data-structure/panoply-data-loading-behavior</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4005/replication/reference/databricks-delta</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4005/replication/reference/google-bigquery</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4005/data-structure/bigquery-data-loading-behavior</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4005/replication/reference/google-bigquery/v1/</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4005/data-structure/bigquery-data-loading-behavior</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4005/replication/reference</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4005/data-structure/loading-stitch-data-into-destinations</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4005/data-structure/microsoft-azure-synapse-analytics-loading-behavior</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4005/data-structure/microsoft-azure-data-loading-behavior</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4005/replication/reference/postgresql/</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4005/data-structure/postgresql-data-loading-behavior</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4005/replication/reference/snowflake/</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4005/data-structure/snowflake-data-loading-behavior</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4005/data-structure/</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4005/data-structure/querying-append-only-tables</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4005/data-structure/reserved-keywords</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4005/replication/loading/primary-keys-system-table</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4005/destinations/microsoft-azure-sql-data-warehouse/primary-key-handling</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4005/data-structure/identifying-rejected-records</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4005/data-structure/system-tables-and-columns</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4005/data-structure/integration-schemas</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4005/data-structure/nested-data-structures-row-count-impact</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4005/data-structure/table-structural-changes</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4005/integrations/saas/doubleclick-campaign-manager</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4005/integrations/saas/google-adwords-v1</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4005/integrations/saas/google-adwords</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4005/integrations/saas/google-adwords-old</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4005/integrations/saas/google-adwords-new</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4005/integrations/saas/google-analytics-adwords-v15-10-2015</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4005/integrations/saas/bing-ads/v1</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4005/integrations/saas/bing-ads</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4005/integrations/saas/netsuite</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4005/integrations/saas/netsuite-suitetalk/v1</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4005/saas-integrations/quickbooks/quickbooks-latest.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4005/integrations/saas/recurly/v1</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4005/integrations/saas/aftership</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4005/integrations/saas/branch</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4005/integrations/saas/contentful</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4005/integrations/saas/customerio</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4005/integrations/saas/delighted</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4005/integrations/saas/drip</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4005/integrations/saas/formkeep</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4005/integrations/saas/iterable</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4005/integrations/saas/mailjet</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4005/integrations/saas/mandrill</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4005/integrations/saas/particleio</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4005/integrations/saas/segment</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4005/integrations/saas/sendgrid</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4005/integrations/saas/sendwithus</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4005/integrations/saas/sparkpost</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4005/integrations/saas/vero</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4005/integrations/saas/zapier</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4005/troubleshooting/database-integration-connection-errors</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4005/troubleshooting/integrations/database-connection-errors</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4005/troubleshooting/destination-connection-errors</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4005/troubleshooting/destinations/destination-connection-errors</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4005/troubleshooting/destinations/redshift-data-loading-errors</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4005/troubleshooting/destinations/postgres-data-loading-errors</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4005/troubleshooting/destinations/destination-data-loading-errors</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4005/troubleshooting/integrations/common-extraction-errors</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4005/troubleshooting/integrations/microsoft-sql-server-database-extraction-errors</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4005/troubleshooting/integrations/mongodb-database-extraction-errors</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4005/troubleshooting/integrations/mysql-database-extraction-errors</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4005/troubleshooting/integrations/oracle-database-extraction-errors</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4005/troubleshooting/integrations/integration-connection-errors</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://localhost:4005/redirects.json</loc>
+  </url>
+  
+  
+</urlset>

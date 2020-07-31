@@ -1,0 +1,1350 @@
+<!DOCTYPE html>
+<head>
+    <!-- Google Tag Manager  -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-PXBN5GK');</script>
+<!-- End Google Tag Manager -->
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta class="swiftype" name="description" data-type="string" content="The basic concepts and architecture of Stitch, including an overview of replication and the Stitch system.">
+<meta class="swiftype" name="keywords" data-type="string" content=",  getting started, get started, get set up, set up stitch, setup, guide">
+<title>Basic Concepts and System Overview | Stitch Documentation</title>
+
+<meta property="og:title" content="Basic Concepts and System Overview | Stitch Documentation" />
+<meta property="og:description" content="The basic concepts and architecture of Stitch, including an overview of replication and the Stitch system." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="/docs" />
+<meta property="og:image" content="https://www.stitchdata.com/images/og-site-icon-talend.png" />
+<meta property="og:site_name" content="Stitch Docs" />
+
+<meta name="twitter:creator" content="@stitch_data">
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@stitch_data" />
+<meta name="twitter:image" content="https://www.stitchdata.com/images/og-site-icon-talend.png" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- STYLESHEETS -->
+<link rel="stylesheet" type="text/css" href="/docs/css/bootstrap.min.css">
+<link rel="stylesheet" href="/docs/css/modern-business.css">
+<link rel="stylesheet" href="/docs/css/lavish-bootstrap.css">
+<link rel="stylesheet" href="/docs/css/customstyles.css">
+<link rel="stylesheet" href="/docs/css/theme-stitch.css">
+<link rel="stylesheet" href="/docs/css/docsearch.min.css" />
+<link rel="stylesheet" href="/docs/stylesheets/screen.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<!-- FONT AWESOME -->
+<script src="https://kit.fontawesome.com/e0e120b2f0.js"></script>
+
+<!-- JQUERY -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+<script src="/docs/js/jquery.navgoco.min.js"></script>
+
+<!-- FAVICONS  -->
+<link rel="/docs/images/apple-touch-icon" sizes="57x57" href="/docs/images/apple-icon-57x57.png">
+<link rel="/docs/images/apple-touch-icon" sizes="60x60" href="/docs/images/apple-icon-60x60.png">
+<link rel="/docs/images/apple-touch-icon" sizes="72x72" href="/docs/images/apple-icon-72x72.png">
+<link rel="/docs/images/apple-touch-icon" sizes="76x76" href="/docs/images/apple-icon-76x76.png">
+<link rel="/docs/images/apple-touch-icon" sizes="114x114" href="/docs/images/apple-icon-114x114.png">
+<link rel="/docs/images/apple-touch-icon" sizes="120x120" href="/docs/images/apple-icon-120x120.png">
+<link rel="/docs/images/apple-touch-icon" sizes="144x144" href="/docs/images/apple-icon-144x144.png">
+<link rel="/docs/images/apple-touch-icon" sizes="152x152" href="/docs/images/apple-icon-152x152.png">
+<link rel="/docs/images/apple-touch-icon" sizes="180x180" href="/docs/images/apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192"  href="/docs/images/android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/docs/images/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="/docs/images/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/docs/images/favicon-16x16.png">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+<meta name="theme-color" content="#ffffff">
+
+<link rel="stylesheet" href="/docs/css/syntax.css">
+
+<!-- FONTS -->
+<link href="https://fonts.googleapis.com/css?family=PT+Sans:400,700&display=swap" rel="stylesheet">
+
+<style type="text/css">
+	.js .fouc {display: none !important;}
+</style>
+
+<script type="text/javascript">
+	document.documentElement.className = 'js';
+</script>
+
+<!-- Begin Inspectlet Embed Code -->
+<script type="text/javascript" id="inspectletjs">
+window.__insp = window.__insp || [];
+__insp.push(['wid', 479657659]);
+(function() {
+function ldinsp(){if(typeof window.__inspld != "undefined") return; window.__inspld = 1; var insp = document.createElement('script'); insp.type = 'text/javascript'; insp.async = true; insp.id = "inspsync"; insp.src = ('https:' == document.location.protocol ? 'https' : 'http') + '://cdn.inspectlet.com/inspectlet.js'; var x = document.getElementsByTagName('script')[0]; x.parentNode.insertBefore(insp, x); };
+setTimeout(ldinsp, 500); document.readyState != "complete" ? (window.attachEvent ? window.attachEvent('onload', ldinsp) : window.addEventListener('load', ldinsp, false)) : ldinsp();
+})();
+</script>
+<!-- End Inspectlet Embed Code -->
+
+
+  <!-- Initializes tooltips -->
+    <script>
+      $(function () {
+            $('[data-toggle="tooltip"]').tooltip({
+              delay: {show: 0, hide: 2000}
+            });
+        })
+    </script>
+
+</head>
+
+
+
+<body>
+
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PXBN5GK"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<!-- Navigation -->
+
+<nav class="stitch-docs-navbar" data-swiftype-index='false'>
+    <div class="nav-left">
+        <?xml version="1.0" encoding="utf-8"?>
+        <!-- Generator: Adobe Illustrator 23.1.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+        <svg version="1.1" id="logomark" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+             viewBox="0 0 380 380" enable-background="new 0 0 380 380" xml:space="preserve">
+        <path id="logomark_2_" fill="#FFFFFF" d="M120,177.1v-26.7h260V0H0v203.8h270.5v26.7H0V380h380V175.2H120V177.1z M193.3,39
+            c10.5,0,19,8.6,19,19s-8.6,19-19,19s-19-8.6-19-19C174.3,46.7,183.8,39,193.3,39z M112.4,96.2H281l-7.6,26.7H119L112.4,96.2z
+             M193.3,340c-10.5,0-19-8.6-19-19c0-10.5,8.6-19,19-19s19,8.6,19,19C212.4,331.4,202.9,340,193.3,340z M112.4,281.9l6.7-26.7h154.3
+            l7.6,26.7H112.4z"/>
+        </svg>
+        <a class="navbar-brand" href="/docs/">
+            <span class="projectTitle"> Stitch Docs</span>
+        </a>
+    </div>
+    <div class="mobile-nav-icon"></div>
+    <div id="close" class="mobile-close-out hide"></div>
+    <div class="nav-right">
+        <ul class="stitch-nav">
+            <!-- entries without drop-downs appear here -->
+            
+                
+                    
+                        <li>
+                            <a href="https://www.stitchdata.com" target="_blank">stitchdata.com</a>
+                        </li>
+                    
+                
+                    
+                        <li>
+                            <a href="https://github.com/stitchdata/docs#stitch-documentation" target="_blank"><i class="fab fa-github" aria-hidden="true"></i> Contribute
+</a>
+                        </li>
+                    
+                
+                    
+                        <li>
+                            <a href="https://www.stitchdata.com/changelog" target="_blank">Changelog</a>
+                        </li>
+                    
+                
+                    
+                        <li>
+                            <a href="/docs/announcements">Announcements</a>
+                        </li>
+                    
+                
+            
+            <li class="sign-up"><a href="https://stitchdata.com/signup">Sign up</a></li>
+            <li>
+                <!--start search-->
+                <div id="search-demo-container">
+                    <input type="text" id="search-input" placeholder="What can we help you find?">
+                    <div class="img"><i class="fa fa-search"></i></div>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+
+</nav>
+
+
+<!-- Page Content -->
+<div id="main">
+    <div class="sidebar-column">
+      <div class="sidebar-button"></div>
+        
+<!-- UI: page/button/section names, menu paths, etc -->
+
+
+<!-- Simplifies internal links -->
+
+
+<!-- Stitch -->
+
+
+<!-- UI Icons -->
+
+
+
+<!-- Tooltips and terms -->
+
+
+
+<!-- Mapping of Stitch replication/system columns -->
+
+
+
+<!-- Rejected Record table details & schema -->
+
+
+
+<!-- Stitch IP addresses  -->
+
+
+
+    	
+    		
+<!-- UI: page/button/section names, menu paths, etc -->
+
+
+<!-- Simplifies internal links -->
+
+
+<!-- Stitch -->
+
+
+<!-- UI Icons -->
+
+
+
+<!-- Tooltips and terms -->
+
+
+
+<!-- Mapping of Stitch replication/system columns -->
+
+
+
+<!-- Rejected Record table details & schema -->
+
+
+
+<!-- Stitch IP addresses  -->
+
+
+<div class="menu-list" data-swiftype-index='false'>
+
+<ul id="mysidebar" class="nav">
+    <!-- Stitch status widget -->
+    <a class="status-page" href="http://status.stitchdata.com" target="_blank">
+        <span class="color-dot"></span>
+        <span class="color-description"></span>
+    </a>
+
+    <li>
+    	<strong>In this guide:</strong>
+    </li>
+
+    
+	    <li>
+			<a href="#">
+		    	Introduction
+		    </a>
+		</li>
+	
+
+    
+
+    
+		
+            <li class="subfolders">
+                <a data-toggle="collapse" href="#basics--menu" aria-expanded="false" aria-controls="basics--menu">
+                    Basics
+                    <i class="fa fa-caret-down fa-1 pull-right" aria-hidden="true"></i>
+                </a>
+
+                <ul class="collapse" id="basics--menu">
+
+                    <!-- This is a menu item that actually links to the section. It's
+                        in here because the menu doesn't link to the section, the anchor just opens the menu. -->
+            		<li>
+                        <a href="#basics">Basics</a>
+                    </li>
+
+               		
+                        
+                    		<li>
+                                <a href="#what-is-stitch">What is Stitch?</a>
+                            </li>
+                        
+                	
+                        
+                    		<li>
+                                <a href="#concepts--getting-set-up">Get set up</a>
+                            </li>
+                        
+                	
+                        
+                            <li class="subfolders">
+                                <a data-toggle="collapse" href="#concepts--integrations-destinations--menu" aria-expanded="false" aria-controls="concepts--integrations-destinations--menu">
+                                    Integrations and destinations 
+                                    <i class="fa fa-caret-down fa-1 pull-right" aria-hidden="true"></i>
+                                </a>
+
+                                <ul class="collapse" id="concepts--integrations-destinations--menu">
+                                <!-- Same as above - this is the item that actually links
+                                    to the section. -->
+                                    <li>
+                                        <a href="#concepts--integrations-destinations">Integrations and destinations</a>
+                                    </li>
+
+                                    
+                                        <li>
+                                            <a href="#concepts--destinations">Destinations</a>
+                                        </li>
+                                    
+                                        <li>
+                                            <a href="#concepts--integrations">Integrations</a>
+                                        </li>
+                                    
+                                </ul>
+                        
+                	
+                        
+                    		<li>
+                                <a href="#concepts--rows-stitch-usage">Rows and Stitch usage</a>
+                            </li>
+                        
+                	
+                </ul>
+
+            
+    	</li>
+    
+		
+            <li class="subfolders">
+                <a data-toggle="collapse" href="#replication--menu" aria-expanded="false" aria-controls="replication--menu">
+                    Replication
+                    <i class="fa fa-caret-down fa-1 pull-right" aria-hidden="true"></i>
+                </a>
+
+                <ul class="collapse" id="replication--menu">
+
+                    <!-- This is a menu item that actually links to the section. It's
+                        in here because the menu doesn't link to the section, the anchor just opens the menu. -->
+            		<li>
+                        <a href="#replication">Replication</a>
+                    </li>
+
+               		
+                        
+                    		<li>
+                                <a href="#replication--settings">Extraction settings</a>
+                            </li>
+                        
+                	
+                        
+                    		<li>
+                                <a href="#replication-performance">Time to data loaded</a>
+                            </li>
+                        
+                	
+                        
+                    		<li>
+                                <a href="#replication--never-delete">Deleted records</a>
+                            </li>
+                        
+                	
+                </ul>
+
+            
+    	</li>
+    
+		
+            <li class="subfolders">
+                <a data-toggle="collapse" href="#transformations--menu" aria-expanded="false" aria-controls="transformations--menu">
+                    Transformations
+                    <i class="fa fa-caret-down fa-1 pull-right" aria-hidden="true"></i>
+                </a>
+
+                <ul class="collapse" id="transformations--menu">
+
+                    <!-- This is a menu item that actually links to the section. It's
+                        in here because the menu doesn't link to the section, the anchor just opens the menu. -->
+            		<li>
+                        <a href="#transformations">Transformations</a>
+                    </li>
+
+               		
+                        
+                    		<li>
+                                <a href="#data-typing">Data typing</a>
+                            </li>
+                        
+                	
+                        
+                    		<li>
+                                <a href="#json-structures">JSON structures</a>
+                            </li>
+                        
+                	
+                        
+                    		<li>
+                                <a href="#object-names">Object names</a>
+                            </li>
+                        
+                	
+                        
+                    		<li>
+                                <a href="#timezones">Timezones</a>
+                            </li>
+                        
+                	
+                </ul>
+
+            
+    	</li>
+    
+		
+            <li class="subfolders">
+                <a data-toggle="collapse" href="#system-architecture--menu" aria-expanded="false" aria-controls="system-architecture--menu">
+                    System architecture
+                    <i class="fa fa-caret-down fa-1 pull-right" aria-hidden="true"></i>
+                </a>
+
+                <ul class="collapse" id="system-architecture--menu">
+
+                    <!-- This is a menu item that actually links to the section. It's
+                        in here because the menu doesn't link to the section, the anchor just opens the menu. -->
+            		<li>
+                        <a href="#system-architecture">System architecture</a>
+                    </li>
+
+               		
+                        
+                            <li class="subfolders">
+                                <a data-toggle="collapse" href="#system-architecture--extraction--menu" aria-expanded="false" aria-controls="system-architecture--extraction--menu">
+                                    Extract 
+                                    <i class="fa fa-caret-down fa-1 pull-right" aria-hidden="true"></i>
+                                </a>
+
+                                <ul class="collapse" id="system-architecture--extraction--menu">
+                                <!-- Same as above - this is the item that actually links
+                                    to the section. -->
+                                    <li>
+                                        <a href="#system-architecture--extraction">Extract</a>
+                                    </li>
+
+                                    
+                                        <li>
+                                            <a href="#system-architecture--singer-based-rep-engine">Step 1: The Singer-based replication engine</a>
+                                        </li>
+                                    
+                                        <li>
+                                            <a href="#system-architecture--import-api">Step 2: The Import API</a>
+                                        </li>
+                                    
+                                </ul>
+                        
+                	
+                        
+                            <li class="subfolders">
+                                <a data-toggle="collapse" href="#system-architecture--preparing--menu" aria-expanded="false" aria-controls="system-architecture--preparing--menu">
+                                    Prepare 
+                                    <i class="fa fa-caret-down fa-1 pull-right" aria-hidden="true"></i>
+                                </a>
+
+                                <ul class="collapse" id="system-architecture--preparing--menu">
+                                <!-- Same as above - this is the item that actually links
+                                    to the section. -->
+                                    <li>
+                                        <a href="#system-architecture--preparing">Prepare</a>
+                                    </li>
+
+                                    
+                                        <li>
+                                            <a href="#system-architecture--pipeline">Step 3: The Pipeline</a>
+                                        </li>
+                                    
+                                        <li>
+                                            <a href="#system-architecture--streamery">Step 4: The Streamery</a>
+                                        </li>
+                                    
+                                </ul>
+                        
+                	
+                        
+                            <li class="subfolders">
+                                <a data-toggle="collapse" href="#system-architecture--loading--menu" aria-expanded="false" aria-controls="system-architecture--loading--menu">
+                                    Load 
+                                    <i class="fa fa-caret-down fa-1 pull-right" aria-hidden="true"></i>
+                                </a>
+
+                                <ul class="collapse" id="system-architecture--loading--menu">
+                                <!-- Same as above - this is the item that actually links
+                                    to the section. -->
+                                    <li>
+                                        <a href="#system-architecture--loading">Load</a>
+                                    </li>
+
+                                    
+                                        <li>
+                                            <a href="#system-architecture--loaders">Step 5: The Loaders</a>
+                                        </li>
+                                    
+                                        <li>
+                                            <a href="#system-architecture--destination">Step 6: Your destination</a>
+                                        </li>
+                                    
+                                </ul>
+                        
+                	
+                </ul>
+
+            
+    	</li>
+    
+		
+            	<li>
+            		<a href="#next-steps">
+		            	Next steps
+		            </a>
+		        </li>
+    		
+    	</li>
+    
+
+    
+	    <hr>
+
+	    <li>
+	    	<strong>Related:</strong>
+	    </li>
+
+	    	
+	    		<li>
+            		<a href="/docs/getting-started/set-up-stitch-data-pipeline">
+		            	Set up your Stitch data pipeline
+		            </a>
+		        </li>
+	    	
+	    		<li>
+            		<a href="/docs/getting-started/understanding-stitch-usage">
+		            	Understand your Stitch row usage
+		            </a>
+		        </li>
+	    	
+	    		<li>
+            		<a href="/docs/getting-started">
+		            	All Getting Started guides
+		            </a>
+		        </li>
+	    	
+	
+</ul>
+
+</div>
+    	
+
+    </div>
+    <div class="content-column">
+
+        <div class="article">
+          
+            <div class="breadbox">
+                <div class="breadcrumb-container" data-swiftype-index='false'>
+                    <div id="breadcrumb-menu" class="menu-left">
+                        <!-- Credit to JoostS for this code: https://stackoverflow.com/questions/9612235/what-are-some-good-ways-to-implement-breadcrumbs-on-a-jekyll-site -->
+
+
+
+
+<a href="/docs">DOCS</a>
+
+  
+    > <a href="/docs/getting-started/">GETTING STARTED</a>
+  
+
+  
+    > <strong>BASIC CONCEPTS AND SYSTEM OVERVIEW</strong>
+  
+
+
+                    </div>
+
+                    
+                </div>
+            </div>
+          
+
+          <div class="post-header">
+    <h1 class="post-title-main">Basic Concepts and System Overview</h1>
+</div>
+
+<div class="post-content">
+<!-- Controls display of page summary -->
+   
+
+<!-- Table of Contents -->
+    
+
+    
+
+      
+<!-- UI: page/button/section names, menu paths, etc -->
+
+
+<!-- Simplifies internal links -->
+
+
+<!-- Stitch -->
+
+
+<!-- UI Icons -->
+
+
+
+<!-- Tooltips and terms -->
+
+
+
+<!-- Mapping of Stitch replication/system columns -->
+
+
+
+<!-- Rejected Record table details & schema -->
+
+
+
+<!-- Stitch IP addresses  -->
+
+
+
+<!-- This only runs for destination and integration pgaes.
+    The include assigns a different page variable, and displays the correc
+    beta notice when applicable. -->
+    
+        <!-- This file is used to assign the correct
+	page variable for destination and integration content.
+
+	It'll also display the appropriate beta notice for
+	destinations/integrations that require it. -->
+
+    
+    
+
+
+    
+<!-- UI: page/button/section names, menu paths, etc -->
+
+<!-- Simplifies internal links -->
+
+<!-- Stitch -->
+
+<!-- UI Icons -->
+
+<!-- Tooltips and terms -->
+
+<!-- Mapping of Stitch replication/system columns -->
+
+<!-- Rejected Record table details & schema -->
+
+<!-- Stitch IP addresses  -->
+
+<p>Welcome to Stitch!</p>
+
+<p>Stitch is a cloud-first, open source platform for rapidly moving data. A simple, powerful ETL service, Stitch connects to all your data sources – from databases like MySQL and MongoDB, to SaaS applications like Salesforce and Zendesk – and replicates that data to a destination of your choosing.</p>
+
+<p>In this guide, we’ll cover the basic concepts and architecture of Stitch, including:</p>
+
+<ul>
+  <li>
+    <p><a href="#basics">What Stitch does, how to get set up, and how usage is calculated</a></p>
+  </li>
+  <li>
+    <p><a href="#replication">An overview of data replication in Stitch</a></p>
+  </li>
+  <li>
+    <p><a href="#transformations">The data transformations Stitch performs</a></p>
+  </li>
+  <li>
+    <p><a href="#system-architecture">A step-by-step tour of the Stitch system, from data extracted to data loaded</a></p>
+  </li>
+  <li>
+    <p><a href="#next-steps">Some next steps</a></p>
+  </li>
+</ul>
+
+
+
+    <hr>
+
+
+
+
+
+    
+        <h2 id="basics">Basics</h2>
+    
+
+        
+<ul>
+  <li>
+    <p><a href="#what-is-stitch">What does Stitch do?</a></p>
+  </li>
+  <li>
+    <p><a href="#concepts--getting-set-up">Getting set up with Stitch</a></p>
+  </li>
+  <li>
+    <p><a href="#concepts--integrations-destinations">What integrations and destinations are</a></p>
+  </li>
+  <li>
+    <p><a href="#concepts--rows-stitch-usage">How Stitch usage is calculated</a></p>
+  </li>
+</ul>
+
+
+
+<!-- If a section has subsections -->
+    
+        
+            
+                <h3 id="what-is-stitch">What is Stitch?</h3>
+            
+
+            <p>Stitch a cloud-based, ETL data pipeline. ETL is short for extract, transform, load, which are the steps in a process that moves data from a source to a destination.</p>
+
+<p>That being said, keep in mind that Stitch isn’t:</p>
+
+<ul>
+  <li><strong>A data analysis service</strong>. We have many <a href="https://www.stitchdata.com/partners/" target="new">analytics partners</a> who can help here, however.</li>
+  <li><strong>A data visualization or querying tool.</strong> Stitch only moves data. To analyze it, you’ll need an additional tool. Refer to our list of <a href="/docs/analysis-tools">analysis tools</a> for some suggestions.</li>
+  <li><strong>A destination</strong>. A destination is typically a data warehouse and is required to use Stitch. While we can’t create one for you, you can use our <a href="/docs/destinations/choosing-a-stitch-destination">Choosing a destination guide</a> if you need some help picking the right destination for your needs.</li>
+</ul>
+
+
+        <!-- If a subsection has its own subsections -->
+            
+        
+            
+                <h3 id="concepts--getting-set-up">Get set up</h3>
+            
+
+            <p>In just a few minutes, you can set up your own data pipeline:</p>
+
+<ol>
+  <li><strong>Sign up for a Stitch account</strong>. Don’t have an account yet? <a href="https://app.stitchdata.com" target="new">Sign up here for your free trial</a>.</li>
+  <li><strong>Connect a destination</strong>. A destination, typically a database or data warehouse, where Stitch will load the replicated data. This includes products like Amazon Redshift, Amazon S3, or Google BigQuery.</li>
+  <li><strong>Connect an integration</strong>. Integrations are data sources, or where Stitch replicates data from. This includes SaaS applications like Google Analytics, databases like MySQL, and more.</li>
+</ol>
+
+<p>For a step-by-step look at setting up Stitch, refer to the <a href="/docs">Setting up your Stitch data pipeline guide</a>.</p>
+
+
+        <!-- If a subsection has its own subsections -->
+            
+        
+            
+                <h3 id="concepts--integrations-destinations">Integrations and destinations</h3>
+            
+
+            <p>To use Stitch, you need a destination and at least one integration, or data source.</p>
+
+
+        <!-- If a subsection has its own subsections -->
+            
+                
+                    
+                        <h4 id="concepts--destinations">Destinations</h4>
+                    
+
+                    <p>Stitch supports some of the most popular data lakes, warehouses, and storage platforms as destinations, such as Amazon Redshift, Google BigQuery, and Microsoft Azure Synapse Analytics.</p>
+
+<p>The destination you choose determines how replicated data is loaded and structured. This is discussed in more detail in the <a href="#transformations">Transformations</a> section.</p>
+
+<p>Refer to the <a href="/docs/destinations">Destination</a> documentation for more info on each of Stitch’s destination offerings. If you’re new to data warehousing or you want to see how Stitch’s destination offerings compare to each other, check out our <a href="/docs/destinations/choosing-a-stitch-destination">Choosing a Destination guide</a>. This guide will help you choose the best Stitch destination for your data warehousing needs, from ensuring your data sources are compatible to staying within your budget.</p>
+
+
+                
+                    
+                        <h4 id="concepts--integrations">Integrations</h4>
+                    
+
+                    <p>An integration is a data source. This can be a database, API, file, or other data application that Stitch replicates data from, such as MySQL, Google Analytics, or Amazon S3.</p>
+
+<p>During your free trial, all of Stitch’s integrations are accessible. After the trial ends, some integrations - such as MongoDB or Salesforce - are only available if you select a paid plan.</p>
+
+<p>Refer to the <a href="/docs/integrations">Integration</a> documentation for more info on each of Stitch’s integrations, such as what data is available or what features are supported.</p>
+
+
+                
+            
+        
+            
+                <h3 id="concepts--rows-stitch-usage">Rows and Stitch usage</h3>
+            
+
+            <p>Stitch usage is volume-based. Much like the data part of a cell phone plan, each Stitch plan includes a set number of <a href="/docs/getting-started/understanding-stitch-usage#what-is-a-replicated-row">replicated rows</a> per month. Your overall row usage can be affected by a variety of factors, including the destination you choose and number of integrations you have.</p>
+
+<p>For an in-depth walkthrough of how usage is calculated, the factors that affect it, and how you can reduce your usage, refer to the <a href="/docs/getting-started/understanding-stitch-usage">Understanding and Reducing Your Usage guide</a>.</p>
+
+
+        <!-- If a subsection has its own subsections -->
+            
+        
+    
+
+    
+        <hr>
+    
+
+    
+        <h2 id="replication">Replication</h2>
+    
+
+        <p>Stitch’s replication process consists of three distinct phases:</p>
+
+<ol>
+  <li><strong>Extract</strong>: Stitch pulls data from your data sources and persists it to Stitch’s data pipeline through the Import API.</li>
+  <li><strong>Prepare</strong>: Data is <a href="#transformations">lightly transformed</a> to ensure compatibility with the destination.</li>
+  <li><strong>Load</strong>: Stitch loads the data into your destination.</li>
+</ol>
+
+<p>A single occurrence of these three phases is called a <strong>replication job</strong>. You can keep an eye on a replication job’s progress on any <a href="/docs/replication/monitoring-replication-progress">integration’s <strong>Summary</strong> page</a>.</p>
+
+
+<!-- If a section has subsections -->
+    
+        
+            
+                <h3 id="replication--settings">Extraction settings</h3>
+            
+
+            <p>When you set up an integration in Stitch, you’ll also need to define its replication settings. These settings control the Extraction phase of the replication process, including <a href="/docs/replication/replication-scheduling">how often Extraction occurs</a>, <a href="/docs/replication/extractions/setting-data-to-replicate">what data should be extracted</a>, and <a href="/docs/replication/replication-methods">how data is extracted</a>.</p>
+
+
+        <!-- If a subsection has its own subsections -->
+            
+        
+            
+                <h3 id="replication-performance">Time to data loaded</h3>
+            
+
+            <p>Because our process is performed in steps, it’s important to note that Stitch replication isn’t real-time. This means that there will be some time between data extracted and data loaded, which you can read more about in the <a href="#system-architecture">System architecture section</a> of this guide.</p>
+
+<p>Additionally, the speed of Extraction and Loading is largely dependent on the resources available in your data sources and destination.</p>
+
+
+        <!-- If a subsection has its own subsections -->
+            
+        
+            
+                <h3 id="replication--never-delete">Deleted records</h3>
+            
+
+            <p>Stitch will never delete data from your destination, even if records have been deleted from the source. Refer to the <a href="/docs/replication/deleted-record-handling">Deleted Record Handling guide</a> for more info and examples.</p>
+
+
+        <!-- If a subsection has its own subsections -->
+            
+        
+    
+
+    
+        <hr>
+    
+
+    
+        <h2 id="transformations">Transformations</h2>
+    
+
+        <p>Stitch’s goal is to get data from your data sources to your destination <a href="https://www.stitchdata.com/blog/why-our-etl-tool-doesnt-do-transformations/" target="new">in a useful, raw format</a>:</p>
+
+<blockquote>
+  <p><em>Useful</em> means with types and structures that make the data easy to work with, and <em>raw</em> means staying as close to the original representation as possible.</p>
+</blockquote>
+
+<p>This doesn’t mean that Stitch doesn’t perform transformations during the replication process. Stitch just doesn’t perform <em>arbitrary</em> transformations - Stitch will perform only the transformations required to ensure the loaded data is useful and compatible with your destination. The transformations Stitch performs are dependent on the destination you choose. These can include:</p>
+
+<ul>
+  <li>
+    <p><a href="#data-typing">Data typing</a></p>
+  </li>
+  <li>
+    <p><a href="#json-structures">JSON structures</a></p>
+  </li>
+  <li>
+    <p><a href="#object-names">Object names</a></p>
+  </li>
+  <li>
+    <p><a href="#timezones">Timezones</a></p>
+  </li>
+</ul>
+
+<p>Stitch’s philosophy is that what you do with your data depends on your needs, and by keeping data close to its original form, Stitch enables you to manage and transform it as you see fit. While we don’t support user-defined transformations inside of Stitch, you can take advantage of <a href="https://www.stitchdata.com/platform/datatransformation/" target="new">Talend’s transformation and data quality solutions</a> to design and integrate your own transformations.</p>
+
+
+<!-- If a section has subsections -->
+    
+        
+            
+                <h3 id="data-typing">Data typing</h3>
+            
+
+            <p>Stitch’s data typing process consists of three steps which take place during replication:</p>
+
+<ol>
+  <li><strong>Extraction</strong>: Identify the data type in the source</li>
+  <li><strong>Preparing</strong>: Map the data type to a Stitch data type</li>
+  <li><strong>Loading</strong>: Convert the Stitch data type to a destination-compatible data type</li>
+</ol>
+
+<p>Stitch converts data types only where needed to ensure the data is accepted by your destination.</p>
+
+<p>With some exceptions, when a data type is changed or a field has multiple data types in the source, Stitch will create an additional column in the destination to accommodate the new data type. This will look like the column has been “split”. For example:</p>
+
+<table class="attribute-list">
+<tr>
+
+<td>
+<strong>id</strong>
+</td>
+
+<td>
+<strong>has_magic__bo</strong>
+</td>
+
+<td>
+<strong>has_magic__st</strong>
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+1
+</td>
+
+<td>
+true
+</td>
+
+<td>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+2
+</td>
+
+<td>
+
+</td>
+
+<td>
+yes
+</td>
+
+</tr>
+
+<tr>
+
+<td>
+3
+</td>
+
+<td>
+
+</td>
+
+<td>
+no
+</td>
+
+</tr>
+
+</table>
+
+<p>Stitch handles changed data types in this way to ensure previously loaded data is retained in its original format. Some Stitch customers use views to coerce data types when this occurs.</p>
+
+<p>Refer to the <a href="/docs/replication/loading/understanding-table-structural-changes#columns-mixed-data-types">Columns with mixed data types guide</a> for more info and examples.</p>
+
+
+        <!-- If a subsection has its own subsections -->
+            
+        
+            
+                <h3 id="json-structures">JSON structures</h3>
+            
+
+            <p>The destination you’re using determines how Stitch handles complex JSON structures such as arrays and objects.</p>
+
+<p>If your destination natively supports storing nested data, Stitch will store the data as a type appropriate for storing semi-structured data. You can then use the JSON functions supported by the destination to parse and analyze the data.</p>
+
+<p>If your destinaton doesn’t natively support storing nested data, Stitch will “de-nest”, or normalize, the data into relations. For JSON objects, attributes will be flattened into the table, while arrays will be unpacked into subtables. For more info and examples, refer to the <a href="/docs/replication/loading/understanding-loading-row-usage-for-nested-data-structures">Nested JSON structures guide</a>.</p>
+
+
+        <!-- If a subsection has its own subsections -->
+            
+        
+            
+                <h3 id="object-names">Object names</h3>
+            
+
+            <p>When you initially set up an integration, you’ll define <a href="/docs/replication/loading/understanding-destination-schemas#integration-schema-names">the name of the schema in the destination</a> where Stitch will load that integration’s data.</p>
+
+<p>The names of the tables and columns you set to replicate, however, are automatically generated based on two factors:</p>
+
+<ol>
+  <li>The name of the object in the source</li>
+  <li>The object naming rules enforced by the destination</li>
+</ol>
+
+<p>During loading, Stitch will attempt to keep object names as close to the source as possible. Some transformations may occur to ensure that the object name conforms to the destination’s naming rules.</p>
+
+<p><strong>Note</strong>: Table and column names cannot be changed in Stitch.</p>
+
+
+        <!-- If a subsection has its own subsections -->
+            
+        
+            
+                <h3 id="timezones">Timezones</h3>
+            
+
+            <p>Some of the destinations Stitch offers don’t natively support timezones. To ensure accuracy and consistency, Stitch handles data with timezones in this manner:</p>
+
+<ol>
+  <li>Extract the data from the source</li>
+  <li>Convert the source data to UTC</li>
+  <li>Load the data as UTC into your destination</li>
+</ol>
+
+<p>Depending on the destination you’re using, the data may or may not be stored with the timezone information. This is dependent on whether the destination supports timezones.</p>
+
+<p>For more info, refer to the <a href="/docs/replication/loading/reference">loading reference</a> for your destination.</p>
+
+
+        <!-- If a subsection has its own subsections -->
+            
+        
+    
+
+    
+        <hr>
+    
+
+    
+        <h2 id="system-architecture">System architecture</h2>
+    
+
+        <p>Now that you understand the basics of Stitch and how data replication works, let’s take a look at the internal workings of the Stitch system.</p>
+
+<!-- This file contains the formatting for various image types. -->
+
+<p><a href="/docs/images/system-architecture.png"><img class="docimage" src="/docs/images/system-architecture.png" alt="" /></a></p>
+
+
+
+<!-- If a section has subsections -->
+    
+        
+            
+                <h3 id="system-architecture--extraction">Extract</h3>
+            
+
+            <p>The first phase in the replication process is called <strong>Extract</strong>. During this phase, data is extracted from an integration using the <a href="#replication--settings">replication settings you define</a>.</p>
+
+<p>The Extract phase includes:</p>
+
+<ul>
+  <li>
+    <p><a href="#system-architecture--singer-based-rep-engine">Step 1: The Singer-based replication engine</a></p>
+  </li>
+  <li>
+    <p><a href="#system-architecture--import-api">Step 2: The Import API</a></p>
+  </li>
+</ul>
+
+
+
+        <!-- If a subsection has its own subsections -->
+            
+                
+                    
+                        <h4 id="system-architecture--singer-based-rep-engine">Step 1: The Singer-based replication engine</h4>
+                    
+
+                    <p>For SaaS applications and databases, data is pulled on a schedule using the Singer-based replication engine that Stitch runs against data sources like APIs, databases, and flat files.</p>
+
+<p>During this step, two things happen:</p>
+
+<ol>
+  <li>
+    <p><strong>A structure sync</strong>. At the start of every extraction, Stitch will run what is called a structure sync. A structure sync detects the tables and columns available in the source, along with any changes to the structure of those tables and columns.</p>
+
+    <p><strong>Note</strong>: New tables and columns detected during a structure sync will be available in Stitch after the current replication job ends. For the majority of integrations, new tables and columns won’t be automatically set to replicate.</p>
+  </li>
+  <li>
+    <p><strong>Data is extracted in JSON format.</strong> Based on the schemas, tables, and columns set to replicate, Stitch extracts the data in JSON format and sends it to the Import API.</p>
+  </li>
+</ol>
+
+
+                
+                    
+                        <h4 id="system-architecture--import-api">Step 2: The Import API</h4>
+                    
+
+                    <p>The next step in the replication process is the Import API.</p>
+
+<p>For data sent directly to Stitch through a webhook or Import API integration, this is the first step in the replication process. (<strong>Note</strong>: This is why webhook and Import API integrations don’t have <a href="/docs/replication/extractions/integration-extraction-logs">Extraction Logs</a>.)</p>
+
+<p>The <a href="/docs">Import API</a> validates and authenticates each request, and then persists the data to Stitch’s internal data pipeline.</p>
+
+<p>If the data fails validation or another critical error occurs, the extraction will fail and trigger an <a href="/docs/account-security/notifications">in-app and email notification</a>. The error can also be viewed in an integration’s <a href="/docs/replication/extractions/integration-extraction-logs">Extraction Logs</a> tab.</p>
+
+<hr />
+
+
+                
+            
+        
+            
+                <h3 id="system-architecture--preparing">Prepare</h3>
+            
+
+            <p>The second phase in the replication process is called <strong>Prepare</strong>. During this phase, the extracted data is buffered in Stitch’s durable, highly available internal data pipeline and readied for loading.</p>
+
+<p>The Prepare phase includes:</p>
+
+<ul>
+  <li>
+    <p><a href="#system-architecture--pipeline">Step 3: The Pipeline</a></p>
+  </li>
+  <li>
+    <p><a href="#system-architecture--streamery">Step 4: The Streamery</a></p>
+  </li>
+</ul>
+
+
+
+        <!-- If a subsection has its own subsections -->
+            
+                
+                    
+                        <h4 id="system-architecture--pipeline">Step 3: The Pipeline</h4>
+                    
+
+                    <p>Stitch uses Apache Kafka and Amazon S3 systems spanning multiple data centers to durably buffer the data received by the Import API, and ensure we meet our most important service-level target: don’t lose data. Data is always encrypted at rest, and automatically deleted from the buffer after no more than seven days.</p>
+
+
+                
+                    
+                        <h4 id="system-architecture--streamery">Step 4: The Streamery</h4>
+                    
+
+                    <p>Next, data is read from the pipeline and separated, batched, and prepared for loading by an internal Stitch service called the Streamery.</p>
+
+<p>The Streamery writes data to Amazon S3 that is encrypted, separated by tenant (Stitch account) and data set, and ready to be loaded. Most data is loaded within minutes, but if a destination is unavailable, it can stay in S3 for up to 30 days before being automatically deleted.</p>
+
+<hr />
+
+
+                
+            
+        
+            
+                <h3 id="system-architecture--loading">Load</h3>
+            
+
+            <p>The last phase in the replication process is called <strong>Load</strong>. During this phase, the prepared data is transformed to be compatible with the destination, and then loaded.</p>
+
+<p>The Loading phase includes:</p>
+
+<ul>
+  <li>
+    <p><a href="#system-architecture--loaders">Step 5: The Loaders</a></p>
+  </li>
+  <li>
+    <p><a href="#system-architecture--destination">Step 6: Your destination</a></p>
+  </li>
+</ul>
+
+
+
+        <!-- If a subsection has its own subsections -->
+            
+                
+                    
+                        <h4 id="system-architecture--loaders">Step 5: The Loaders</h4>
+                    
+
+                    <p>A Loader reads data from the Streamery (Amazon S3) and performs the <a href="#transformations">transformations</a> necessary - such as converting data into the appropriate data types or structure - before loading it into your destination. Disk is used as a temporary buffer, data is encrypted when written, and deleted immediately once loaded.</p>
+
+<p>Stitch defaults to using <a href="/docs/account-security/data-encryption#connections-ssl-default">SSL/TLS-encrypted connections</a> to your destination when possible. <a href="/docs/account-security/data-encryption#ssh-tunnel-connections">SSH-encrypted tunnels</a> are also available to be configured for most destination types.</p>
+
+<p>If a critical error occurs, the load will fail and trigger an <a href="/docs/account-security/notifications">in-app and email notification</a>. The error can also be viewed in an integration’s <a href="/docs/replication/integration-loading-reports">Loading Reports</a> tab.</p>
+
+
+                
+                    
+                        <h4 id="system-architecture--destination">Step 6: Your destination</h4>
+                    
+
+                    <p>Data is finally loaded into your destination! For each integration, Stitch will create a schema (or dataset, or folder, depending on your destination) and load that integration’s data into it. Refer to the <a href="/docs/replication/loading/understanding-destination-schemas">Understanding integration schema structures guide</a> for info on how schemas will be structured.</p>
+
+<p>At this point, you can use an <a href="/docs/analysis-tools">analysis tool</a> to interact with your data.</p>
+
+
+                
+            
+        
+    
+
+    
+        <hr>
+    
+
+    
+        <h2 id="next-steps">Next steps</h2>
+    
+
+        <p>Now that you’ve mastered the basics, move onto:</p>
+
+<ul>
+  <li>
+    <p><a href="/docs/getting-started/set-up-stitch-data-pipeline"><strong>Setting Up Your Stitch Data Pipeline</strong></a>: Get your Stitch data pipeline up and running.</p>
+  </li>
+  <li>
+    <p><a href="/docs/getting-started/understanding-stitch-usage"><strong>Understanding and Reducing Your Row Usage</strong></a>: Learn the basics of Stitch billing, how to view and understand your usage, and keep your row count low.</p>
+  </li>
+  <li>
+    <p><a href="/docs/integrations/connecting-other-data-sources-to-stitch"><strong>Connecting Other Data Sources to Stitch</strong></a>: Don’t see an integration you want in Stitch? Learn about your options for getting data from not-currently-supported data sources into Stitch.</p>
+  </li>
+</ul>
+
+
+
+<!-- If a section has subsections -->
+    
+
+    
+
+
+
+
+
+<!-- GitHub Feedback snippet -->
+
+    
+<!-- UI: page/button/section names, menu paths, etc -->
+
+
+<!-- Simplifies internal links -->
+
+
+<!-- Stitch -->
+
+
+<!-- UI Icons -->
+
+
+
+<!-- Tooltips and terms -->
+
+
+
+<!-- Mapping of Stitch replication/system columns -->
+
+
+
+<!-- Rejected Record table details & schema -->
+
+
+
+<!-- Stitch IP addresses  -->
+
+
+
+    <hr>
+
+<span class="h2" data-swiftype-index='false'>Questions? Feedback?</span>
+
+<p data-swiftype-index='false'>Did this article help? If you have questions or feedback, feel free to <a target="_blank" href="https://github.com/stitchdata/docs/blob/master/_getting-started/concepts-system-overview-guide.md">submit a pull request</a> with your suggestions, <a href="https://github.com/stitchdata/docs/issues" target="new">open an issue on GitHub</a>, or <a href="mailto: stitchsupport@talend.com">reach out to us</a>.</p>
+
+</div>
+
+<hr class="footer-cta">
+<div class="footer-signup-cta" data-swiftype-index='false'>
+    <div class="wrapper">
+        <div>
+            <p>Try Stitch for free</p>
+        </div>
+        <div>
+            <a href="https://www.stitchdata.com/signup" class="btn-default btn-default--yellow">
+                Start your trial <span class="arrow"></span>
+            </a>
+        </div>
+    </div>
+</div>
+<footer data-swiftype-index='false'>
+    <div class="site-generation">
+        &copy;2020 Stitch. All rights reserved. 
+         Site last generated: Jul 23, 2020
+    </div>
+    
+</footer>
+        </div>
+    </div>
+</div>
+
+<!-- JAVASCRIPT -->
+<script type="text/javascript" src="/docs/js/docsearch.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+
+<!-- Used for creating heading anchors -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/2.0.0/anchor.min.js"></script>
+<script src="//cdn.statuspage.io/se-v2.js"></script>
+
+<script src="/docs/js/toc.js"></script>
+<script src="/docs/js/customscripts.js"></script>
+<script src="/docs/js/copyCode.js"></script>
+
+<script type="text/javascript">
+    $(".fouc").removeClass("fouc");
+</script>
+
+<!-- Intercom bubble -->
+<script>
+  window.intercomSettings = {
+    app_id: "okjpf68w"
+  };
+</script>
+<script>
+(function(){var w=window;var ic=w.Intercom;if(typeof ic==="function"){ic('reattach_activator');ic('update',intercomSettings);}else{var d=document;var i=function(){i.c(arguments)};i.q=[];i.c=function(args){i.q.push(args)};w.Intercom=i;function l(){var s=d.createElement('script');s.type='text/javascript';s.async=true;s.src='https://widget.intercom.io/widget/okjpf68w';var x=d.getElementsByTagName('script')[0];x.parentNode.insertBefore(s,x);}if(w.attachEvent){w.attachEvent('onload',l);}else{w.addEventListener('load',l,false);}}})()
+</script>
+
+<!-- Search -->
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install','SAg6gNWby6H1xYzjhfzB','2.0.0');
+</script>
+
+<div class="st-search-container"></div>
+
+</body>
+</html>

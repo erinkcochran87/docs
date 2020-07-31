@@ -1,0 +1,3022 @@
+<!DOCTYPE html>
+<head>
+    <!-- Google Tag Manager  -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-PXBN5GK');</script>
+<!-- End Google Tag Manager -->
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta class="swiftype" name="description" data-type="string" content="Reference documentation for version 2 of Stitch's Google BigQuery destination, including info about Stitch features, replication, and transformations.">
+<meta class="swiftype" name="keywords" data-type="string" content=",  bigquery, google bigquery, bigquery data warehouse, bigquery etl, etl to bigquery">
+<title>Google BigQuery v2 Destination Reference | Stitch Documentation</title>
+
+<meta property="og:title" content="Google BigQuery v2 Destination Reference | Stitch Documentation" />
+<meta property="og:description" content="Reference documentation for version 2 of Stitch's Google BigQuery destination, including info about Stitch features, replication, and transformations." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="/docs" />
+<meta property="og:image" content="https://www.stitchdata.com/images/og-site-icon-talend.png" />
+<meta property="og:site_name" content="Stitch Docs" />
+
+<meta name="twitter:creator" content="@stitch_data">
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@stitch_data" />
+<meta name="twitter:image" content="https://www.stitchdata.com/images/og-site-icon-talend.png" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- STYLESHEETS -->
+<link rel="stylesheet" type="text/css" href="/docs/css/bootstrap.min.css">
+<link rel="stylesheet" href="/docs/css/modern-business.css">
+<link rel="stylesheet" href="/docs/css/lavish-bootstrap.css">
+<link rel="stylesheet" href="/docs/css/customstyles.css">
+<link rel="stylesheet" href="/docs/css/theme-stitch.css">
+<link rel="stylesheet" href="/docs/css/docsearch.min.css" />
+<link rel="stylesheet" href="/docs/stylesheets/screen.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<!-- FONT AWESOME -->
+<script src="https://kit.fontawesome.com/e0e120b2f0.js"></script>
+
+<!-- JQUERY -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+<script src="/docs/js/jquery.navgoco.min.js"></script>
+
+<!-- FAVICONS  -->
+<link rel="/docs/images/apple-touch-icon" sizes="57x57" href="/docs/images/apple-icon-57x57.png">
+<link rel="/docs/images/apple-touch-icon" sizes="60x60" href="/docs/images/apple-icon-60x60.png">
+<link rel="/docs/images/apple-touch-icon" sizes="72x72" href="/docs/images/apple-icon-72x72.png">
+<link rel="/docs/images/apple-touch-icon" sizes="76x76" href="/docs/images/apple-icon-76x76.png">
+<link rel="/docs/images/apple-touch-icon" sizes="114x114" href="/docs/images/apple-icon-114x114.png">
+<link rel="/docs/images/apple-touch-icon" sizes="120x120" href="/docs/images/apple-icon-120x120.png">
+<link rel="/docs/images/apple-touch-icon" sizes="144x144" href="/docs/images/apple-icon-144x144.png">
+<link rel="/docs/images/apple-touch-icon" sizes="152x152" href="/docs/images/apple-icon-152x152.png">
+<link rel="/docs/images/apple-touch-icon" sizes="180x180" href="/docs/images/apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192"  href="/docs/images/android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/docs/images/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="/docs/images/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/docs/images/favicon-16x16.png">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+<meta name="theme-color" content="#ffffff">
+
+<link rel="stylesheet" href="/docs/css/syntax.css">
+
+<!-- FONTS -->
+<link href="https://fonts.googleapis.com/css?family=PT+Sans:400,700&display=swap" rel="stylesheet">
+
+<style type="text/css">
+	.js .fouc {display: none !important;}
+</style>
+
+<script type="text/javascript">
+	document.documentElement.className = 'js';
+</script>
+
+<!-- Begin Inspectlet Embed Code -->
+<script type="text/javascript" id="inspectletjs">
+window.__insp = window.__insp || [];
+__insp.push(['wid', 479657659]);
+(function() {
+function ldinsp(){if(typeof window.__inspld != "undefined") return; window.__inspld = 1; var insp = document.createElement('script'); insp.type = 'text/javascript'; insp.async = true; insp.id = "inspsync"; insp.src = ('https:' == document.location.protocol ? 'https' : 'http') + '://cdn.inspectlet.com/inspectlet.js'; var x = document.getElementsByTagName('script')[0]; x.parentNode.insertBefore(insp, x); };
+setTimeout(ldinsp, 500); document.readyState != "complete" ? (window.attachEvent ? window.attachEvent('onload', ldinsp) : window.addEventListener('load', ldinsp, false)) : ldinsp();
+})();
+</script>
+<!-- End Inspectlet Embed Code -->
+
+
+  <!-- Initializes tooltips -->
+    <script>
+      $(function () {
+            $('[data-toggle="tooltip"]').tooltip({
+              delay: {show: 0, hide: 2000}
+            });
+        })
+    </script>
+
+</head>
+
+
+
+<body>
+
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PXBN5GK"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<!-- Navigation -->
+
+<nav class="stitch-docs-navbar" data-swiftype-index='false'>
+    <div class="nav-left">
+        <?xml version="1.0" encoding="utf-8"?>
+        <!-- Generator: Adobe Illustrator 23.1.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+        <svg version="1.1" id="logomark" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+             viewBox="0 0 380 380" enable-background="new 0 0 380 380" xml:space="preserve">
+        <path id="logomark_2_" fill="#FFFFFF" d="M120,177.1v-26.7h260V0H0v203.8h270.5v26.7H0V380h380V175.2H120V177.1z M193.3,39
+            c10.5,0,19,8.6,19,19s-8.6,19-19,19s-19-8.6-19-19C174.3,46.7,183.8,39,193.3,39z M112.4,96.2H281l-7.6,26.7H119L112.4,96.2z
+             M193.3,340c-10.5,0-19-8.6-19-19c0-10.5,8.6-19,19-19s19,8.6,19,19C212.4,331.4,202.9,340,193.3,340z M112.4,281.9l6.7-26.7h154.3
+            l7.6,26.7H112.4z"/>
+        </svg>
+        <a class="navbar-brand" href="/docs/">
+            <span class="projectTitle"> Stitch Docs</span>
+        </a>
+    </div>
+    <div class="mobile-nav-icon"></div>
+    <div id="close" class="mobile-close-out hide"></div>
+    <div class="nav-right">
+        <ul class="stitch-nav">
+            <!-- entries without drop-downs appear here -->
+            
+                
+                    
+                        <li>
+                            <a href="https://www.stitchdata.com" target="_blank">stitchdata.com</a>
+                        </li>
+                    
+                
+                    
+                        <li>
+                            <a href="https://github.com/stitchdata/docs#stitch-documentation" target="_blank"><i class="fab fa-github" aria-hidden="true"></i> Contribute
+</a>
+                        </li>
+                    
+                
+                    
+                        <li>
+                            <a href="https://www.stitchdata.com/changelog" target="_blank">Changelog</a>
+                        </li>
+                    
+                
+                    
+                        <li>
+                            <a href="/docs/announcements">Announcements</a>
+                        </li>
+                    
+                
+            
+            <li class="sign-up"><a href="https://stitchdata.com/signup">Sign up</a></li>
+            <li>
+                <!--start search-->
+                <div id="search-demo-container">
+                    <input type="text" id="search-input" placeholder="What can we help you find?">
+                    <div class="img"><i class="fa fa-search"></i></div>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+
+</nav>
+
+
+<!-- Page Content -->
+<div id="main">
+    <div class="sidebar-column">
+      <div class="sidebar-button"></div>
+        
+<!-- UI: page/button/section names, menu paths, etc -->
+
+
+<!-- Simplifies internal links -->
+
+
+<!-- Stitch -->
+
+
+<!-- UI Icons -->
+
+
+
+<!-- Tooltips and terms -->
+
+
+
+<!-- Mapping of Stitch replication/system columns -->
+
+
+
+<!-- Rejected Record table details & schema -->
+
+
+
+<!-- Stitch IP addresses  -->
+
+
+
+    	
+    		
+<!-- UI: page/button/section names, menu paths, etc -->
+
+
+<!-- Simplifies internal links -->
+
+
+<!-- Stitch -->
+
+
+<!-- UI Icons -->
+
+
+
+<!-- Tooltips and terms -->
+
+
+
+<!-- Mapping of Stitch replication/system columns -->
+
+
+
+<!-- Rejected Record table details & schema -->
+
+
+
+<!-- Stitch IP addresses  -->
+
+
+<div class="menu-list" data-swiftype-index='false'>
+
+<ul id="mysidebar" class="nav">
+    <!-- Stitch status widget -->
+    <a class="status-page" href="http://status.stitchdata.com" target="_blank">
+        <span class="color-dot"></span>
+        <span class="color-description"></span>
+    </a>
+
+    <li>
+    	<strong>In this guide:</strong>
+    </li>
+
+    
+	    <li>
+			<a href="#">
+		    	Introduction
+		    </a>
+		</li>
+	
+
+    
+
+    
+		
+            <li class="subfolders">
+                <a data-toggle="collapse" href="#details-and-features--menu" aria-expanded="false" aria-controls="details-and-features--menu">
+                    Details and features
+                    <i class="fa fa-caret-down fa-1 pull-right" aria-hidden="true"></i>
+                </a>
+
+                <ul class="collapse" id="details-and-features--menu">
+
+                    <!-- This is a menu item that actually links to the section. It's
+                        in here because the menu doesn't link to the section, the anchor just opens the menu. -->
+            		<li>
+                        <a href="#details-and-features">Details and features</a>
+                    </li>
+
+               		
+                        
+                    		<li>
+                                <a href="#stitch-features">Stitch features</a>
+                            </li>
+                        
+                	
+                        
+                    		<li>
+                                <a href="#destination-details">Destination details</a>
+                            </li>
+                        
+                	
+                        
+                    		<li>
+                                <a href="#supported-gcs-regions">Supported Google Cloud Storage regions</a>
+                            </li>
+                        
+                	
+                        
+                    		<li>
+                                <a href="#pricing">Google BigQuery pricing</a>
+                            </li>
+                        
+                	
+                </ul>
+
+            
+    	</li>
+    
+		
+            <li class="subfolders">
+                <a data-toggle="collapse" href="#replication-details--menu" aria-expanded="false" aria-controls="replication-details--menu">
+                    Replication
+                    <i class="fa fa-caret-down fa-1 pull-right" aria-hidden="true"></i>
+                </a>
+
+                <ul class="collapse" id="replication-details--menu">
+
+                    <!-- This is a menu item that actually links to the section. It's
+                        in here because the menu doesn't link to the section, the anchor just opens the menu. -->
+            		<li>
+                        <a href="#replication-details">Replication</a>
+                    </li>
+
+               		
+                        
+                            <li class="subfolders">
+                                <a data-toggle="collapse" href="#replication-process--menu" aria-expanded="false" aria-controls="replication-process--menu">
+                                    Replication process overview 
+                                    <i class="fa fa-caret-down fa-1 pull-right" aria-hidden="true"></i>
+                                </a>
+
+                                <ul class="collapse" id="replication-process--menu">
+                                <!-- Same as above - this is the item that actually links
+                                    to the section. -->
+                                    <li>
+                                        <a href="#replication-process">Replication process overview</a>
+                                    </li>
+
+                                    
+                                        <li>
+                                            <a href="#replication--data-extraction">Step 1: Data extraction</a>
+                                        </li>
+                                    
+                                        <li>
+                                            <a href="#replication--stitch-internal-pipeline">Step 2: Stitch's internal pipeline</a>
+                                        </li>
+                                    
+                                        <li>
+                                            <a href="#replication--gcs-bucket">Step 3: Google Cloud Storage bucket</a>
+                                        </li>
+                                    
+                                        <li>
+                                            <a href="#replication--bigquery-staging-tables">Step 4: BigQuery staging tables</a>
+                                        </li>
+                                    
+                                        <li>
+                                            <a href="#replication--data-merge">Step 5: Data merge</a>
+                                        </li>
+                                    
+                                </ul>
+                        
+                	
+                        
+                    		<li>
+                                <a href="#loading-behavior">Loading behavior</a>
+                            </li>
+                        
+                	
+                        
+                    		<li>
+                                <a href="#replication--primary-keys">Primary Keys</a>
+                            </li>
+                        
+                	
+                        
+                    		<li>
+                                <a href="#replication--incompatible-sources">Incompatible sources</a>
+                            </li>
+                        
+                	
+                </ul>
+
+            
+    	</li>
+    
+		
+            <li class="subfolders">
+                <a data-toggle="collapse" href="#transformations--menu" aria-expanded="false" aria-controls="transformations--menu">
+                    Transformations
+                    <i class="fa fa-caret-down fa-1 pull-right" aria-hidden="true"></i>
+                </a>
+
+                <ul class="collapse" id="transformations--menu">
+
+                    <!-- This is a menu item that actually links to the section. It's
+                        in here because the menu doesn't link to the section, the anchor just opens the menu. -->
+            		<li>
+                        <a href="#transformations">Transformations</a>
+                    </li>
+
+               		
+                        
+                    		<li>
+                                <a href="#transformations--system-tables-columns">System tables and columns</a>
+                            </li>
+                        
+                	
+                        
+                    		<li>
+                                <a href="#transformations--data-typing">Data typing</a>
+                            </li>
+                        
+                	
+                        
+                    		<li>
+                                <a href="#transformations--json-structures">JSON structures</a>
+                            </li>
+                        
+                	
+                        
+                    		<li>
+                                <a href="#transformations--column-naming">Column names</a>
+                            </li>
+                        
+                	
+                        
+                    		<li>
+                                <a href="#transformations--timezones">Timezones</a>
+                            </li>
+                        
+                	
+                </ul>
+
+            
+    	</li>
+    
+		
+            	<li>
+            		<a href="#compare-destinations">
+		            	Compare destinations
+		            </a>
+		        </li>
+    		
+    	</li>
+    
+
+    
+	    <hr>
+
+	    <li>
+	    	<strong>Related:</strong>
+	    </li>
+
+	    	
+	    		<li>
+            		<a href="/docs/destinations/google-bigquery/v2/connecting-google-bigquery-to-stitch">
+		            	Connect a Google BigQuery v2 destination
+		            </a>
+		        </li>
+	    	
+	    		<li>
+            		<a href="/docs/replication/loading/understanding-loading-behavior">
+		            	Understanding loading behavior
+		            </a>
+		        </li>
+	    	
+	    		<li>
+            		<a href="/docs/replication/loading/google-bigquery-storing-nested-data-structures">
+		            	Loading nested structures in Google BigQuery
+		            </a>
+		        </li>
+	    	
+	    		<li>
+            		<a href="/docs/destinations/google-bigquery/understanding-stitch-impact-on-bigquery-costs">
+		            	Stitch impact on Google BigQuery costs
+		            </a>
+		        </li>
+	    	
+	    		<li>
+            		<a href="/docs/destinations/google-bigquery/v2/
+">
+		            	All Google BigQuery v2 docs
+		            </a>
+		        </li>
+	    	
+	
+</ul>
+
+</div>
+    	
+
+    </div>
+    <div class="content-column">
+
+        <div class="article">
+          
+            <div class="breadbox">
+                <div class="breadcrumb-container" data-swiftype-index='false'>
+                    <div id="breadcrumb-menu" class="menu-left">
+                        <!-- Credit to JoostS for this code: https://stackoverflow.com/questions/9612235/what-are-some-good-ways-to-implement-breadcrumbs-on-a-jekyll-site -->
+
+
+
+
+<a href="/docs">DOCS</a>
+
+  
+    > <a href="/docs/destinations/">DESTINATIONS</a>
+  
+
+  
+    > <a href="/docs/destinations/google-bigquery/">GOOGLE BIGQUERY</a>
+  
+
+  
+    > <a href="/docs/destinations/google-bigquery/v2/">V2</a>
+  
+
+  
+    > <strong>GOOGLE BIGQUERY V2 DESTINATION REFERENCE</strong>
+  
+
+
+                    </div>
+
+                    
+                        <div class="version-menu menu-right fouc">
+                            
+<!-- The logic for pulling version info is in this include -->
+
+
+        
+<!-- Logic for displaying versions of destination pages. -->
+
+
+
+
+
+
+<!-- Get the correct versions 
+
+    If the include has a specific version parameter, only get the version being requested-->
+
+    
+
+    
+
+
+
+	
+
+
+<!-- Pulls the latest version number for the destination -->
+    
+
+<!-- Last, pulls all docs that that match the given key  -->
+    
+
+<!-- Get the doc that is the latest version based on the given key. -->
+	
+
+    
+
+    
+
+
+<!-- VERSION SELECTION MENU -->
+
+
+    <div class="version-toggle">
+        <div class="btn-group">
+            <button type="button" data-toggle="dropdown" class="btn btn-primary dropdown-toggle">
+                
+                    VERSION 2
+                
+                <span class="caret"></span>
+            </button>
+
+            <ol class="dropdown-menu">
+                
+
+                
+                    
+                        <li class="active">
+                            version 2
+
+                            
+                             (latest)
+                            
+
+                            <i class="fa fa-check fa-1" aria-hidden="true"></i>
+                        </li>
+                    
+                
+                    
+                        
+                            
+                                
+                                    <li>
+                                
+                                    <a href="/docs/destinations/google-bigquery/v1/reference/">version 1
+                                        
+                                            (released)
+                                        
+                                    </a>
+                                </li>
+                            
+                        
+                            
+                        
+                    
+                
+            </ol>
+        </div>
+    </div>
+
+                        </div>
+                    
+                </div>
+            </div>
+          
+
+          <div class="post-header">
+    <h1 class="post-title-main">Google BigQuery v2 Destination Reference</h1>
+</div>
+
+<div class="post-content">
+<!-- Controls display of page summary -->
+   
+
+<!-- Table of Contents -->
+    
+
+    
+
+      
+<!-- UI: page/button/section names, menu paths, etc -->
+
+
+<!-- Simplifies internal links -->
+
+
+<!-- Stitch -->
+
+
+<!-- UI Icons -->
+
+
+
+<!-- Tooltips and terms -->
+
+
+
+<!-- Mapping of Stitch replication/system columns -->
+
+
+
+<!-- Rejected Record table details & schema -->
+
+
+
+<!-- Stitch IP addresses  -->
+
+
+
+<!-- This only runs for destination and integration pgaes.
+    The include assigns a different page variable, and displays the correc
+    beta notice when applicable. -->
+    
+        <!-- This file is used to assign the correct
+	page variable for destination and integration content.
+
+	It'll also display the appropriate beta notice for
+	destinations/integrations that require it. -->
+
+    
+    
+
+
+    <p>Google BigQuery is a fully managed, fast, low cost analytics data warehouse. BigQuery is pay-as-you-go, making it cost-effective for all volumes of data. Its serverless architecture makes powerful analytical and business intelligence queries available via SQL to companies of all types.</p>
+
+<p>For more information, check out <a href="https://cloud.google.com/bigquery/what-is-bigquery" target="new">Google’s Google BigQuery overview</a>.</p>
+
+<p>This guide serves as a reference for version 2 of Stitch’s Google BigQuery destination.</p>
+
+
+    <hr>
+
+
+
+
+
+    
+        <h2 id="details-and-features">Details and features</h2>
+    
+
+        
+<ul>
+  <li>
+    <p><a href="#stitch-features">Stitch features</a></p>
+  </li>
+  <li>
+    <p><a href="#destination-details">Destination details</a></p>
+  </li>
+  <li>
+    <p><a href="#supported-gcs-regions">Supported Google Cloud Storage regions</a></p>
+  </li>
+  <li>
+    <p><a href="#pricing">Google BigQuery pricing</a></p>
+  </li>
+</ul>
+
+
+
+<!-- If a section has subsections -->
+    
+        
+            
+                <h3 id="stitch-features">Stitch features</h3>
+            
+
+            <!-- This file captures the code for Font Awesome icons that are used throughout the site to indicate support for different features, integration/destination combos, etc.
+
+To use, include this file and then use variables to print the icons.
+
+You can use a 'replace' filter to insert copy that will create a tooltip. 
+
+Ex:  
+
+	Additionally, you can use HTML in tooltips.
+	If you include a link, remember to use apostrophes (') and not double quotes (")
+	Because it'll break the formatting. 
+
+	Ex: <a href='https://stitchdata.com'>Stitch</a> will work, but
+		<a href="https://stitchdata.com">Stitch</a> won't. -->
+
+<!-- Support icons -->
+
+<!-- The color of this icon is Stitch grey (#999999) if used without a 'style' attribute -->
+
+<!-- Info icons -->
+
+<!-- Get the version and create a variable that matches the 
+     file path in _data. So, `v1` versus just `1`-->
+
+<!-- Get the list of category items in:
+     _data/destinations/common/reference-data.yml -->
+
+<!-- If a versioned file exists in the destination's folder,
+     use that. 
+     EX: _data/destinations/bigquery/v1/data-types.yml-->
+
+<!-- Get the replication file for the destination. These will always
+     be by version, since it can vary. -->
+
+<p>High-level details about Stitch’s implementation of Google BigQuery, such as supported connection methods, availability on Stitch plans, etc.</p>
+
+<table class="attribute-list">
+     
+          <tr>
+               <td width="40%; fixed" align="right">
+                    <strong>
+               <!-- If the matching ID in 
+                    _data/destinations/common/reference-data.yml has a title,
+                    use that.-->
+                    
+               <!-- Otherwise, use a cleaned-up version of the ID. -->
+                         Release status
+                    
+
+                    <a href="" data-toggle="tooltip" data-original-title="The destination's release status in Stitch.">
+<i class="fa fa-question-circle fa-lg" data-toggle="tooltip" data-original-title="" aria-hidden="true"></i>
+</a>
+                    </strong>
+               </td>
+               <td>
+
+               <!-- Depending on the value of the matching ID in 
+                    _data/destinations/<type>/<include.category>.yml, display
+                    the value as one of the following: -->
+                    
+                     <!-- If the matching ID value doesn't meet any of the 
+                         above conditions, just display it.
+                         If there isn't a matching ID value, use the
+                         default value in the reference-data.yml file. -->
+                              
+<p>Released</p>
+
+                              
+                         <!-- If there's an additional-info value in
+                              the reference-data.yml file, display it. -->
+                              
+                    
+               </td>
+          </tr>
+     
+          <tr>
+               <td width="40%; fixed" align="right">
+                    <strong>
+               <!-- If the matching ID in 
+                    _data/destinations/common/reference-data.yml has a title,
+                    use that.-->
+                    
+               <!-- Otherwise, use a cleaned-up version of the ID. -->
+                         Stitch plan availability
+                    
+
+                    <a href="" data-toggle="tooltip" data-original-title="Indicates the availability of the destination on Stitch plans.">
+<i class="fa fa-question-circle fa-lg" data-toggle="tooltip" data-original-title="" aria-hidden="true"></i>
+</a>
+                    </strong>
+               </td>
+               <td>
+
+               <!-- Depending on the value of the matching ID in 
+                    _data/destinations/<type>/<include.category>.yml, display
+                    the value as one of the following: -->
+                    
+                     <!-- If the matching ID value doesn't meet any of the 
+                         above conditions, just display it.
+                         If there isn't a matching ID value, use the
+                         default value in the reference-data.yml file. -->
+                              <p>All Stitch plans</p>
+
+                              
+                         <!-- If there's an additional-info value in
+                              the reference-data.yml file, display it. -->
+                              
+                    
+               </td>
+          </tr>
+     
+          <tr>
+               <td width="40%; fixed" align="right">
+                    <strong>
+               <!-- If the matching ID in 
+                    _data/destinations/common/reference-data.yml has a title,
+                    use that.-->
+                    
+               <!-- Otherwise, use a cleaned-up version of the ID. -->
+                         Supported versions
+                    
+
+                    <a href="" data-toggle="tooltip" data-original-title="The database versions supported for use with Stitch.">
+<i class="fa fa-question-circle fa-lg" data-toggle="tooltip" data-original-title="" aria-hidden="true"></i>
+</a>
+                    </strong>
+               </td>
+               <td>
+
+               <!-- Depending on the value of the matching ID in 
+                    _data/destinations/<type>/<include.category>.yml, display
+                    the value as one of the following: -->
+                    
+                              <p>Not applicable</p>
+
+                         
+               </td>
+          </tr>
+     
+          <tr>
+               <td width="40%; fixed" align="right">
+                    <strong>
+               <!-- If the matching ID in 
+                    _data/destinations/common/reference-data.yml has a title,
+                    use that.-->
+                    
+                         Connect API availability
+                    
+
+                    <a href="" data-toggle="tooltip" data-original-title="Indicates if Google BigQuery destinations are available in Stitch's Connect API.">
+<i class="fa fa-question-circle fa-lg" data-toggle="tooltip" data-original-title="" aria-hidden="true"></i>
+</a>
+                    </strong>
+               </td>
+               <td>
+
+               <!-- Depending on the value of the matching ID in 
+                    _data/destinations/<type>/<include.category>.yml, display
+                    the value as one of the following: -->
+                    
+                              <strong>
+                                   Supported 
+<i class="fa fa-check-circle fa-lg" data-toggle="tooltip" style="color: #82BD41" aria-hidden="true" data-original-title="Supported"></i>
+
+                              </strong>
+
+                         <!-- If there's a supported value in the reference-data
+                              file, display it. -->
+                              
+                                   <p>This version of the Google BigQuery destination can be created and managed using Stitch’s Connect API. <a href="/docs/developers/stitch-connect/api#destination-form-properties">Learn more</a>.</p>
+
+                              
+
+                         
+               </td>
+          </tr>
+     
+          <tr>
+               <td width="40%; fixed" align="right">
+                    <strong>
+               <!-- If the matching ID in 
+                    _data/destinations/common/reference-data.yml has a title,
+                    use that.-->
+                    
+                         SSH connections
+                    
+
+                    <a href="" data-toggle="tooltip" data-original-title="Indicates if SSH connections are supported for the destination.">
+<i class="fa fa-question-circle fa-lg" data-toggle="tooltip" data-original-title="" aria-hidden="true"></i>
+</a>
+                    </strong>
+               </td>
+               <td>
+
+               <!-- Depending on the value of the matching ID in 
+                    _data/destinations/<type>/<include.category>.yml, display
+                    the value as one of the following: -->
+                    
+                              <strong>
+                                   Unsupported 
+<i class="fa fa-times-circle fa-lg" aria-hidden="true" style="color: #E96065" data-toggle="tooltip" data-original-title="Not supported"></i>
+
+                              </strong>
+
+                         <!-- If there's a not-supported value in the
+                              reference-data file, display it. -->
+                              
+                                   <p>Stitch does not support using SSH tunnels to connect to Google BigQuery destinations.</p>
+
+                              
+
+                         
+               </td>
+          </tr>
+     
+          <tr>
+               <td width="40%; fixed" align="right">
+                    <strong>
+               <!-- If the matching ID in 
+                    _data/destinations/common/reference-data.yml has a title,
+                    use that.-->
+                    
+                         SSL connections
+                    
+
+                    <a href="" data-toggle="tooltip" data-original-title="Indicates if SSL connections are supported for the destination.">
+<i class="fa fa-question-circle fa-lg" data-toggle="tooltip" data-original-title="" aria-hidden="true"></i>
+</a>
+                    </strong>
+               </td>
+               <td>
+
+               <!-- Depending on the value of the matching ID in 
+                    _data/destinations/<type>/<include.category>.yml, display
+                    the value as one of the following: -->
+                    
+                              <strong>
+                                   Supported 
+<i class="fa fa-check-circle fa-lg" data-toggle="tooltip" style="color: #82BD41" aria-hidden="true" data-original-title="Supported"></i>
+
+                              </strong>
+
+                         <!-- If there's a supported value in the reference-data
+                              file, display it. -->
+                              
+                                   <p>Stitch will attempt to use SSL to connect by default. No additional configuration is needed.</p>
+
+                              
+
+                         
+               </td>
+          </tr>
+     
+          <tr>
+               <td width="40%; fixed" align="right">
+                    <strong>
+               <!-- If the matching ID in 
+                    _data/destinations/common/reference-data.yml has a title,
+                    use that.-->
+                    
+                         VPN connections
+                    
+
+                    <a href="" data-toggle="tooltip" data-original-title="Indicates if VPN connections are supported for the destination.">
+<i class="fa fa-question-circle fa-lg" data-toggle="tooltip" data-original-title="" aria-hidden="true"></i>
+</a>
+                    </strong>
+               </td>
+               <td>
+
+               <!-- Depending on the value of the matching ID in 
+                    _data/destinations/<type>/<include.category>.yml, display
+                    the value as one of the following: -->
+                    
+                              <strong>
+                                   Unsupported 
+<i class="fa fa-times-circle fa-lg" aria-hidden="true" style="color: #E96065" data-toggle="tooltip" data-original-title="Not supported"></i>
+
+                              </strong>
+
+                         <!-- If there's a not-supported value in the
+                              reference-data file, display it. -->
+                              
+                                   <p>Virtual Private Network (VPN) connections may be implemented as part of an Enterprise plan. Contact <a href="https://www.stitchdata.com/contact/" target="new">Stitch Sales</a> for more info.</p>
+
+                              
+
+                         
+               </td>
+          </tr>
+     
+          <tr>
+               <td width="40%; fixed" align="right">
+                    <strong>
+               <!-- If the matching ID in 
+                    _data/destinations/common/reference-data.yml has a title,
+                    use that.-->
+                    
+               <!-- Otherwise, use a cleaned-up version of the ID. -->
+                         Default loading behavior
+                    
+
+                    <a href="" data-toggle="tooltip" data-original-title="The default loading behavior used by the destination.">
+<i class="fa fa-question-circle fa-lg" data-toggle="tooltip" data-original-title="" aria-hidden="true"></i>
+</a>
+                    </strong>
+               </td>
+               <td>
+
+               <!-- Depending on the value of the matching ID in 
+                    _data/destinations/<type>/<include.category>.yml, display
+                    the value as one of the following: -->
+                    
+                     <!-- If the matching ID value doesn't meet any of the 
+                         above conditions, just display it.
+                         If there isn't a matching ID value, use the
+                         default value in the reference-data.yml file. -->
+                              <p><strong>Selected by you</strong><br />
+Default loading behavior (Upsert or Append-Only) is defined by you. <a href="#loading-behavior">Learn more</a>.</p>
+
+
+                              
+                         <!-- If there's an additional-info value in
+                              the reference-data.yml file, display it. -->
+                              
+                    
+               </td>
+          </tr>
+     
+          <tr>
+               <td width="40%; fixed" align="right">
+                    <strong>
+               <!-- If the matching ID in 
+                    _data/destinations/common/reference-data.yml has a title,
+                    use that.-->
+                    
+                         Nested structure support
+                    
+
+                    <a href="" data-toggle="tooltip" data-original-title="Indicates how nested data structures are handled by the destination.">
+<i class="fa fa-question-circle fa-lg" data-toggle="tooltip" data-original-title="" aria-hidden="true"></i>
+</a>
+                    </strong>
+               </td>
+               <td>
+
+               <!-- Depending on the value of the matching ID in 
+                    _data/destinations/<type>/<include.category>.yml, display
+                    the value as one of the following: -->
+                    
+                     <!-- If the matching ID value doesn't meet any of the 
+                         above conditions, just display it.
+                         If there isn't a matching ID value, use the
+                         default value in the reference-data.yml file. -->
+                              <p><strong>Supported</strong> 
+<i class="fa fa-check-circle fa-lg" data-toggle="tooltip" style="color: #82BD41" aria-hidden="true" data-original-title="Supported"></i>
+<br />Nested data structures will be maintained. <a href="#transformations--json-structures">Learn more</a>.</p>
+
+                              
+                         <!-- If there's an additional-info value in
+                              the reference-data.yml file, display it. -->
+                              
+                    
+               </td>
+          </tr>
+     
+</table>
+
+
+        <!-- If a subsection has its own subsections -->
+            
+        
+            
+                <h3 id="destination-details">Destination details</h3>
+            
+
+            <!-- This file captures the code for Font Awesome icons that are used throughout the site to indicate support for different features, integration/destination combos, etc.
+
+To use, include this file and then use variables to print the icons.
+
+You can use a 'replace' filter to insert copy that will create a tooltip. 
+
+Ex: 
+<i class="fa fa-check-circle fa-lg" data-toggle="tooltip" style="color: #82BD41" aria-hidden="true" data-original-title="This feature is supported."></i>
+ 
+
+	Additionally, you can use HTML in tooltips.
+	If you include a link, remember to use apostrophes (') and not double quotes (")
+	Because it'll break the formatting. 
+
+	Ex: <a href='https://stitchdata.com'>Stitch</a> will work, but
+		<a href="https://stitchdata.com">Stitch</a> won't. -->
+
+<!-- Support icons -->
+
+<!-- The color of this icon is Stitch grey (#999999) if used without a 'style' attribute -->
+
+<!-- Info icons -->
+
+<!-- Get the version and create a variable that matches the 
+     file path in _data. So, `v1` versus just `1`-->
+
+<!-- Get the list of category items in:
+     _data/destinations/common/reference-data.yml -->
+
+<!-- If a versioned file exists in the destination's folder,
+     use that. 
+     EX: _data/destinations/bigquery/v1/data-types.yml-->
+
+<!-- Otherwise, use the non-versioned file in the root of the
+     destination's folder. 
+     EX: _data/destinations/bigquery/destination-details.yml -->
+
+<!-- Get the replication file for the destination. These will always
+     be by version, since it can vary. -->
+
+<p>Details about the destination, including object names, table and column limits, reserved keywords, etc.</p>
+
+<p><strong>Note</strong>: Exceeding the limits noted below will result in loading errors or rejected data.</p>
+
+<table class="attribute-list">
+     
+          <tr>
+               <td width="40%; fixed" align="right">
+                    <strong>
+               <!-- If the matching ID in 
+                    _data/destinations/common/reference-data.yml has a title,
+                    use that.-->
+                    
+                         Maximum record size
+                    
+
+                    <a href="" data-toggle="tooltip" data-original-title="The maximum size a single record can be to be loaded successfully into the destination.">
+<i class="fa fa-question-circle fa-lg" data-toggle="tooltip" data-original-title="" aria-hidden="true"></i>
+</a>
+                    </strong>
+               </td>
+               <td>
+
+               <!-- Depending on the value of the matching ID in 
+                    _data/destinations/<type>/<include.category>.yml, display
+                    the value as one of the following: -->
+                    
+                     <!-- If the matching ID value doesn't meet any of the 
+                         above conditions, just display it.
+                         If there isn't a matching ID value, use the
+                         default value in the reference-data.yml file. -->
+                              <p>20MB</p>
+
+                              
+                         <!-- If there's an additional-info value in
+                              the reference-data.yml file, display it. -->
+                              
+                                   
+
+                              
+                    
+               </td>
+          </tr>
+     
+          <tr>
+               <td width="40%; fixed" align="right">
+                    <strong>
+               <!-- If the matching ID in 
+                    _data/destinations/common/reference-data.yml has a title,
+                    use that.-->
+                    
+               <!-- Otherwise, use a cleaned-up version of the ID. -->
+                         Table name length
+                    
+
+                    <a href="" data-toggle="tooltip" data-original-title="The maximum number of allowed characters a table name can have.">
+<i class="fa fa-question-circle fa-lg" data-toggle="tooltip" data-original-title="" aria-hidden="true"></i>
+</a>
+                    </strong>
+               </td>
+               <td>
+
+               <!-- Depending on the value of the matching ID in 
+                    _data/destinations/<type>/<include.category>.yml, display
+                    the value as one of the following: -->
+                    
+                     <!-- If the matching ID value doesn't meet any of the 
+                         above conditions, just display it.
+                         If there isn't a matching ID value, use the
+                         default value in the reference-data.yml file. -->
+                              <p>1,024 characters</p>
+
+                              
+                         <!-- If there's an additional-info value in
+                              the reference-data.yml file, display it. -->
+                              
+                    
+               </td>
+          </tr>
+     
+          <tr>
+               <td width="40%; fixed" align="right">
+                    <strong>
+               <!-- If the matching ID in 
+                    _data/destinations/common/reference-data.yml has a title,
+                    use that.-->
+                    
+               <!-- Otherwise, use a cleaned-up version of the ID. -->
+                         Column name length
+                    
+
+                    <a href="" data-toggle="tooltip" data-original-title="The maximum number of allowed characters a column name can have.">
+<i class="fa fa-question-circle fa-lg" data-toggle="tooltip" data-original-title="" aria-hidden="true"></i>
+</a>
+                    </strong>
+               </td>
+               <td>
+
+               <!-- Depending on the value of the matching ID in 
+                    _data/destinations/<type>/<include.category>.yml, display
+                    the value as one of the following: -->
+                    
+                     <!-- If the matching ID value doesn't meet any of the 
+                         above conditions, just display it.
+                         If there isn't a matching ID value, use the
+                         default value in the reference-data.yml file. -->
+                              <p>128 characters</p>
+
+                              
+                         <!-- If there's an additional-info value in
+                              the reference-data.yml file, display it. -->
+                              
+                    
+               </td>
+          </tr>
+     
+          <tr>
+               <td width="40%; fixed" align="right">
+                    <strong>
+               <!-- If the matching ID in 
+                    _data/destinations/common/reference-data.yml has a title,
+                    use that.-->
+                    
+                         Maximum table size
+                    
+
+                    <a href="" data-toggle="tooltip" data-original-title="The maximum size a single table in the destination can be.">
+<i class="fa fa-question-circle fa-lg" data-toggle="tooltip" data-original-title="" aria-hidden="true"></i>
+</a>
+                    </strong>
+               </td>
+               <td>
+
+               <!-- Depending on the value of the matching ID in 
+                    _data/destinations/<type>/<include.category>.yml, display
+                    the value as one of the following: -->
+                    
+                     <!-- If the matching ID value doesn't meet any of the 
+                         above conditions, just display it.
+                         If there isn't a matching ID value, use the
+                         default value in the reference-data.yml file. -->
+                              <p>None</p>
+
+                              
+                         <!-- If there's an additional-info value in
+                              the reference-data.yml file, display it. -->
+                              
+                    
+               </td>
+          </tr>
+     
+          <tr>
+               <td width="40%; fixed" align="right">
+                    <strong>
+               <!-- If the matching ID in 
+                    _data/destinations/common/reference-data.yml has a title,
+                    use that.-->
+                    
+                         Maximum tables per database
+                    
+
+                    <a href="" data-toggle="tooltip" data-original-title="The maximum number of tables allowed per database in the destination.">
+<i class="fa fa-question-circle fa-lg" data-toggle="tooltip" data-original-title="" aria-hidden="true"></i>
+</a>
+                    </strong>
+               </td>
+               <td>
+
+               <!-- Depending on the value of the matching ID in 
+                    _data/destinations/<type>/<include.category>.yml, display
+                    the value as one of the following: -->
+                    
+                     <!-- If the matching ID value doesn't meet any of the 
+                         above conditions, just display it.
+                         If there isn't a matching ID value, use the
+                         default value in the reference-data.yml file. -->
+                              <p>None</p>
+
+                              
+                         <!-- If there's an additional-info value in
+                              the reference-data.yml file, display it. -->
+                              
+                    
+               </td>
+          </tr>
+     
+          <tr>
+               <td width="40%; fixed" align="right">
+                    <strong>
+               <!-- If the matching ID in 
+                    _data/destinations/common/reference-data.yml has a title,
+                    use that.-->
+                    
+               <!-- Otherwise, use a cleaned-up version of the ID. -->
+                         Case sensitivity
+                    
+
+                    <a href="" data-toggle="tooltip" data-original-title="Indicates whether the destination is case sensitive or insensitive.">
+<i class="fa fa-question-circle fa-lg" data-toggle="tooltip" data-original-title="" aria-hidden="true"></i>
+</a>
+                    </strong>
+               </td>
+               <td>
+
+               <!-- Depending on the value of the matching ID in 
+                    _data/destinations/<type>/<include.category>.yml, display
+                    the value as one of the following: -->
+                    
+                     <!-- If the matching ID value doesn't meet any of the 
+                         above conditions, just display it.
+                         If there isn't a matching ID value, use the
+                         default value in the reference-data.yml file. -->
+                              <p>Insensitive</p>
+
+                              
+                         <!-- If there's an additional-info value in
+                              the reference-data.yml file, display it. -->
+                              
+                    
+               </td>
+          </tr>
+     
+          <tr>
+               <td width="40%; fixed" align="right">
+                    <strong>
+               <!-- If the matching ID in 
+                    _data/destinations/common/reference-data.yml has a title,
+                    use that.-->
+                    
+               <!-- Otherwise, use a cleaned-up version of the ID. -->
+                         Reserved keywords
+                    
+
+                    <a href="" data-toggle="tooltip" data-original-title="Words and symbols reserved by the destination for use in object names.">
+<i class="fa fa-question-circle fa-lg" data-toggle="tooltip" data-original-title="" aria-hidden="true"></i>
+</a>
+                    </strong>
+               </td>
+               <td>
+
+               <!-- Depending on the value of the matching ID in 
+                    _data/destinations/<type>/<include.category>.yml, display
+                    the value as one of the following: -->
+                    
+                     <!-- If the matching ID value doesn't meet any of the 
+                         above conditions, just display it.
+                         If there isn't a matching ID value, use the
+                         default value in the reference-data.yml file. -->
+                              
+<p>Refer to the <a href="/docs/replication/loading/reserved-keywords#bigquery-v2-reserved-keywords">Reserved keywords documentation</a>.</p>
+
+                              
+                         <!-- If there's an additional-info value in
+                              the reference-data.yml file, display it. -->
+                              
+                    
+               </td>
+          </tr>
+     
+</table>
+
+
+        <!-- If a subsection has its own subsections -->
+            
+        
+            
+                <h3 id="supported-gcs-regions">Supported Google Cloud Storage regions</h3>
+            
+
+            <p>When you set up a Google BigQuery destination, you’ll select a Google Storage location. This determines the location of the internal Google Storage bucket Stitch uses during the replication process.</p>
+
+<p>Stitch supports the following Google Cloud Storage regions for version 2 of the Google BigQuery destination:</p>
+
+<!-- This file contains the logic and formatting for displaying
+    a list of supported dataset regions for Google BigQuery destinations. -->
+
+<!-- Get the version and create a variable that matches the 
+     file path in _data. So, `v1` versus just `1`-->
+
+<!-- Get the list of supported regions for this version
+    of the BigQuery destination.
+    EX: _data/destinations/bigquery/v<version>/supported-regions.yml -->
+
+<!-- Table attributes, used as column/row headings -->
+
+<table class="attribute-list">
+    <tr>
+        <td>
+        </td>
+        
+            <td>
+                <strong>Region description</strong>
+            </td>
+        
+            <td>
+                <strong>Region name</strong>
+            </td>
+        
+    </tr>
+    
+
+    <!-- Get the regions that are in this category -->
+        
+            
+                
+                    <tr>
+                        <td rowspan="5">
+                            <strong>
+                                Americas
+                            </strong>
+                        </td>
+                        
+                            <td>
+                                
+                                    Los Angeles
+                                
+                            </td>
+                        
+                            <td>
+                                
+                                    <code>us-west2</code>
+                                
+                            </td>
+                        
+                    </tr>
+                
+            
+                
+                    <tr>
+                        
+                            <td>
+                                
+                                    Montréal
+                                
+                            </td>
+                        
+                            <td>
+                                
+                                    <code>northamerica-northeast1</code>
+                                
+                            </td>
+                        
+                    </tr>
+                
+            
+                
+                    <tr>
+                        
+                            <td>
+                                
+                                    Northern Virginia
+                                
+                            </td>
+                        
+                            <td>
+                                
+                                    <code>us-east4</code>
+                                
+                            </td>
+                        
+                    </tr>
+                
+            
+                
+                    <tr>
+                        
+                            <td>
+                                
+                                    São Paulo
+                                
+                            </td>
+                        
+                            <td>
+                                
+                                    <code>southamerica-east1</code>
+                                
+                            </td>
+                        
+                    </tr>
+                
+            
+                
+                    <tr>
+                        
+                            <td>
+                                
+                                    United States
+                                
+                            </td>
+                        
+                            <td>
+                                
+                                    <code>US</code>
+                                
+                            </td>
+                        
+                    </tr>
+                
+            
+    
+
+    <!-- Get the regions that are in this category -->
+        
+            
+                
+                    <tr>
+                        <td rowspan="5">
+                            <strong>
+                                Europe
+                            </strong>
+                        </td>
+                        
+                            <td>
+                                
+                                    European Union
+                                
+                            </td>
+                        
+                            <td>
+                                
+                                    <code>EU</code>
+                                
+                            </td>
+                        
+                    </tr>
+                
+            
+                
+                    <tr>
+                        
+                            <td>
+                                
+                                    Finland
+                                
+                            </td>
+                        
+                            <td>
+                                
+                                    <code>europe-north1</code>
+                                
+                            </td>
+                        
+                    </tr>
+                
+            
+                
+                    <tr>
+                        
+                            <td>
+                                
+                                    Frankfurt
+                                
+                            </td>
+                        
+                            <td>
+                                
+                                    <code>europe-west3</code>
+                                
+                            </td>
+                        
+                    </tr>
+                
+            
+                
+                    <tr>
+                        
+                            <td>
+                                
+                                    London
+                                
+                            </td>
+                        
+                            <td>
+                                
+                                    <code>europe-west2</code>
+                                
+                            </td>
+                        
+                    </tr>
+                
+            
+                
+                    <tr>
+                        
+                            <td>
+                                
+                                    Zürich
+                                
+                            </td>
+                        
+                            <td>
+                                
+                                    <code>europe-west6</code>
+                                
+                            </td>
+                        
+                    </tr>
+                
+            
+    
+
+    <!-- Get the regions that are in this category -->
+        
+            
+                
+                    <tr>
+                        <td rowspan="7">
+                            <strong>
+                                Asia Pacific
+                            </strong>
+                        </td>
+                        
+                            <td>
+                                
+                                    Hong Kong
+                                
+                            </td>
+                        
+                            <td>
+                                
+                                    <code>asia-east2</code>
+                                
+                            </td>
+                        
+                    </tr>
+                
+            
+                
+                    <tr>
+                        
+                            <td>
+                                
+                                    Mumbai
+                                
+                            </td>
+                        
+                            <td>
+                                
+                                    <code>asia-south1</code>
+                                
+                            </td>
+                        
+                    </tr>
+                
+            
+                
+                    <tr>
+                        
+                            <td>
+                                
+                                    Osaka
+                                
+                            </td>
+                        
+                            <td>
+                                
+                                    <code>asia-northeast2</code>
+                                
+                            </td>
+                        
+                    </tr>
+                
+            
+                
+                    <tr>
+                        
+                            <td>
+                                
+                                    Singapore
+                                
+                            </td>
+                        
+                            <td>
+                                
+                                    <code>asia-southeast1</code>
+                                
+                            </td>
+                        
+                    </tr>
+                
+            
+                
+                    <tr>
+                        
+                            <td>
+                                
+                                    Sydney
+                                
+                            </td>
+                        
+                            <td>
+                                
+                                    <code>australia-southeast1</code>
+                                
+                            </td>
+                        
+                    </tr>
+                
+            
+                
+                    <tr>
+                        
+                            <td>
+                                
+                                    Taiwan
+                                
+                            </td>
+                        
+                            <td>
+                                
+                                    <code>asia-east1</code>
+                                
+                            </td>
+                        
+                    </tr>
+                
+            
+                
+                    <tr>
+                        
+                            <td>
+                                
+                                    Tokyo
+                                
+                            </td>
+                        
+                            <td>
+                                
+                                    <code>asia-northeast1</code>
+                                
+                            </td>
+                        
+                    </tr>
+                
+            
+    
+</table>
+
+
+        <!-- If a subsection has its own subsections -->
+            
+        
+            
+                <h3 id="pricing">Google BigQuery pricing</h3>
+            
+
+            <p>Unlike many other cloud-based data warehouse solutions, Google BigQuery’s pricing model is based on <strong>usage</strong> and not a fixed-rate. This means that your bill can vary over time.</p>
+
+<p>Before fully committing yourself to using Google BigQuery as your data warehouse, we recommend familiarizing yourself with the Google BigQuery pricing model and how using Stitch may impact your costs.</p>
+
+<p><strong><a href="/docs/destinations/google-bigquery/understanding-stitch-impact-on-bigquery-costs">Learn more about Stitch &amp; Google BigQuery pricing</a></strong></p>
+
+
+        <!-- If a subsection has its own subsections -->
+            
+        
+    
+
+    
+        <hr>
+    
+
+    
+        <h2 id="replication-details">Replication</h2>
+    
+
+        
+<ul>
+  <li>
+    <p><a href="#replication-process">Replication process overview</a></p>
+  </li>
+  <li>
+    <p><a href="#loading-behavior">Loading behavior</a></p>
+  </li>
+  <li>
+    <p><a href="#replication--primary-keys">Primary Keys</a></p>
+  </li>
+  <li>
+    <p><a href="#replication--incompatible-sources">Incompatible sources</a></p>
+  </li>
+</ul>
+
+
+
+<!-- If a section has subsections -->
+    
+        
+            
+                <h3 id="replication-process">Replication process overview</h3>
+            
+
+            <p><img src="/docs/images/destinations/bigquery-replication-process.png" alt="Overview of the replication process for BigQuery v2 destinations" /></p>
+
+
+        <!-- If a subsection has its own subsections -->
+            
+                
+                    
+                        <h4 id="replication--data-extraction">Step 1: Data extraction</h4>
+                    
+
+                    
+<p>Stitch requests and extracts data from a data source. Refer to the <a href="/docs/getting-started/basic-concepts-system-overview#system-architecture--extraction">System overview guide</a> for a more detailed explanation of the Extraction phase.</p>
+
+
+
+                
+                    
+                        <h4 id="replication--stitch-internal-pipeline">Step 2: Stitch's internal pipeline</h4>
+                    
+
+                    
+<p>The data extracted from sources is processed by Stitch. Stitch’s internal pipeline includes the <strong>Prepare</strong> and <strong>Load</strong> phases of the replication process:</p>
+
+<ul>
+  <li><strong>Prepare</strong>: During this phase, the extracted data is buffered in Stitch’s durable, highly available internal data pipeline and readied for loading.</li>
+  <li><strong>Load</strong>: During this phase, the prepared data is transformed to be compatible with the destination, and then loaded. Refer to the <a href="#transformations">Transformations</a> section for more info about the transformations Stitch performs for Google BigQuery destinations.</li>
+</ul>
+
+<p>Refer to the <a href="/docs/getting-started/basic-concepts-system-overview#system-architecture--preparing">System overview guide</a> for a more detailed explanation of these phases.</p>
+
+
+
+                
+                    
+                        <h4 id="replication--gcs-bucket">Step 3: Google Cloud Storage bucket</h4>
+                    
+
+                    <p>Stitch loads the data into a Stitch-owned Google Cloud Storage (GCS) bucket in the <a href="#supported-gcs-regions">region you select during destination setup</a>.</p>
+
+
+                
+                    
+                        <h4 id="replication--bigquery-staging-tables">Step 4: BigQuery staging tables</h4>
+                    
+
+                    <p>Using the IAM service account you provide during destination setup, data is read and transferred from the GCS bucket to staging tables in Google BigQuery. Staging tables from previous loads are deleted before the new load begins.</p>
+
+
+                
+                    
+                        <h4 id="replication--data-merge">Step 5: Data merge</h4>
+                    
+
+                    <p>Data is merged from the staging tables into datasets in Google BigQuery.</p>
+
+<p>The <a href="#loading-behavior">loading behavior you select during setup</a> determines not only what the data looks like in the destination, but the method Stitch uses to load it. <strong>Note</strong>: The loading behavior can also affect your <a href="/docs/destinations/google-bigquery/understanding-stitch-impact-on-bigquery-costs#bigquery-query-pricing">Google BigQuery costs</a>.</p>
+
+<p>Once completed, the data is deleted from Stitch’s internal GCS bucket.</p>
+
+
+                
+            
+        
+            
+                <h3 id="loading-behavior">Loading behavior</h3>
+            
+
+            <p>How data is loaded into Google BigQuery depends on the <strong>Loading behavior</strong> setting you define during destination setup:</p>
+
+<ul>
+  <li>
+    <p><strong>Upsert</strong>: Existing rows are updated in tables with defined Primary Keys. A single version of a row will exist in the table.</p>
+  </li>
+  <li>
+    <p><strong>Append-Only</strong>: Existing rows aren’t updated. Multiple versions of a row can exist in a table, creating a log of how a row changed over time.</p>
+
+    <p>Because of this loading strategy, <a href="/docs/replication/loading/querying-append-only-tables">querying may require a different strategy</a> than usual. Using some of the system columns Stitch inserts into tables will enable you to locate the latest version of a record at query time.</p>
+  </li>
+</ul>
+
+<p>Refer to the <a href="/docs/replication/loading/understanding-loading-behavior">Understanding loading behavior guide</a> for more info.</p>
+
+<p><strong>Note</strong>: Loading behavior can impact your <a href="/docs/destinations/google-bigquery/understanding-stitch-impact-on-bigquery-costs#bigquery-query-pricing">Google BigQuery costs</a>.</p>
+
+
+        <!-- If a subsection has its own subsections -->
+            
+        
+            
+                <h3 id="replication--primary-keys">Primary Keys</h3>
+            
+
+            <p>Stitch requires Primary Keys to de-dupe incrementally replicated data. To ensure Primary Key data is available, Stitch creates an <code class="language-plaintext highlighter-rouge">_sdc_primary_keys</code>table in every integration dataset. This table contains a list of all tables in an integration’s dataset and the columns those tables use as Primary Keys.</p>
+
+<p>Refer to the <a href="/docs/replication/reference/system-tables-columns/primary-keys">_sdc_primary_keys table documentation</a> for more info.</p>
+
+<p><strong>Note</strong>: Removing or altering this table can lead to replication issues.</p>
+
+
+        <!-- If a subsection has its own subsections -->
+            
+        
+            
+                <h3 id="replication--incompatible-sources">Incompatible sources</h3>
+            
+
+            <!-- This file is used to generate content about incompatible sources,
+	if any, for a given destination. -->
+
+<!-- If the destination version has an incompatibilities file, 
+	display a table containing a list of the integrations in its file. -->
+
+<p>
+	No compatibility issues have been discovered between Google BigQuery and Stitch's integration offerings.
+</p>
+
+<!-- Display a link to the dedicated compatibility doc,
+	regardless of whether there's an incompatibilities file or not. -->
+<p>
+	See all <a href="/docs/destinations/destination-integration-compatibility">destination and integration incompatibilities.</a>
+</p>
+
+
+        <!-- If a subsection has its own subsections -->
+            
+        
+    
+
+    
+        <hr>
+    
+
+    
+        <h2 id="transformations">Transformations</h2>
+    
+
+        
+<ul>
+  <li>
+    <p><a href="#transformations--system-tables-columns">System tables and columns</a></p>
+  </li>
+  <li>
+    <p><a href="#transformations--data-typing">Data typing</a></p>
+  </li>
+  <li>
+    <p><a href="#transformations--json-structures">JSON structures</a></p>
+  </li>
+  <li>
+    <p><a href="#transformations--column-naming">Column names</a></p>
+  </li>
+  <li>
+    <p><a href="#transformations--timezones">Timezones</a></p>
+  </li>
+</ul>
+
+
+
+<!-- If a section has subsections -->
+    
+        
+            
+                <h3 id="transformations--system-tables-columns">System tables and columns</h3>
+            
+
+            <p>Stitch will create the following tables in each integration’s dataset:</p>
+
+<ul>
+  <li><a href="/docs/replication/reference/system-tables-columns/primary-keys">_sdc_primary_keys</a></li>
+  <li><a href="/docs/replication/reference/system-tables-columns/rejected-records">_sdc_rejected</a></li>
+</ul>
+
+<p>Additionally, Stitch will insert <a href="/docs/replication/reference/system-tables-columns">system columns</a> (prepended with <code class="language-plaintext highlighter-rouge">_sdc</code>) into each table.</p>
+
+
+        <!-- If a subsection has its own subsections -->
+            
+        
+            
+                <h3 id="transformations--data-typing">Data typing</h3>
+            
+
+            <p>Stitch converts data types only where needed to ensure the data is accepted by Google BigQuery. In the table below are the data types Stitch supports for Google BigQuery destinations, and the Stitch types they map to.</p>
+
+<!-- This file contains the logic and formatting for displaying
+	a table of supported data types for a given destination. -->
+
+<!-- UI: page/button/section names, menu paths, etc -->
+
+<!-- Simplifies internal links -->
+
+<!-- Stitch -->
+
+<!-- UI Icons -->
+
+<!-- Tooltips and terms -->
+
+<!-- Mapping of Stitch replication/system columns -->
+
+<!-- Rejected Record table details & schema -->
+
+<!-- Stitch IP addresses  -->
+
+<!-- This file captures the code for Font Awesome icons that are used throughout the site to indicate support for different features, integration/destination combos, etc.
+
+To use, include this file and then use variables to print the icons.
+
+You can use a 'replace' filter to insert copy that will create a tooltip. 
+
+Ex: 
+<i class="fa fa-check-circle fa-lg" data-toggle="tooltip" style="color: #82BD41" aria-hidden="true" data-original-title="This feature is supported."></i>
+ 
+
+	Additionally, you can use HTML in tooltips.
+	If you include a link, remember to use apostrophes (') and not double quotes (")
+	Because it'll break the formatting. 
+
+	Ex: <a href='https://stitchdata.com'>Stitch</a> will work, but
+		<a href="https://stitchdata.com">Stitch</a> won't. -->
+
+<!-- Support icons -->
+
+<!-- The color of this icon is Stitch grey (#999999) if used without a 'style' attribute -->
+
+<!-- Info icons -->
+
+<ul>
+	<li>
+		<strong>Stitch type:</strong> The Stitch data type the source type was mapped to. During the Extraction and Preparing phases, Stitch identifies the data type in the source and then maps it to a common Stitch data type.
+	</li>
+	<li>
+		<strong>Destination type:</strong> The destination-compatible data type the Stitch type maps to. This is the data type Stitch will use to store data in Google BigQuery.
+	</li>
+	<li>
+		<strong>Notes:</strong> Details about the data type and/or its allowed values in the destination, if available. If a range is available, values that exceed the noted range will be <a href="/docs/replication/reference/system-tables-columns/rejected-records">rejected by Google BigQuery</a>.
+	</li>
+</ul>
+
+<table class="attribute-list">
+	<tr>
+		
+			
+			<td width="20%; fixed">
+			
+				<strong>Stitch type</strong>
+			</td>
+		
+			
+			<td width="20%; fixed">
+			
+				<strong>Destination type</strong>
+			</td>
+		
+			
+			<td>
+				
+				<strong>Notes</strong>
+			</td>
+		
+	</tr>
+	
+		<tr>
+			<td>
+				ARRAY
+			</td>
+			
+				
+			
+				
+					<td>
+					
+						<a href="https://cloud.google.com/bigquery/docs/reference/standard-sql/data-types#array-type" target="blank">
+							ARRAY
+						</a>
+					
+						
+					</td>
+				
+			
+				
+					<td>
+					
+						
+					
+						
+					</td>
+				
+			
+		</tr>
+	
+		<tr>
+			<td>
+				BIGINT
+			</td>
+			
+				
+			
+				
+					<td>
+					
+						<a href="https://cloud.google.com/bigquery/docs/reference/standard-sql/data-types#integer-type" target="blank">
+							INTEGER
+						</a>
+					
+						
+					</td>
+				
+			
+				
+					<td>
+					
+						
+							<ul>
+								
+
+								
+
+
+
+
+									<li style="margin-top: 0px;">
+										
+<p><strong>Range 
+<i class="fa fa-exclamation-circle fa" data-toggle="tooltip" data-trigger="hover focus" data-html="true" data-original-title=" Values that exceed this range will be rejected by the destination and logged in the &lt;strong&gt;_sdc_rejected&lt;/strong&gt; table. &lt;a href='/docs/replication/reference/system-tables-columns/rejected-records'&gt;Learn more&lt;/a&gt;. " aria-hidden="true"></i>
+:</strong>
+-9,223,372,036,854,775,808 to 9,223,372,036,854,775,807</p>
+
+									</li>
+								
+							</ul>
+						
+					
+						
+					</td>
+				
+			
+		</tr>
+	
+		<tr>
+			<td>
+				BOOLEAN
+			</td>
+			
+				
+			
+				
+					<td>
+					
+						<a href="https://cloud.google.com/bigquery/docs/reference/standard-sql/data-types#boolean-type" target="blank">
+							BOOLEAN
+						</a>
+					
+						
+					</td>
+				
+			
+				
+					<td>
+					
+						
+					
+						
+					</td>
+				
+			
+		</tr>
+	
+		<tr>
+			<td>
+				DATE
+			</td>
+			
+				
+			
+				
+					<td>
+					
+						<a href="https://cloud.google.com/bigquery/docs/reference/standard-sql/data-types#timestamp-type" target="blank">
+							TIMESTAMP
+						</a>
+					
+						
+					</td>
+				
+			
+				
+					<td>
+					
+						
+							<ul>
+								
+									<li style="margin-top: 0px;">
+										<p><strong>Description</strong>: Stored in UTC</p>
+
+									</li>
+								
+
+								
+
+
+
+
+									<li style="margin-top: 0px;">
+										
+<p><strong>Range 
+<i class="fa fa-exclamation-circle fa" data-toggle="tooltip" data-trigger="hover focus" data-html="true" data-original-title=" Values that exceed this range will be rejected by the destination and logged in the &lt;strong&gt;_sdc_rejected&lt;/strong&gt; table. &lt;a href='/docs/replication/reference/system-tables-columns/rejected-records'&gt;Learn more&lt;/a&gt;. " aria-hidden="true"></i>
+:</strong>
+0001-01-01 00:00:00 to 9999-12-31 23:59:59.999999 UTC</p>
+
+									</li>
+								
+							</ul>
+						
+					
+						
+					</td>
+				
+			
+		</tr>
+	
+		<tr>
+			<td>
+				DOUBLE
+			</td>
+			
+				
+			
+				
+					<td>
+					
+						<a href="https://cloud.google.com/bigquery/docs/reference/standard-sql/data-types#floating-point-type" target="blank">
+							FLOAT
+						</a>
+					
+						
+					</td>
+				
+			
+				
+					<td>
+					
+						
+					
+						
+					</td>
+				
+			
+		</tr>
+	
+		<tr>
+			<td>
+				FLOAT
+			</td>
+			
+				
+			
+				
+					<td>
+					
+						<a href="https://cloud.google.com/bigquery/docs/reference/standard-sql/data-types#floating-point-type" target="blank">
+							FLOAT
+						</a>
+					
+						
+					</td>
+				
+			
+				
+					<td>
+					
+						
+					
+						
+					</td>
+				
+			
+		</tr>
+	
+		<tr>
+			<td>
+				INTEGER
+			</td>
+			
+				
+			
+				
+					<td>
+					
+						<a href="https://cloud.google.com/bigquery/docs/reference/standard-sql/data-types#integer-type" target="blank">
+							INTEGER
+						</a>
+					
+						
+					</td>
+				
+			
+				
+					<td>
+					
+						
+							<ul>
+								
+
+								
+
+
+
+
+									<li style="margin-top: 0px;">
+										
+<p><strong>Range 
+<i class="fa fa-exclamation-circle fa" data-toggle="tooltip" data-trigger="hover focus" data-html="true" data-original-title=" Values that exceed this range will be rejected by the destination and logged in the &lt;strong&gt;_sdc_rejected&lt;/strong&gt; table. &lt;a href='/docs/replication/reference/system-tables-columns/rejected-records'&gt;Learn more&lt;/a&gt;. " aria-hidden="true"></i>
+:</strong>
+-9,223,372,036,854,775,808 to 9,223,372,036,854,775,807</p>
+
+									</li>
+								
+							</ul>
+						
+					
+						
+					</td>
+				
+			
+		</tr>
+	
+		<tr>
+			<td>
+				NUMBER
+			</td>
+			
+				
+			
+				
+					<td>
+					
+						<a href="https://cloud.google.com/bigquery/docs/reference/standard-sql/data-types#numeric-type" target="blank">
+							NUMERIC
+						</a>
+					
+						
+					</td>
+				
+			
+				
+					<td>
+					
+						
+							<ul>
+								
+									<li style="margin-top: 0px;">
+										<p><strong>Description</strong>: Up to 38 digits of precision and 9 digits of scale</p>
+
+									</li>
+								
+
+								
+
+
+
+
+									<li style="margin-top: 0px;">
+										
+<p><strong>Range 
+<i class="fa fa-exclamation-circle fa" data-toggle="tooltip" data-trigger="hover focus" data-html="true" data-original-title=" Values that exceed this range will be rejected by the destination and logged in the &lt;strong&gt;_sdc_rejected&lt;/strong&gt; table. &lt;a href='/docs/replication/reference/system-tables-columns/rejected-records'&gt;Learn more&lt;/a&gt;. " aria-hidden="true"></i>
+:</strong>
+-99999999999999999999999999999.999999999 to 99999999999999999999999999999.999999999</p>
+
+									</li>
+								
+							</ul>
+						
+					
+						
+					</td>
+				
+			
+		</tr>
+	
+		<tr>
+			<td>
+				RECORD
+			</td>
+			
+				
+			
+				
+					<td>
+					
+						<a href="https://cloud.google.com/bigquery/docs/reference/standard-sql/data-types#struct-type" target="blank">
+							RECORD
+						</a>
+					
+						
+					</td>
+				
+			
+				
+					<td>
+					
+						
+					
+						
+					</td>
+				
+			
+		</tr>
+	
+		<tr>
+			<td>
+				STRING
+			</td>
+			
+				
+			
+				
+					<td>
+					
+						<a href="https://cloud.google.com/bigquery/docs/reference/standard-sql/data-types#string-type" target="blank">
+							STRING
+						</a>
+					
+						
+					</td>
+				
+			
+				
+					<td>
+					
+						
+							<ul>
+								
+									<li style="margin-top: 0px;">
+										<p><strong>Description</strong>: No maximum width</p>
+
+									</li>
+								
+
+								
+							</ul>
+						
+					
+						
+					</td>
+				
+			
+		</tr>
+	
+</table>
+
+
+        <!-- If a subsection has its own subsections -->
+            
+        
+            
+                <h3 id="transformations--json-structures">JSON structures</h3>
+            
+
+            <p>Google BigQuery supports nested records within tables, whether it’s a single record or repeated values. Refer to the <a href="/docs/replication/loading/google-bigquery-storing-nested-data-structures">Google BigQuery and Storing Nested Data Structures documentation</a> for more info and examples.</p>
+
+
+        <!-- If a subsection has its own subsections -->
+            
+        
+            
+                <h3 id="transformations--column-naming">Column names</h3>
+            
+
+            <p>Column names in Google BigQuery:</p>
+
+<ul>
+  <li>Must contain only letters (a-z, A-Z), numbers (0-9), or underscores (<code class="language-plaintext highlighter-rouge">_</code>)</li>
+  <li>Must begin with a letter or an underscore</li>
+  <li>
+    <p>Must be less than the maximum length of 128 characters. Columns that exceed this limit will be <a href="/docs/replication/reference/system-tables-columns/rejected-records">rejected by Google BigQuery</a>.</p>
+  </li>
+  <li>Must not be prefixed or suffixed with any of <a href="/docs/replication/loading/reserved-keywords#bigquery-v2-reserved-keywords">Google BigQuery’s or Stitch’s reserved keyword prefixes or suffixes</a></li>
+</ul>
+
+<p>Stitch will perform the following transformations to ensure column names <a href="https://cloud.google.com/bigquery/docs/schemas#column_names" target="new">adhere to the rules imposed by Google BigQuery</a>:</p>
+
+<!-- This file is used to create a table containing the column
+     name transformations for a specific destination type. -->
+
+<table class="attribute-list">
+     <tr>
+          
+               
+                    <td width="40%; fixed">
+               
+                    <strong>
+                         Transformation
+                    </strong>
+               </td>
+          
+               
+                    <td width="30%; fixed">
+               
+                    <strong>
+                         Source column
+                    </strong>
+               </td>
+          
+               
+                    <td width="30%; fixed">
+               
+                    <strong>
+                         Destination column
+                    </strong>
+               </td>
+          
+     </tr>
+     
+          <tr>
+               
+                    <td>
+                         Convert uppercase and mixed case to lowercase
+                    </td>
+               
+                    <td>
+                         <code>CUSTOMERID</code> or <code>cUsTomErId</code>
+                    </td>
+               
+                    <td>
+                         <code>customerid</code>
+                    </td>
+               
+          </tr>
+     
+          <tr>
+               
+                    <td>
+                         Convert spaces to underscores
+                    </td>
+               
+                    <td>
+                         <code>customer id</code>
+                    </td>
+               
+                    <td>
+                         <code>customer_id</code>
+                    </td>
+               
+          </tr>
+     
+          <tr>
+               
+                    <td>
+                         Convert special characters to underscores
+                    </td>
+               
+                    <td>
+                         <code>customer#id</code> or <code>!customerid</code>
+                    </td>
+               
+                    <td>
+                         <code>customer_id</code> and <code>_customerid</code>
+                    </td>
+               
+          </tr>
+     
+          <tr>
+               
+                    <td>
+                         Convert leading numbers to underscores
+                    </td>
+               
+                    <td>
+                         <code>4customerid</code>
+                    </td>
+               
+                    <td>
+                         <code>_customerid</code>
+                    </td>
+               
+          </tr>
+     
+</table>
+
+
+        <!-- If a subsection has its own subsections -->
+            
+        
+            
+                <h3 id="transformations--timezones">Timezones</h3>
+            
+
+            <p>Google BigQuery will store the value in UTC as <code class="language-plaintext highlighter-rouge">TIMESTAMP</code>.</p>
+
+<p>More info about timestamp data types can be found in <a href="https://cloud.google.com/bigquery/docs/reference/standard-sql/data-types#timestamp-type" target="new">BigQuery’s documentation</a>.</p>
+
+
+        <!-- If a subsection has its own subsections -->
+            
+        
+    
+
+    
+        <hr>
+    
+
+    
+        <h2 id="compare-destinations">Compare destinations</h2>
+    
+
+        <p><strong>Not sure if Google BigQuery is the data warehouse for you?</strong> Check out the <a href="/docs/destinations/choosing-a-stitch-destination">Choosing a Stitch Destination</a> guide to compare each of Stitch’s destination offerings.</p>
+
+
+<!-- If a section has subsections -->
+    
+
+    
+
+
+
+<!-- UI: page/button/section names, menu paths, etc -->
+
+<!-- Simplifies internal links -->
+
+<!-- Stitch -->
+
+<!-- UI Icons -->
+
+<!-- Tooltips and terms -->
+
+<!-- Mapping of Stitch replication/system columns -->
+
+<!-- Rejected Record table details & schema -->
+
+<!-- Stitch IP addresses  -->
+
+
+<!-- GitHub Feedback snippet -->
+
+    
+<!-- UI: page/button/section names, menu paths, etc -->
+
+
+<!-- Simplifies internal links -->
+
+
+<!-- Stitch -->
+
+
+<!-- UI Icons -->
+
+
+
+<!-- Tooltips and terms -->
+
+
+
+<!-- Mapping of Stitch replication/system columns -->
+
+
+
+<!-- Rejected Record table details & schema -->
+
+
+
+<!-- Stitch IP addresses  -->
+
+
+
+
+
+
+<table width="100%" class="related-articles" data-swiftype-index='false'>
+    <tbody>
+        <tr>
+            <td valign="top" width="50%; fixed">
+            	<span class="h2">Related</span>
+            </td>
+            <td valign="top" width="50%; fixed">
+            	<span class="h2">Troubleshooting</span>
+            </td>
+        </tr>
+        <tr>
+        	<td valign="top">
+        		<!-- ACCOUNT & BILLING -->
+
+
+
+
+<!-- DESTINATIONS -->
+
+<ul data-swiftype-index='false'>
+	<li>
+		<a href="/docs/destinations/choosing-a-stitch-destination">Choosing a Destination</a>
+	</li>
+	<li>
+		<a href="/docs/destinations/destination-integration-compatibility">Destination & Integration Compatibility</a>
+	</li>
+	<li>
+		<a href="/docs/replication/loading/reference">Loading Data into Your Destination</a>
+	</li>
+	<li>
+		<a href="/docs/destinations/switching-destinations">Switching Destinations</a>
+	</li>
+	
+		<li>
+			<a href="/docs/replication/loading/understanding-loading-behavior">Understanding Loading Behavior</a>
+		</li>
+		<li>
+			<a href="/docs/destinations/google-bigquery/understanding-stitch-impact-on-bigquery-costs">Stitch's Impact on BigQuery Costs</a>
+		</li>
+	
+	
+</ul>
+
+
+
+
+<!-- INTEGRATIONS -->
+
+<!-- All integrations -->
+
+
+<!-- Webhook Integrations -->
+
+
+
+<!-- Database Integrations -->
+
+
+
+
+<!-- SaaS integrations -->
+
+
+
+
+<!-- REPLICATION -->
+
+
+
+
+<!-- DATA STRUCTURE -->
+
+        	</td>
+        	<td valign="top">
+        		<!-- ACCOUNT & BILLING -->
+
+
+
+
+<!-- DESTINATIONS -->
+
+<!-- Captures the integration's name -->
+
+<ul>
+	<!-- Loops over troubleshooting collection -->
+	
+	<!-- If page.keywords contain's the integration's name, prints the result -->
+		
+	
+	<!-- If page.keywords contain's the integration's name, prints the result -->
+		
+	
+	<!-- If page.keywords contain's the integration's name, prints the result -->
+		
+	
+	<!-- If page.keywords contain's the integration's name, prints the result -->
+		
+	
+	<!-- If page.keywords contain's the integration's name, prints the result -->
+		
+	
+	<!-- If page.keywords contain's the integration's name, prints the result -->
+		
+	
+	<!-- If page.keywords contain's the integration's name, prints the result -->
+		
+	
+	<!-- If page.keywords contain's the integration's name, prints the result -->
+		
+	
+	<!-- If page.keywords contain's the integration's name, prints the result -->
+		
+	
+	<!-- If page.keywords contain's the integration's name, prints the result -->
+		
+	
+	<!-- If page.keywords contain's the integration's name, prints the result -->
+		
+	
+	<!-- If page.keywords contain's the integration's name, prints the result -->
+		
+	
+	<!-- If page.keywords contain's the integration's name, prints the result -->
+		
+	
+	<!-- If page.keywords contain's the integration's name, prints the result -->
+		
+	
+	<!-- If page.keywords contain's the integration's name, prints the result -->
+		
+	
+	<!-- If page.keywords contain's the integration's name, prints the result -->
+		
+	
+	<!-- If page.keywords contain's the integration's name, prints the result -->
+		
+	
+	<!-- If page.keywords contain's the integration's name, prints the result -->
+		
+	
+	<!-- If page.keywords contain's the integration's name, prints the result -->
+		
+	
+	<!-- If page.keywords contain's the integration's name, prints the result -->
+		
+	
+	<!-- If page.keywords contain's the integration's name, prints the result -->
+		
+	
+	<!-- If page.keywords contain's the integration's name, prints the result -->
+		
+	
+	<!-- If page.keywords contain's the integration's name, prints the result -->
+		
+	
+	<!-- If page.keywords contain's the integration's name, prints the result -->
+		
+	
+	<!-- If page.keywords contain's the integration's name, prints the result -->
+		
+	
+	<!-- If page.keywords contain's the integration's name, prints the result -->
+		
+	
+	<!-- If page.keywords contain's the integration's name, prints the result -->
+		
+	
+	<!-- If page.keywords contain's the integration's name, prints the result -->
+		
+	
+	<!-- If page.keywords contain's the integration's name, prints the result -->
+		
+	
+	<!-- If page.keywords contain's the integration's name, prints the result -->
+		
+	
+	<!-- If page.keywords contain's the integration's name, prints the result -->
+		
+	
+	<!-- If page.keywords contain's the integration's name, prints the result -->
+		
+	
+	<!-- If page.keywords contain's the integration's name, prints the result -->
+		
+	
+	<!-- If page.keywords contain's the integration's name, prints the result -->
+		
+	
+	<!-- If page.keywords contain's the integration's name, prints the result -->
+		
+	
+	<!-- If page.keywords contain's the integration's name, prints the result -->
+		
+	
+	<!-- If page.keywords contain's the integration's name, prints the result -->
+		
+	
+	<!-- If page.keywords contain's the integration's name, prints the result -->
+		
+	
+	<!-- If page.keywords contain's the integration's name, prints the result -->
+		
+	
+	<!-- If page.keywords contain's the integration's name, prints the result -->
+		
+	
+	<!-- If page.keywords contain's the integration's name, prints the result -->
+		
+	
+	<!-- If page.keywords contain's the integration's name, prints the result -->
+		
+	
+	<!-- If page.keywords contain's the integration's name, prints the result -->
+		
+	
+	<!-- If page.keywords contain's the integration's name, prints the result -->
+		
+	
+	<!-- If page.keywords contain's the integration's name, prints the result -->
+		
+	
+	<li>
+		<a href="/docs/troubleshooting/destinations/destination-connection-error-reference">Destination Connection Errors</a>
+	</li>
+</ul>
+
+
+
+
+<!-- INTEGRATIONS -->
+
+<!-- Database integration pages only -->
+
+
+
+<!-- SaaS integration pages only -->
+
+
+
+<!-- All integration pages -->
+
+
+
+
+<!-- REPLICATION -->
+
+
+
+
+<!-- DATA STRUCTURE -->
+
+        	</td>
+        </tr>
+    </tbody>
+</table>
+
+
+    <hr>
+
+<span class="h2" data-swiftype-index='false'>Questions? Feedback?</span>
+
+<p data-swiftype-index='false'>Did this article help? If you have questions or feedback, feel free to <a target="_blank" href="https://github.com/stitchdata/docs/blob/master/_destinations/bigquery/v2/bigquery-overview-v2.md">submit a pull request</a> with your suggestions, <a href="https://github.com/stitchdata/docs/issues" target="new">open an issue on GitHub</a>, or <a href="mailto: stitchsupport@talend.com">reach out to us</a>.</p>
+
+</div>
+
+<hr class="footer-cta">
+<div class="footer-signup-cta" data-swiftype-index='false'>
+    <div class="wrapper">
+        <div>
+            <p>Try Stitch for free</p>
+        </div>
+        <div>
+            <a href="https://www.stitchdata.com/signup" class="btn-default btn-default--yellow">
+                Start your trial <span class="arrow"></span>
+            </a>
+        </div>
+    </div>
+</div>
+<footer data-swiftype-index='false'>
+    <div class="site-generation">
+        &copy;2020 Stitch. All rights reserved. 
+         Site last generated: Jul 23, 2020
+    </div>
+    
+</footer>
+        </div>
+    </div>
+</div>
+
+<!-- JAVASCRIPT -->
+<script type="text/javascript" src="/docs/js/docsearch.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+
+<!-- Used for creating heading anchors -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/2.0.0/anchor.min.js"></script>
+<script src="//cdn.statuspage.io/se-v2.js"></script>
+
+<script src="/docs/js/toc.js"></script>
+<script src="/docs/js/customscripts.js"></script>
+<script src="/docs/js/copyCode.js"></script>
+
+<script type="text/javascript">
+    $(".fouc").removeClass("fouc");
+</script>
+
+<!-- Intercom bubble -->
+<script>
+  window.intercomSettings = {
+    app_id: "okjpf68w"
+  };
+</script>
+<script>
+(function(){var w=window;var ic=w.Intercom;if(typeof ic==="function"){ic('reattach_activator');ic('update',intercomSettings);}else{var d=document;var i=function(){i.c(arguments)};i.q=[];i.c=function(args){i.q.push(args)};w.Intercom=i;function l(){var s=d.createElement('script');s.type='text/javascript';s.async=true;s.src='https://widget.intercom.io/widget/okjpf68w';var x=d.getElementsByTagName('script')[0];x.parentNode.insertBefore(s,x);}if(w.attachEvent){w.attachEvent('onload',l);}else{w.addEventListener('load',l,false);}}})()
+</script>
+
+<!-- Search -->
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install','SAg6gNWby6H1xYzjhfzB','2.0.0');
+</script>
+
+<div class="st-search-container"></div>
+
+</body>
+</html>

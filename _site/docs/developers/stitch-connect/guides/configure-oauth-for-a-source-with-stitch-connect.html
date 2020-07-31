@@ -1,0 +1,1869 @@
+<!DOCTYPE html>
+<head>
+    <!-- Google Tag Manager  -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-PXBN5GK');</script>
+<!-- End Google Tag Manager -->
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta class="swiftype" name="description" data-type="string" content="Configure OAuth for a data source using your own OAuth client credentials and the Connect API.">
+<meta class="swiftype" name="keywords" data-type="string" content=",  connect oauth, oauth, whitelabel, white label">
+<title>Configure OAuth for a Data Source with the Connect API | Stitch Documentation</title>
+
+<meta property="og:title" content="Configure OAuth for a Data Source with the Connect API | Stitch Documentation" />
+<meta property="og:description" content="Configure OAuth for a data source using your own OAuth client credentials and the Connect API." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="/docs" />
+<meta property="og:image" content="https://www.stitchdata.com/images/og-site-icon-talend.png" />
+<meta property="og:site_name" content="Stitch Docs" />
+
+<meta name="twitter:creator" content="@stitch_data">
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@stitch_data" />
+<meta name="twitter:image" content="https://www.stitchdata.com/images/og-site-icon-talend.png" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- STYLESHEETS -->
+<link rel="stylesheet" type="text/css" href="/docs/css/bootstrap.min.css">
+<link rel="stylesheet" href="/docs/css/modern-business.css">
+<link rel="stylesheet" href="/docs/css/lavish-bootstrap.css">
+<link rel="stylesheet" href="/docs/css/customstyles.css">
+<link rel="stylesheet" href="/docs/css/theme-stitch.css">
+<link rel="stylesheet" href="/docs/css/docsearch.min.css" />
+<link rel="stylesheet" href="/docs/stylesheets/screen.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<!-- FONT AWESOME -->
+<script src="https://kit.fontawesome.com/e0e120b2f0.js"></script>
+
+<!-- JQUERY -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+<script src="/docs/js/jquery.navgoco.min.js"></script>
+
+<!-- FAVICONS  -->
+<link rel="/docs/images/apple-touch-icon" sizes="57x57" href="/docs/images/apple-icon-57x57.png">
+<link rel="/docs/images/apple-touch-icon" sizes="60x60" href="/docs/images/apple-icon-60x60.png">
+<link rel="/docs/images/apple-touch-icon" sizes="72x72" href="/docs/images/apple-icon-72x72.png">
+<link rel="/docs/images/apple-touch-icon" sizes="76x76" href="/docs/images/apple-icon-76x76.png">
+<link rel="/docs/images/apple-touch-icon" sizes="114x114" href="/docs/images/apple-icon-114x114.png">
+<link rel="/docs/images/apple-touch-icon" sizes="120x120" href="/docs/images/apple-icon-120x120.png">
+<link rel="/docs/images/apple-touch-icon" sizes="144x144" href="/docs/images/apple-icon-144x144.png">
+<link rel="/docs/images/apple-touch-icon" sizes="152x152" href="/docs/images/apple-icon-152x152.png">
+<link rel="/docs/images/apple-touch-icon" sizes="180x180" href="/docs/images/apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192"  href="/docs/images/android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/docs/images/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="/docs/images/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/docs/images/favicon-16x16.png">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+<meta name="theme-color" content="#ffffff">
+
+<link rel="stylesheet" href="/docs/css/syntax.css">
+
+<!-- FONTS -->
+<link href="https://fonts.googleapis.com/css?family=PT+Sans:400,700&display=swap" rel="stylesheet">
+
+<style type="text/css">
+	.js .fouc {display: none !important;}
+</style>
+
+<script type="text/javascript">
+	document.documentElement.className = 'js';
+</script>
+
+<!-- Begin Inspectlet Embed Code -->
+<script type="text/javascript" id="inspectletjs">
+window.__insp = window.__insp || [];
+__insp.push(['wid', 479657659]);
+(function() {
+function ldinsp(){if(typeof window.__inspld != "undefined") return; window.__inspld = 1; var insp = document.createElement('script'); insp.type = 'text/javascript'; insp.async = true; insp.id = "inspsync"; insp.src = ('https:' == document.location.protocol ? 'https' : 'http') + '://cdn.inspectlet.com/inspectlet.js'; var x = document.getElementsByTagName('script')[0]; x.parentNode.insertBefore(insp, x); };
+setTimeout(ldinsp, 500); document.readyState != "complete" ? (window.attachEvent ? window.attachEvent('onload', ldinsp) : window.addEventListener('load', ldinsp, false)) : ldinsp();
+})();
+</script>
+<!-- End Inspectlet Embed Code -->
+
+
+  <!-- Initializes tooltips -->
+    <script>
+      $(function () {
+            $('[data-toggle="tooltip"]').tooltip({
+              delay: {show: 0, hide: 2000}
+            });
+        })
+    </script>
+
+</head>
+
+
+
+<body>
+
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PXBN5GK"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<!-- Navigation -->
+
+<nav class="stitch-docs-navbar" data-swiftype-index='false'>
+    <div class="nav-left">
+        <?xml version="1.0" encoding="utf-8"?>
+        <!-- Generator: Adobe Illustrator 23.1.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+        <svg version="1.1" id="logomark" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+             viewBox="0 0 380 380" enable-background="new 0 0 380 380" xml:space="preserve">
+        <path id="logomark_2_" fill="#FFFFFF" d="M120,177.1v-26.7h260V0H0v203.8h270.5v26.7H0V380h380V175.2H120V177.1z M193.3,39
+            c10.5,0,19,8.6,19,19s-8.6,19-19,19s-19-8.6-19-19C174.3,46.7,183.8,39,193.3,39z M112.4,96.2H281l-7.6,26.7H119L112.4,96.2z
+             M193.3,340c-10.5,0-19-8.6-19-19c0-10.5,8.6-19,19-19s19,8.6,19,19C212.4,331.4,202.9,340,193.3,340z M112.4,281.9l6.7-26.7h154.3
+            l7.6,26.7H112.4z"/>
+        </svg>
+        <a class="navbar-brand" href="/docs/">
+            <span class="projectTitle"> Stitch Docs</span>
+        </a>
+    </div>
+    <div class="mobile-nav-icon"></div>
+    <div id="close" class="mobile-close-out hide"></div>
+    <div class="nav-right">
+        <ul class="stitch-nav">
+            <!-- entries without drop-downs appear here -->
+            
+                
+                    
+                        <li>
+                            <a href="https://www.stitchdata.com" target="_blank">stitchdata.com</a>
+                        </li>
+                    
+                
+                    
+                        <li>
+                            <a href="https://github.com/stitchdata/docs#stitch-documentation" target="_blank"><i class="fab fa-github" aria-hidden="true"></i> Contribute
+</a>
+                        </li>
+                    
+                
+                    
+                        <li>
+                            <a href="https://www.stitchdata.com/changelog" target="_blank">Changelog</a>
+                        </li>
+                    
+                
+                    
+                        <li>
+                            <a href="/docs/announcements">Announcements</a>
+                        </li>
+                    
+                
+            
+            <li class="sign-up"><a href="https://stitchdata.com/signup">Sign up</a></li>
+            <li>
+                <!--start search-->
+                <div id="search-demo-container">
+                    <input type="text" id="search-input" placeholder="What can we help you find?">
+                    <div class="img"><i class="fa fa-search"></i></div>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+
+</nav>
+
+
+<!-- Page Content -->
+<div id="main">
+    <div class="sidebar-column">
+      <div class="sidebar-button"></div>
+        
+<!-- UI: page/button/section names, menu paths, etc -->
+
+
+<!-- Simplifies internal links -->
+
+
+<!-- Stitch -->
+
+
+<!-- UI Icons -->
+
+
+
+<!-- Tooltips and terms -->
+
+
+
+<!-- Mapping of Stitch replication/system columns -->
+
+
+
+<!-- Rejected Record table details & schema -->
+
+
+
+<!-- Stitch IP addresses  -->
+
+
+
+    <!-- This is temporary until the tutorial and on-page navigation is improved. -->
+        
+            
+<!-- UI: page/button/section names, menu paths, etc -->
+
+
+<!-- Simplifies internal links -->
+
+
+<!-- Stitch -->
+
+
+<!-- UI Icons -->
+
+
+
+<!-- Tooltips and terms -->
+
+
+
+<!-- Mapping of Stitch replication/system columns -->
+
+
+
+<!-- Rejected Record table details & schema -->
+
+
+
+<!-- Stitch IP addresses  -->
+
+
+<div class="menu-list">
+
+<ul id="mysidebar" class="nav" data-swiftype-index='false'>
+    <!-- Stitch status widget -->
+    <a class="status-page" href="http://status.stitchdata.com" target="_blank">
+        <span class="color-dot"></span>
+        <span class="color-description"></span>
+    </a>
+
+    <li>
+    	<strong>In this guide:</strong>
+    </li>
+
+    
+        
+            <li class="subfolders">
+                <a data-toggle="collapse" href="#introduction--menu" aria-expanded="false" aria-controls="#introduction--menu">
+                    Introduction 
+                    <i class="fa fa-caret-down fa-1 pull-right" aria-hidden="true"></i>
+                </a>
+
+                <ul class="collapse" id="introduction--menu">
+                    <li>
+                        <a href="#">Introduction</a>
+                    </li>
+
+                    
+                        
+                    
+                </ul>
+            </li>
+        
+	
+
+
+    
+        <li>
+            <a href="#prerequisites">
+                Prerequisites
+            </a>
+        </li>
+    
+
+    
+        
+
+		
+            	<li>
+            		<a href="#configure-the-source">
+                        
+		                   1: 
+                        
+                           Create and configure the source
+		            </a>
+		        </li>
+    		
+    	</li>
+    
+        
+
+		
+            <li class="subfolders">
+                <a data-toggle="collapse" href="#get-source-oauth-properties--menu" aria-expanded="false" aria-controls="get-source-oauth-properties--menu">
+                    
+                        2: 
+                    
+                    Get the source's OAuth properties 
+                    <i class="fa fa-caret-down fa-1 pull-right" aria-hidden="true"></i>
+                </a>
+
+                <ul class="collapse" id="get-source-oauth-properties--menu">
+            		<li>
+                        <a href="#get-source-oauth-properties">2: Get the source's OAuth properties</a>
+                    </li>
+
+               		
+                        
+
+                		<li>
+                            <a href="#get-source-report-card">
+                                
+                                    2.1: 
+                                
+                                Get the source's report card
+                            </a>
+                        </li>
+                	
+                        
+
+                		<li>
+                            <a href="#understand-oauth-property-metadata">
+                                
+                                    2.2: 
+                                
+                                Understand OAuth property metadata
+                            </a>
+                        </li>
+                	
+                </ul>
+            
+    	</li>
+    
+        
+
+		
+            	<li>
+            		<a href="#perform-oauth-handshake-with-source">
+                        
+		                   3: 
+                        
+                           Perform an OAuth handshake with the source
+		            </a>
+		        </li>
+    		
+    	</li>
+    
+        
+
+		
+            	<li>
+            		<a href="#update-source-with-oauth-properties">
+                        
+		                   4: 
+                        
+                           Update the source with the OAuth properties
+		            </a>
+		        </li>
+    		
+    	</li>
+    
+
+    
+        <li>
+            <a href="#next-steps">
+                 Next steps
+            </a>
+        </li>
+    
+
+    
+	    <hr>
+
+	    <li>
+	    	<strong>Related:</strong>
+	    </li>
+
+	    	
+	    		<li>
+            		<a href="/docs/developers/stitch-connect/guides/source-destination-reference">
+		            	Destination and source API availability
+		            </a>
+		        </li>
+	    	
+	    		<li>
+            		<a href="/docs/developers/stitch-connect/api">
+		            	Connect API reference
+		            </a>
+		        </li>
+	    	
+	
+</ul>
+
+</div>
+        
+    
+    </div>
+    <div class="content-column">
+
+        <div class="article">
+          
+            <div class="breadbox">
+                <div class="breadcrumb-container" data-swiftype-index='false'>
+                    <div id="breadcrumb-menu" class="menu-left">
+                        <!-- Credit to JoostS for this code: https://stackoverflow.com/questions/9612235/what-are-some-good-ways-to-implement-breadcrumbs-on-a-jekyll-site -->
+
+
+
+
+<a href="/docs">DOCS</a>
+
+  
+    > <a href="/docs/developers/">DEVELOPERS</a>
+  
+
+  
+    > <a href="/docs/developers/stitch-connect/">STITCH CONNECT</a>
+  
+
+  
+    > <a href="/docs/developers/stitch-connect/guides/">GUIDES</a>
+  
+
+  
+    > <strong>CONFIGURE OAUTH FOR A DATA SOURCE WITH THE CONNECT API</strong>
+  
+
+
+                    </div>
+
+                    
+                </div>
+            </div>
+          
+
+          <div class="post-header">
+    <h1 class="post-title-main">Configure OAuth for a Data Source with the Connect API</h1>
+</div>
+
+<div class="post-content">
+<!-- Controls display of page summary -->
+   
+
+<!-- Table of Contents -->
+    
+
+    
+
+      
+<!-- UI: page/button/section names, menu paths, etc -->
+
+
+<!-- Simplifies internal links -->
+
+
+<!-- Stitch -->
+
+
+<!-- UI Icons -->
+
+
+
+<!-- Tooltips and terms -->
+
+
+
+<!-- Mapping of Stitch replication/system columns -->
+
+
+
+<!-- Rejected Record table details & schema -->
+
+
+
+<!-- Stitch IP addresses  -->
+
+
+
+<!-- This only runs for destination and integration pages.
+    The include assigns a different page variable, and displays the correct
+    beta notice when applicable. -->
+    
+        <!-- This file is used to assign the correct
+	page variable for destination and integration content.
+
+	It'll also display the appropriate beta notice for
+	destinations/integrations that require it. -->
+
+    
+    
+
+
+<!-- TUTORIAL INTRODUCTION -->
+    
+        
+            
+                
+
+                    
+<!-- UI: page/button/section names, menu paths, etc -->
+
+<!-- Simplifies internal links -->
+
+<!-- Stitch -->
+
+<!-- UI Icons -->
+
+<!-- Tooltips and terms -->
+
+<!-- Mapping of Stitch replication/system columns -->
+
+<!-- Rejected Record table details & schema -->
+
+<!-- Stitch IP addresses  -->
+
+<p>Configuring OAuth yourself is required only if you want to use your own OAuth client credentials. Otherwise, Stitch will use its managed credentials to perform the OAuth handshake.</p>
+
+<p>Configuring OAuth allows you to completely white label the source setup process, ensuring your end users have a seamless experience. At a glance, the process will look like this:</p>
+
+<ol>
+  <li>Your application handles the OAuth handshake and redirects</li>
+  <li>Your application provides the required OAuth source properties to the Connect API</li>
+  <li>Stitch manages OAuth and refresh tokens on an ongoing basis for sources that utilze them</li>
+</ol>
+
+<p>You can configure OAuth for any source with an <code class="language-plaintext highlighter-rouge">oauth</code> connection step.</p>
+
+
+                
+                    <hr>
+                
+            
+        
+    
+
+
+<!-- TUTORIAL REQUIREMENTS -->
+    
+        <h2 id="prerequisites">Prerequisites</h2>
+        
+        <ul>
+            
+                <li><p><strong>Access to Stitch Connect and valid Connect API credentials.</strong> Connect access is a Stitch Enterprise feature. Refer to the <a href="/docs/developers/stitch-connect/api#authentication">Connect API reference</a> for more info on obtaining API credentials.</p>
+</li>
+            
+                <li><p><strong>Access to a source with an <code class="language-plaintext highlighter-rouge">oauth</code> connection step</strong>. This guide will use a <a href="/docs/developers/stitch-connect/api#form-properties-google-analytics-object">Google Analytics SaaS source</a> as an example, but any source type with an <code class="language-plaintext highlighter-rouge">oauth</code> connection step will work.</p>
+
+<p>To determine if a source has an <code class="language-plaintext highlighter-rouge">oauth</code> connection step, <a href="/docs/developers/stitch-connect/api#get-a-source-type">retrieve its Report Card</a>.</p>
+</li>
+            
+        </ul>
+
+        
+
+        <hr>
+    
+
+
+<!-- TUTORIAL STEPS -->
+    
+        
+
+        
+            <h2 id="configure-the-source">Step 1: Create and configure the source</h2>
+        
+
+            
+<p>Create and configure a source. Refer to steps 1-3 of the <a href="/docs/developers/stitch-connect/guides/create-data-source-with-stitch-connect">Create and configure a source using the Connect API guide</a> for instructions.</p>
+
+<p><strong>Note</strong>: OAuth properties may be provided in the same request that creates the source, or in a subsequent request to update the source, which is the approach this guide takes.</p>
+
+
+    <!-- If a step has substeps -->
+        
+
+        
+            <hr>
+        
+    
+        
+
+        
+            <h2 id="get-source-oauth-properties">Step 2: Get the source's OAuth properties</h2>
+        
+
+            <!-- This include is used to format section/subsection steps in developer tutorials. -->
+
+<!-- Variables assigned based on parameters passed
+    into the include. Ex: page.sections, or sections.subsections -->
+
+<table class="attribute-list">
+    <tr>
+        <td width="5%; fixed">
+            <strong>Step</strong>
+        </td>
+        <td width="40%; fixed">
+            <strong>Action</strong>
+        </td>
+        <td>
+            <strong>Endpoint</strong>
+        </td>
+    </tr>
+    
+        <tr>
+            <td>
+                
+                        
+                            1
+                        
+                    
+            </td>
+            <td>
+                <a href="#get-source-report-card">
+                    Get the source's report card
+                </a>
+            </td>
+            <td>
+                GET /v4/source-types/{source_type}
+            </td>
+        </tr>
+    
+        <tr>
+            <td>
+                
+                        
+                            2
+                        
+                    
+            </td>
+            <td>
+                <a href="#understand-oauth-property-metadata">
+                    Understand OAuth property metadata
+                </a>
+            </td>
+            <td>
+                
+            </td>
+        </tr>
+    
+</table>
+
+
+    <!-- If a step has substeps -->
+        
+            
+                
+
+                
+                    <h3 id="get-source-report-card">Step 2.1: Get the source's report card</h3>
+                
+
+                
+<p>The OAuth properties that a source uses are found in the <code class="language-plaintext highlighter-rouge">oauth</code> step of the source’s report card. Like the <code class="language-plaintext highlighter-rouge">form</code> step, these properties will vary from source to source.</p>
+
+<p>To retrieve the source’s OAuth properties, make a request to <a href="/docs/developers/stitch-connect/api#get-a-source-type">GET /v4/source-types/{source_type}</a>, replacing <code class="language-plaintext highlighter-rouge">{source_type}</code> with the type of the source:</p>
+
+<div class="code-header"><div class="code-description-container"><strong>GET /v4/source-types/{source_type}</strong></div><div class="copy-code-container"><div class="copy-code-button" data-code="curl &quot;https://api.stitchdata.com/v4/source-types/platform.google-analytics&quot; \
+     -H &#39;Authorization: Bearer &lt;ACCESS_TOKEN&gt;&#39; \
+     -H &#39;Content-Type: application/json&#39;" title="Copy to clipboard" tabindex="0"></div></div></div>
+
+<pre><code class="language-curl">curl "https://api.stitchdata.com/v4/source-types/platform.google-analytics" \
+     -H 'Authorization: Bearer &lt;ACCESS_TOKEN&gt;' \
+     -H 'Content-Type: application/json'
+</code></pre>
+
+<p>The response will be a <a href="/docs/developers/stitch-connect/api#report-card-object--source">Report card object</a> corresponding to the <code class="language-plaintext highlighter-rouge">source_type</code>. Locate the OAuth connection step (<code class="language-plaintext highlighter-rouge">steps.oauth</code>) property object:</p>
+
+<div class="code-header"><div class="code-description-container"><strong>Response for GET /v4/source-types/{source_type}</strong></div><div class="copy-code-container"><div class="copy-code-button" data-code="
+{
+  &quot;type&quot;: &quot;platform.google-analytics&quot;,
+  &quot;current_step&quot;: 1,
+  &quot;current_step_type&quot;: &quot;form&quot;,
+  &quot;steps&quot;: [
+    {
+      &quot;type&quot;: &quot;form&quot;,
+      &quot;properties&quot;: [
+        {
+          &quot;name&quot;: &quot;anchor_time&quot;,
+          &quot;is_required&quot;: false,
+          &quot;is_credential&quot;: false,
+          &quot;system_provided&quot;: false,
+          &quot;property_type&quot;: &quot;user_provided&quot;,
+          &quot;json_schema&quot;: {
+            &quot;type&quot;: &quot;string&quot;,
+            &quot;format&quot;: &quot;date-time&quot;
+          },
+          &quot;provided&quot;: false,
+          &quot;tap_mutable&quot;: false
+        },
+        {
+          &quot;name&quot;: &quot;cron_expression&quot;,
+          &quot;is_required&quot;: false,
+          &quot;is_credential&quot;: false,
+          &quot;system_provided&quot;: false,
+          &quot;property_type&quot;: &quot;user_provided&quot;,
+          &quot;json_schema&quot;: null,
+          &quot;provided&quot;: false,
+          &quot;tap_mutable&quot;: false
+        },
+        {
+          &quot;name&quot;: &quot;frequency_in_minutes&quot;,
+          &quot;is_required&quot;: false,
+          &quot;is_credential&quot;: false,
+          &quot;system_provided&quot;: false,
+          &quot;property_type&quot;: &quot;user_provided&quot;,
+          &quot;json_schema&quot;: {
+            &quot;type&quot;: &quot;string&quot;,
+            &quot;pattern&quot;: &quot;^1$|^30$|^60$|^360$|^720$|^1440$&quot;
+          },
+          &quot;provided&quot;: false,
+          &quot;tap_mutable&quot;: false
+        },
+        {
+          &quot;name&quot;: &quot;image_version&quot;,
+          &quot;is_required&quot;: true,
+          &quot;is_credential&quot;: false,
+          &quot;system_provided&quot;: true,
+          &quot;property_type&quot;: &quot;read_only&quot;,
+          &quot;json_schema&quot;: null,
+          &quot;provided&quot;: false,
+          &quot;tap_mutable&quot;: false
+        },
+        {
+          &quot;name&quot;: &quot;quota_user&quot;,
+          &quot;is_required&quot;: true,
+          &quot;is_credential&quot;: false,
+          &quot;system_provided&quot;: true,
+          &quot;property_type&quot;: &quot;read_only&quot;,
+          &quot;json_schema&quot;: {
+            &quot;type&quot;: &quot;string&quot;
+          },
+          &quot;provided&quot;: false,
+          &quot;tap_mutable&quot;: false
+        },
+        {
+          &quot;name&quot;: &quot;report_definitions&quot;,
+          &quot;is_required&quot;: false,
+          &quot;is_credential&quot;: false,
+          &quot;system_provided&quot;: false,
+          &quot;property_type&quot;: &quot;user_provided&quot;,
+          &quot;json_schema&quot;: {
+            &quot;type&quot;: &quot;array&quot;,
+            &quot;items&quot;: {
+              &quot;type&quot;: &quot;object&quot;,
+              &quot;properties&quot;: {
+                &quot;name&quot;: {
+                  &quot;type&quot;: &quot;string&quot;
+                },
+                &quot;id&quot;: {
+                  &quot;type&quot;: &quot;string&quot;
+                }
+              },
+              &quot;additionalProperties&quot;: false,
+              &quot;required&quot;: [
+                &quot;name&quot;,
+                &quot;id&quot;
+              ]
+            }
+          },
+          &quot;provided&quot;: false,
+          &quot;tap_mutable&quot;: false
+        },
+        {
+          &quot;name&quot;: &quot;start_date&quot;,
+          &quot;is_required&quot;: true,
+          &quot;is_credential&quot;: false,
+          &quot;system_provided&quot;: false,
+          &quot;property_type&quot;: &quot;user_provided&quot;,
+          &quot;json_schema&quot;: {
+            &quot;type&quot;: &quot;string&quot;,
+            &quot;pattern&quot;: &quot;^\\d{4}-\\d{2}-\\d{2}T00:00:00Z$&quot;
+          },
+          &quot;provided&quot;: false,
+          &quot;tap_mutable&quot;: false
+        }
+      ]
+    },
+    {
+      &quot;type&quot;: &quot;oauth&quot;,
+      &quot;properties&quot;: [
+        {
+          &quot;name&quot;: &quot;client_id&quot;,
+          &quot;is_required&quot;: true,
+          &quot;is_credential&quot;: true,
+          &quot;system_provided&quot;: true,
+          &quot;property_type&quot;: &quot;system_provided_by_default&quot;,
+          &quot;json_schema&quot;: {
+            &quot;type&quot;: &quot;string&quot;
+          },
+          &quot;provided&quot;: false,
+          &quot;tap_mutable&quot;: false
+        },
+        {
+          &quot;name&quot;: &quot;client_secret&quot;,
+          &quot;is_required&quot;: true,
+          &quot;is_credential&quot;: true,
+          &quot;system_provided&quot;: true,
+          &quot;property_type&quot;: &quot;system_provided_by_default&quot;,
+          &quot;json_schema&quot;: {
+            &quot;type&quot;: &quot;string&quot;
+          },
+          &quot;provided&quot;: false,
+          &quot;tap_mutable&quot;: false
+        },
+        {
+          &quot;name&quot;: &quot;refresh_token&quot;,
+          &quot;is_required&quot;: true,
+          &quot;is_credential&quot;: true,
+          &quot;system_provided&quot;: true,
+          &quot;property_type&quot;: &quot;system_provided_by_default&quot;,
+          &quot;json_schema&quot;: {
+            &quot;type&quot;: &quot;string&quot;
+          },
+          &quot;provided&quot;: false,
+          &quot;tap_mutable&quot;: false
+        },
+        {
+          &quot;name&quot;: &quot;view_id&quot;,
+          &quot;is_required&quot;: true,
+          &quot;is_credential&quot;: false,
+          &quot;system_provided&quot;: false,
+          &quot;property_type&quot;: &quot;user_provided&quot;,
+          &quot;json_schema&quot;: {
+            &quot;type&quot;: &quot;string&quot;
+          },
+          &quot;provided&quot;: false,
+          &quot;tap_mutable&quot;: false
+        }
+      ]
+    },
+    {
+      &quot;type&quot;: &quot;discover_schema&quot;,
+      &quot;properties&quot;: []
+    },
+    {
+      &quot;type&quot;: &quot;field_selection&quot;,
+      &quot;properties&quot;: []
+    },
+    {
+      &quot;type&quot;: &quot;fully_configured&quot;,
+      &quot;properties&quot;: []
+    }
+  ],
+  &quot;details&quot;: {
+    &quot;pricing_tier&quot;: &quot;standard&quot;,
+    &quot;pipeline_state&quot;: &quot;beta&quot;,
+    &quot;default_start_date&quot;: &quot;-1 year&quot;,
+    &quot;default_scheduling_interval&quot;: 60,
+    &quot;protocol&quot;: &quot;platform.google-analytics&quot;,
+    &quot;access&quot;: true
+  }
+}" title="Copy to clipboard" tabindex="0"></div></div></div>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"platform.google-analytics"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"current_step"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"current_step_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"form"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"steps"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"form"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"properties"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"anchor_time"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"is_required"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"is_credential"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"system_provided"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"property_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user_provided"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"json_schema"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"format"</span><span class="p">:</span><span class="w"> </span><span class="s2">"date-time"</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="nl">"provided"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"tap_mutable"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cron_expression"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"is_required"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"is_credential"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"system_provided"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"property_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user_provided"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"json_schema"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"provided"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"tap_mutable"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"frequency_in_minutes"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"is_required"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"is_credential"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"system_provided"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"property_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user_provided"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"json_schema"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"pattern"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^1$|^30$|^60$|^360$|^720$|^1440$"</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="nl">"provided"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"tap_mutable"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"image_version"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"is_required"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"is_credential"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"system_provided"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"property_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"read_only"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"json_schema"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"provided"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"tap_mutable"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"quota_user"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"is_required"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"is_credential"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"system_provided"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"property_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"read_only"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"json_schema"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="nl">"provided"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"tap_mutable"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"report_definitions"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"is_required"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"is_credential"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"system_provided"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"property_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user_provided"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"json_schema"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"array"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"items"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+              </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"object"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"properties"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                  </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+                </span><span class="p">},</span><span class="w">
+                </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                  </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+              </span><span class="p">},</span><span class="w">
+              </span><span class="nl">"additionalProperties"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"required"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="s2">"name"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"id"</span><span class="w">
+              </span><span class="p">]</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="nl">"provided"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"tap_mutable"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"start_date"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"is_required"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"is_credential"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"system_provided"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"property_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user_provided"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"json_schema"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"pattern"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^</span><span class="se">\\</span><span class="s2">d{4}-</span><span class="se">\\</span><span class="s2">d{2}-</span><span class="se">\\</span><span class="s2">d{2}T00:00:00Z$"</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="nl">"provided"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"tap_mutable"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">]</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"oauth"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"properties"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"client_id"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"is_required"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"is_credential"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"system_provided"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"property_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"system_provided_by_default"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"json_schema"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="nl">"provided"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"tap_mutable"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"client_secret"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"is_required"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"is_credential"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"system_provided"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"property_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"system_provided_by_default"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"json_schema"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="nl">"provided"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"tap_mutable"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"refresh_token"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"is_required"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"is_credential"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"system_provided"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"property_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"system_provided_by_default"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"json_schema"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="nl">"provided"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"tap_mutable"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"view_id"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"is_required"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"is_credential"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"system_provided"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"property_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user_provided"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"json_schema"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="nl">"provided"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"tap_mutable"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">]</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"discover_schema"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"properties"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"field_selection"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"properties"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fully_configured"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"properties"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nl">"details"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"pricing_tier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"standard"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"pipeline_state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"beta"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"default_start_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"-1 year"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"default_scheduling_interval"</span><span class="p">:</span><span class="w"> </span><span class="mi">60</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"protocol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"platform.google-analytics"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"access"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p>For <code class="language-plaintext highlighter-rouge">platform.google-analytics</code> sources, the properties required for OAuth are:</p>
+
+<ul>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">client_id</code></p>
+  </li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">client_secret</code></p>
+  </li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">refresh_token</code></p>
+  </li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">view_id</code></p>
+  </li>
+</ul>
+
+
+
+            <!-- If a substep has its own substeps -->
+                
+            
+                
+
+                
+                    <h3 id="understand-oauth-property-metadata">Step 2.2: Understand OAuth property metadata</h3>
+                
+
+                <p>Next, we’ll touch on the properties an OAuth connection step property contains. You’ll use this data to determine what information you need to provide to successfully configure OAuth for the source.</p>
+
+<p>For OAuth properties, we’ll look at the following metadata:</p>
+
+<table class="attribute-list table-hover">
+
+
+<tr>
+<td align="right" width="20%; fixed">
+<strong>is_credential</strong><br />
+BOOLEAN
+</td>
+<td>
+<p>If <code class="language-plaintext highlighter-rouge">true</code>, the property is a credential or otherwise sensitive data. <strong>Note</strong>: Values for this property won’t be returned by the API.</p>
+
+</td>
+</tr>
+
+
+
+<tr>
+<td align="right" width="20%; fixed">
+<strong>is_required</strong><br />
+BOOLEAN
+</td>
+<td>
+<p>If <code class="language-plaintext highlighter-rouge">true</code>, the property is required for OAuth configuration.</p>
+
+</td>
+</tr>
+
+
+
+<tr>
+<td align="right" width="20%; fixed">
+<strong>json_schema</strong><br />
+ARRAY
+</td>
+<td>
+<p>An array containing:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">type</code> - A <code class="language-plaintext highlighter-rouge">string</code> indicating the expected data type of the property’s value. For example: <code class="language-plaintext highlighter-rouge">boolean</code></li>
+  <li><code class="language-plaintext highlighter-rouge">pattern</code> - A <code class="language-plaintext highlighter-rouge">string</code> indicating the expected pattern of the property’s value. For example: <code class="language-plaintext highlighter-rouge">^\\d+$</code></li>
+  <li><code class="language-plaintext highlighter-rouge">anyOf</code> - A series of arrays containing key-value pairs for the <code class="language-plaintext highlighter-rouge">type</code> and <code class="language-plaintext highlighter-rouge">format</code> combinations Stitch will accept as the property’s value.</li>
+</ul>
+
+</td>
+</tr>
+
+
+
+<tr>
+<td align="right" width="20%; fixed">
+<strong>name</strong><br />
+STRING
+</td>
+<td>
+<p>The name of the property.</p>
+
+</td>
+</tr>
+
+
+
+<tr>
+<td align="right" width="20%; fixed">
+<strong>property_type</strong><br />
+STRING
+</td>
+<td>
+<p>Indicates the type of the property. For OAuth properties, possible values are:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">user_provided</code> - Indicates the property must be set by you.</li>
+  <li><code class="language-plaintext highlighter-rouge">system_provided_by_default</code> - Indicates that the property is provided by Stitch by default, but can be set by you. <strong>Note</strong>: Use caution when setting these properties, as incorrect values may put the source into a non-functioning state.</li>
+</ul>
+
+</td>
+</tr>
+
+
+
+<tr>
+<td align="right" width="20%; fixed">
+<strong>provided</strong><br />
+BOOLEAN
+</td>
+<td>
+<p>If <code class="language-plaintext highlighter-rouge">true</code>, the property has been provided. For properties where <code class="language-plaintext highlighter-rouge">property_type: user_provided</code>, this indicates that you have provided the property.</p>
+
+</td>
+</tr>
+
+
+
+
+
+
+</table>
+
+<p>If a property has an <code class="language-plaintext highlighter-rouge">is_required: true</code> value, it must be provided to successfully configure OAuth for the source.</p>
+
+<p>Additionally, consider the property’s <code class="language-plaintext highlighter-rouge">property_type</code> value. To configure OAuth using your own OAuth client credentials, you’ll need to provide values for properties where <code class="language-plaintext highlighter-rouge">property_type</code> is either <code class="language-plaintext highlighter-rouge">user_provided</code> or <code class="language-plaintext highlighter-rouge">system_provided_by_default</code>. If you don’t provide a value for properties where <code class="language-plaintext highlighter-rouge">property_type: system_provided_by_default</code>, Stitch will use its own OAuth client credentials to perform the OAuth handshake.</p>
+
+<p>Consider the OAuth properties for <code class="language-plaintext highlighter-rouge">platform.google-analytics</code>:</p>
+
+<div class="code-header"><div class="code-description-container"><strong>OAuth properties for platform.google-analytics</strong></div><div class="copy-code-container"><div class="copy-code-button" data-code="
+{
+  &quot;type&quot;: &quot;oauth&quot;,
+  &quot;properties&quot;: [
+    {
+      &quot;name&quot;: &quot;client_id&quot;,
+      &quot;is_required&quot;: true,
+      &quot;is_credential&quot;: true,
+      &quot;system_provided&quot;: true,
+      &quot;property_type&quot;: &quot;system_provided_by_default&quot;,
+      &quot;json_schema&quot;: {
+        &quot;type&quot;: &quot;string&quot;
+      },
+      &quot;provided&quot;: false,
+      &quot;tap_mutable&quot;: false
+    },
+    {
+      &quot;name&quot;: &quot;client_secret&quot;,
+      &quot;is_required&quot;: true,
+      &quot;is_credential&quot;: true,
+      &quot;system_provided&quot;: true,
+      &quot;property_type&quot;: &quot;system_provided_by_default&quot;,
+      &quot;json_schema&quot;: {
+        &quot;type&quot;: &quot;string&quot;
+      },
+      &quot;provided&quot;: false,
+      &quot;tap_mutable&quot;: false
+    },
+    {
+      &quot;name&quot;: &quot;refresh_token&quot;,
+      &quot;is_required&quot;: true,
+      &quot;is_credential&quot;: true,
+      &quot;system_provided&quot;: true,
+      &quot;property_type&quot;: &quot;system_provided_by_default&quot;,
+      &quot;json_schema&quot;: {
+        &quot;type&quot;: &quot;string&quot;
+      },
+      &quot;provided&quot;: false,
+      &quot;tap_mutable&quot;: false
+    },
+    {
+      &quot;name&quot;: &quot;view_id&quot;,
+      &quot;is_required&quot;: true,
+      &quot;is_credential&quot;: false,
+      &quot;system_provided&quot;: false,
+      &quot;property_type&quot;: &quot;user_provided&quot;,
+      &quot;json_schema&quot;: {
+        &quot;type&quot;: &quot;string&quot;
+      },
+      &quot;provided&quot;: false,
+      &quot;tap_mutable&quot;: false
+    }
+  ]
+}" title="Copy to clipboard" tabindex="0"></div></div></div>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"oauth"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"properties"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"client_id"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"is_required"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"is_credential"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"system_provided"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"property_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"system_provided_by_default"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"json_schema"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nl">"provided"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"tap_mutable"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"client_secret"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"is_required"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"is_credential"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"system_provided"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"property_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"system_provided_by_default"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"json_schema"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nl">"provided"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"tap_mutable"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"refresh_token"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"is_required"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"is_credential"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"system_provided"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"property_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"system_provided_by_default"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"json_schema"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nl">"provided"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"tap_mutable"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"view_id"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"is_required"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"is_credential"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"system_provided"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"property_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user_provided"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"json_schema"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nl">"provided"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"tap_mutable"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p>As all the properties have an <code class="language-plaintext highlighter-rouge">is_required: true</code> value, we’ll need to provide values for every property to configure OAuth.</p>
+
+
+            <!-- If a substep has its own substeps -->
+                
+            
+        
+
+        
+            <hr>
+        
+    
+        
+
+        
+            <h2 id="perform-oauth-handshake-with-source">Step 3: Perform an OAuth handshake with the source</h2>
+        
+
+            <p>Now that you know what information you need to provide to the Connect API to configure OAuth, you can perform an OAuth handshake with the source.</p>
+
+<p>How you do this is up to you, as implementing an OAuth flow is outside the scope of this guide. We recommend referring to the source’s OAuth documentation, which is included in every source’s <a href="/docs/developers/stitch-connect/api#form-properties">connection property reference</a> (if available), for help.</p>
+
+
+    <!-- If a step has substeps -->
+        
+
+        
+            <hr>
+        
+    
+        
+
+        
+            <h2 id="update-source-with-oauth-properties">Step 4: Update the source with the OAuth properties</h2>
+        
+
+            
+<div class="alert alert-info" role="alert">
+    <i class="fas fa-info-circle"></i>
+    <strong>Note</strong>: OAuth properties may be provided in the same request that creates the source, or in a subsequent request to update the source, which is the approach this section uses.
+</div>
+
+<p>After the OAuth handshake is successfully performed, you can provide the Connect API with the required OAuth properties.</p>
+
+<p>Make a request to <a href="/docs/developers/stitch-connect/api#update-a-source">PUT /v4/sources/{source_id}</a>, replacing <code class="language-plaintext highlighter-rouge">{source_id}</code> with the ID of the source.</p>
+
+<p>The request body should contain a <code class="language-plaintext highlighter-rouge">properties</code> object with the required OAuth properties and their values:</p>
+
+<div class="code-header"><div class="code-description-container"><strong>PUT /v4/sources/{source_id}</strong></div><div class="copy-code-container"><div class="copy-code-button" data-code="curl -X &quot;PUT&quot; &quot;https://api.stitchdata.com/v4/sources/122635&quot; \
+     -H &#39;Authorization: Bearer &lt;ACCESS_TOKEN&gt;&#39; \
+     -H &#39;Content-Type: application/json&#39; \
+     -d $
+&#39;{
+   &quot;properties&quot;:{
+      &quot;client_id&quot;:&quot;&lt;GOOGLE_ANALYTICS_CLIENT_ID&gt;&quot;,
+      &quot;client_secret&quot;:&quot;&lt;GOOGLE_ANALYTICS_CLIENT_SECRET&gt;&quot;,
+      &quot;refresh_token&quot;: &quot;&lt;GOOGLE_ANALYTICS_CLIENT_REFRESH_TOKEN&gt;&quot;,
+      &quot;view_id&quot;: &quot;143355753&quot;
+   }
+}&#39;" title="Copy to clipboard" tabindex="0"></div></div></div>
+
+<pre><code class="language-curl">curl -X "PUT" "https://api.stitchdata.com/v4/sources/122635" \
+     -H 'Authorization: Bearer &lt;ACCESS_TOKEN&gt;' \
+     -H 'Content-Type: application/json' \
+     -d $
+'{
+   "properties":{
+      "client_id":"&lt;GOOGLE_ANALYTICS_CLIENT_ID&gt;",
+      "client_secret":"&lt;GOOGLE_ANALYTICS_CLIENT_SECRET&gt;",
+      "refresh_token": "&lt;GOOGLE_ANALYTICS_CLIENT_REFRESH_TOKEN&gt;",
+      "view_id": "143355753"
+   }
+}'
+</code></pre>
+
+<p>The response will be a <a href="/docs/developers/stitch-connect/api#source--object">Source object</a>. If provided, OAuth properties with an <code class="language-plaintext highlighter-rouge">is_credential: false</code> value will be included in the <code class="language-plaintext highlighter-rouge">properties</code> object. You can also check the OAuth property’s <code class="language-plaintext highlighter-rouge">provided</code> value in the OAuth connection step (<code class="language-plaintext highlighter-rouge">steps.oauth</code>) property object:</p>
+
+<div class="code-header"><div class="code-description-container"><strong>Response for PUT /v4/sources/{source_id}</strong></div><div class="copy-code-container"><div class="copy-code-button" data-code="
+{
+  &quot;properties&quot;: {
+    &quot;cron_expression&quot;: null,
+    &quot;frequency_in_minutes&quot;: &quot;60&quot;,
+    &quot;image_version&quot;: &quot;0.latest&quot;,
+    &quot;product&quot;: &quot;pipeline&quot;,
+    &quot;quota_user&quot;: &quot;234588&quot;,
+    &quot;report_definitions&quot;: [
+      {
+        &quot;name&quot;: &quot;Visitor Traffic&quot;,
+        &quot;id&quot;: &quot;a53305a5-d6c8-42d3-9c5d-65a524f217c1&quot;
+      }
+    ],
+    &quot;start_date&quot;: &quot;2019-03-25T00:00:00Z&quot;,
+    &quot;view_id&quot;: &quot;143355753&quot;
+  },
+  &quot;updated_at&quot;: &quot;2020-06-26T18:06:12Z&quot;,
+  &quot;schedule&quot;: null,
+  &quot;name&quot;: &quot;tap_google&quot;,
+  &quot;type&quot;: &quot;platform.google-analytics&quot;,
+  &quot;deleted_at&quot;: null,
+  &quot;system_paused_at&quot;: null,
+  &quot;stitch_client_id&quot;: 116078,
+  &quot;paused_at&quot;: &quot;2020-06-23T01:29:17Z&quot;,
+  &quot;id&quot;: 122635,
+  &quot;display_name&quot;: &quot;Google Analytics&quot;,
+  &quot;created_at&quot;: &quot;2020-03-25T20:23:29Z&quot;,
+  &quot;report_card&quot;: {
+    &quot;type&quot;: &quot;platform.google-analytics&quot;,
+    &quot;current_step&quot;: 4,
+    &quot;current_step_type&quot;: &quot;field_selection&quot;,
+    &quot;steps&quot;: [
+      {
+        &quot;type&quot;: &quot;form&quot;,
+        &quot;properties&quot;: [
+          {
+            &quot;name&quot;: &quot;anchor_time&quot;,
+            &quot;is_required&quot;: false,
+            &quot;is_credential&quot;: false,
+            &quot;system_provided&quot;: false,
+            &quot;property_type&quot;: &quot;user_provided&quot;,
+            &quot;json_schema&quot;: {
+              &quot;type&quot;: &quot;string&quot;,
+              &quot;format&quot;: &quot;date-time&quot;
+            },
+            &quot;provided&quot;: false,
+            &quot;tap_mutable&quot;: false
+          },
+          {
+            &quot;name&quot;: &quot;cron_expression&quot;,
+            &quot;is_required&quot;: false,
+            &quot;is_credential&quot;: false,
+            &quot;system_provided&quot;: false,
+            &quot;property_type&quot;: &quot;user_provided&quot;,
+            &quot;json_schema&quot;: null,
+            &quot;provided&quot;: false,
+            &quot;tap_mutable&quot;: false
+          },
+          {
+            &quot;name&quot;: &quot;frequency_in_minutes&quot;,
+            &quot;is_required&quot;: false,
+            &quot;is_credential&quot;: false,
+            &quot;system_provided&quot;: false,
+            &quot;property_type&quot;: &quot;user_provided&quot;,
+            &quot;json_schema&quot;: {
+              &quot;type&quot;: &quot;string&quot;,
+              &quot;pattern&quot;: &quot;^1$|^30$|^60$|^360$|^720$|^1440$&quot;
+            },
+            &quot;provided&quot;: true,
+            &quot;tap_mutable&quot;: false
+          },
+          {
+            &quot;name&quot;: &quot;image_version&quot;,
+            &quot;is_required&quot;: true,
+            &quot;is_credential&quot;: false,
+            &quot;system_provided&quot;: true,
+            &quot;property_type&quot;: &quot;read_only&quot;,
+            &quot;json_schema&quot;: null,
+            &quot;provided&quot;: true,
+            &quot;tap_mutable&quot;: false
+          },
+          {
+            &quot;name&quot;: &quot;quota_user&quot;,
+            &quot;is_required&quot;: true,
+            &quot;is_credential&quot;: false,
+            &quot;system_provided&quot;: true,
+            &quot;property_type&quot;: &quot;read_only&quot;,
+            &quot;json_schema&quot;: {
+              &quot;type&quot;: &quot;string&quot;
+            },
+            &quot;provided&quot;: true,
+            &quot;tap_mutable&quot;: false
+          },
+          {
+            &quot;name&quot;: &quot;report_definitions&quot;,
+            &quot;is_required&quot;: false,
+            &quot;is_credential&quot;: false,
+            &quot;system_provided&quot;: false,
+            &quot;property_type&quot;: &quot;user_provided&quot;,
+            &quot;json_schema&quot;: {
+              &quot;type&quot;: &quot;array&quot;,
+              &quot;items&quot;: {
+                &quot;type&quot;: &quot;object&quot;,
+                &quot;properties&quot;: {
+                  &quot;name&quot;: {
+                    &quot;type&quot;: &quot;string&quot;
+                  },
+                  &quot;id&quot;: {
+                    &quot;type&quot;: &quot;string&quot;
+                  }
+                },
+                &quot;additionalProperties&quot;: false,
+                &quot;required&quot;: [
+                  &quot;name&quot;,
+                  &quot;id&quot;
+                ]
+              }
+            },
+            &quot;provided&quot;: true,
+            &quot;tap_mutable&quot;: false
+          },
+          {
+            &quot;name&quot;: &quot;start_date&quot;,
+            &quot;is_required&quot;: true,
+            &quot;is_credential&quot;: false,
+            &quot;system_provided&quot;: false,
+            &quot;property_type&quot;: &quot;user_provided&quot;,
+            &quot;json_schema&quot;: {
+              &quot;type&quot;: &quot;string&quot;,
+              &quot;pattern&quot;: &quot;^\\d{4}-\\d{2}-\\d{2}T00:00:00Z$&quot;
+            },
+            &quot;provided&quot;: true,
+            &quot;tap_mutable&quot;: false
+          }
+        ]
+      },
+      {
+        &quot;type&quot;: &quot;oauth&quot;,
+        &quot;properties&quot;: [
+          {
+            &quot;name&quot;: &quot;client_id&quot;,
+            &quot;is_required&quot;: true,
+            &quot;is_credential&quot;: true,
+            &quot;system_provided&quot;: true,
+            &quot;property_type&quot;: &quot;system_provided_by_default&quot;,
+            &quot;json_schema&quot;: {
+              &quot;type&quot;: &quot;string&quot;
+            },
+            &quot;provided&quot;: true,
+            &quot;tap_mutable&quot;: false
+          },
+          {
+            &quot;name&quot;: &quot;client_secret&quot;,
+            &quot;is_required&quot;: true,
+            &quot;is_credential&quot;: true,
+            &quot;system_provided&quot;: true,
+            &quot;property_type&quot;: &quot;system_provided_by_default&quot;,
+            &quot;json_schema&quot;: {
+              &quot;type&quot;: &quot;string&quot;
+            },
+            &quot;provided&quot;: true,
+            &quot;tap_mutable&quot;: false
+          },
+          {
+            &quot;name&quot;: &quot;refresh_token&quot;,
+            &quot;is_required&quot;: true,
+            &quot;is_credential&quot;: true,
+            &quot;system_provided&quot;: true,
+            &quot;property_type&quot;: &quot;system_provided_by_default&quot;,
+            &quot;json_schema&quot;: {
+              &quot;type&quot;: &quot;string&quot;
+            },
+            &quot;provided&quot;: true,
+            &quot;tap_mutable&quot;: false
+          },
+          {
+            &quot;name&quot;: &quot;view_id&quot;,
+            &quot;is_required&quot;: true,
+            &quot;is_credential&quot;: false,
+            &quot;system_provided&quot;: false,
+            &quot;property_type&quot;: &quot;user_provided&quot;,
+            &quot;json_schema&quot;: {
+              &quot;type&quot;: &quot;string&quot;
+            },
+            &quot;provided&quot;: true,
+            &quot;tap_mutable&quot;: false
+          }
+        ]
+      },
+      {
+        &quot;type&quot;: &quot;discover_schema&quot;,
+        &quot;properties&quot;: []
+      },
+      {
+        &quot;type&quot;: &quot;field_selection&quot;,
+        &quot;properties&quot;: []
+      },
+      {
+        &quot;type&quot;: &quot;fully_configured&quot;,
+        &quot;properties&quot;: []
+      }
+    ]
+  }
+}" title="Copy to clipboard" tabindex="0"></div></div></div>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"properties"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"cron_expression"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"frequency_in_minutes"</span><span class="p">:</span><span class="w"> </span><span class="s2">"60"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"image_version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.latest"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"product"</span><span class="p">:</span><span class="w"> </span><span class="s2">"pipeline"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"quota_user"</span><span class="p">:</span><span class="w"> </span><span class="s2">"234588"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"report_definitions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Visitor Traffic"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a53305a5-d6c8-42d3-9c5d-65a524f217c1"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nl">"start_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-03-25T00:00:00Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"view_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"143355753"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-06-26T18:06:12Z"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"schedule"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tap_google"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"platform.google-analytics"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"deleted_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"system_paused_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"stitch_client_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">116078</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"paused_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-06-23T01:29:17Z"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">122635</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"display_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Google Analytics"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-03-25T20:23:29Z"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"report_card"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"platform.google-analytics"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"current_step"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"current_step_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"field_selection"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"steps"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"form"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"properties"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"anchor_time"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"is_required"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"is_credential"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"system_provided"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"property_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user_provided"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"json_schema"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+              </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"format"</span><span class="p">:</span><span class="w"> </span><span class="s2">"date-time"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nl">"provided"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"tap_mutable"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cron_expression"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"is_required"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"is_credential"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"system_provided"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"property_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user_provided"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"json_schema"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"provided"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"tap_mutable"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"frequency_in_minutes"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"is_required"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"is_credential"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"system_provided"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"property_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user_provided"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"json_schema"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+              </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"pattern"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^1$|^30$|^60$|^360$|^720$|^1440$"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nl">"provided"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"tap_mutable"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"image_version"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"is_required"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"is_credential"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"system_provided"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"property_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"read_only"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"json_schema"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"provided"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"tap_mutable"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"quota_user"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"is_required"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"is_credential"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"system_provided"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"property_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"read_only"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"json_schema"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+              </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nl">"provided"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"tap_mutable"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"report_definitions"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"is_required"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"is_credential"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"system_provided"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"property_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user_provided"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"json_schema"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+              </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"array"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"items"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"object"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"properties"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                  </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                    </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+                  </span><span class="p">},</span><span class="w">
+                  </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                    </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+                  </span><span class="p">}</span><span class="w">
+                </span><span class="p">},</span><span class="w">
+                </span><span class="nl">"additionalProperties"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"required"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                  </span><span class="s2">"name"</span><span class="p">,</span><span class="w">
+                  </span><span class="s2">"id"</span><span class="w">
+                </span><span class="p">]</span><span class="w">
+              </span><span class="p">}</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nl">"provided"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"tap_mutable"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"start_date"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"is_required"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"is_credential"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"system_provided"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"property_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user_provided"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"json_schema"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+              </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"pattern"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^</span><span class="se">\\</span><span class="s2">d{4}-</span><span class="se">\\</span><span class="s2">d{2}-</span><span class="se">\\</span><span class="s2">d{2}T00:00:00Z$"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nl">"provided"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"tap_mutable"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"oauth"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"properties"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"client_id"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"is_required"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"is_credential"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"system_provided"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"property_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"system_provided_by_default"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"json_schema"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+              </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nl">"provided"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"tap_mutable"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"client_secret"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"is_required"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"is_credential"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"system_provided"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"property_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"system_provided_by_default"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"json_schema"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+              </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nl">"provided"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"tap_mutable"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"refresh_token"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"is_required"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"is_credential"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"system_provided"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"property_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"system_provided_by_default"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"json_schema"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+              </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nl">"provided"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"tap_mutable"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"view_id"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"is_required"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"is_credential"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"system_provided"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"property_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user_provided"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"json_schema"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+              </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nl">"provided"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"tap_mutable"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"discover_schema"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"properties"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"field_selection"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"properties"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fully_configured"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"properties"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p>If all form and OAuth connection properties have been provided, the source will advance to the next step in the configuration process. This will typically be <code class="language-plaintext highlighter-rouge">field_selection</code> or <code class="language-plaintext highlighter-rouge">fully_configured</code>.</p>
+
+
+    <!-- If a step has substeps -->
+        
+
+        
+    
+
+
+<!-- NEXT STEPS  -->
+    
+        <h2 id="next-steps">Next steps</h2>
+
+        <p>Congratulations on configuring OAuth for a source! To fully configure a souce, you might also need to <a href="/docs/developers/stitch-connect/guides/select-streams-and-fields-with-connect-api">select streams and fields</a> to replicate.</p>
+
+<p>Check out the <a href="/docs/developers/stitch-connect/guides">Tutorials and resources</a> to see what else you can do with Stitch Connect.</p>
+
+    
+
+<!-- GitHub Feedback snippet -->
+
+</div>
+
+<hr class="footer-cta">
+<div class="footer-signup-cta" data-swiftype-index='false'>
+    <div class="wrapper">
+        <div>
+            <p>Try Stitch for free</p>
+        </div>
+        <div>
+            <a href="https://www.stitchdata.com/signup" class="btn-default btn-default--yellow">
+                Start your trial <span class="arrow"></span>
+            </a>
+        </div>
+    </div>
+</div>
+<footer data-swiftype-index='false'>
+    <div class="site-generation">
+        &copy;2020 Stitch. All rights reserved. 
+         Site last generated: Jul 23, 2020
+    </div>
+    
+</footer>
+        </div>
+    </div>
+</div>
+
+<!-- JAVASCRIPT -->
+<script type="text/javascript" src="/docs/js/docsearch.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+
+<!-- Used for creating heading anchors -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/2.0.0/anchor.min.js"></script>
+<script src="//cdn.statuspage.io/se-v2.js"></script>
+
+<script src="/docs/js/toc.js"></script>
+<script src="/docs/js/customscripts.js"></script>
+<script src="/docs/js/copyCode.js"></script>
+
+<script type="text/javascript">
+    $(".fouc").removeClass("fouc");
+</script>
+
+<!-- Intercom bubble -->
+<script>
+  window.intercomSettings = {
+    app_id: "okjpf68w"
+  };
+</script>
+<script>
+(function(){var w=window;var ic=w.Intercom;if(typeof ic==="function"){ic('reattach_activator');ic('update',intercomSettings);}else{var d=document;var i=function(){i.c(arguments)};i.q=[];i.c=function(args){i.q.push(args)};w.Intercom=i;function l(){var s=d.createElement('script');s.type='text/javascript';s.async=true;s.src='https://widget.intercom.io/widget/okjpf68w';var x=d.getElementsByTagName('script')[0];x.parentNode.insertBefore(s,x);}if(w.attachEvent){w.attachEvent('onload',l);}else{w.addEventListener('load',l,false);}}})()
+</script>
+
+<!-- Search -->
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install','SAg6gNWby6H1xYzjhfzB','2.0.0');
+</script>
+
+<div class="st-search-container"></div>
+
+</body>
+</html>

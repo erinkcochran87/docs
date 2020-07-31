@@ -1,0 +1,882 @@
+<!DOCTYPE html>
+<head>
+    <!-- Google Tag Manager  -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-PXBN5GK');</script>
+<!-- End Google Tag Manager -->
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta class="swiftype" name="description" data-type="string" content="Learn how to sequence data for the Import API.">
+<meta class="swiftype" name="keywords" data-type="string" content=",  ">
+<title>Sequencing Data for the Stitch Import API | Stitch Documentation</title>
+
+<meta property="og:title" content="Sequencing Data for the Stitch Import API | Stitch Documentation" />
+<meta property="og:description" content="Learn how to sequence data for the Import API." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="/docs" />
+<meta property="og:image" content="https://www.stitchdata.com/images/og-site-icon-talend.png" />
+<meta property="og:site_name" content="Stitch Docs" />
+
+<meta name="twitter:creator" content="@stitch_data">
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@stitch_data" />
+<meta name="twitter:image" content="https://www.stitchdata.com/images/og-site-icon-talend.png" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- STYLESHEETS -->
+<link rel="stylesheet" type="text/css" href="/docs/css/bootstrap.min.css">
+<link rel="stylesheet" href="/docs/css/modern-business.css">
+<link rel="stylesheet" href="/docs/css/lavish-bootstrap.css">
+<link rel="stylesheet" href="/docs/css/customstyles.css">
+<link rel="stylesheet" href="/docs/css/theme-stitch.css">
+<link rel="stylesheet" href="/docs/css/docsearch.min.css" />
+<link rel="stylesheet" href="/docs/stylesheets/screen.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<!-- FONT AWESOME -->
+<script src="https://kit.fontawesome.com/e0e120b2f0.js"></script>
+
+<!-- JQUERY -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+<script src="/docs/js/jquery.navgoco.min.js"></script>
+
+<!-- FAVICONS  -->
+<link rel="/docs/images/apple-touch-icon" sizes="57x57" href="/docs/images/apple-icon-57x57.png">
+<link rel="/docs/images/apple-touch-icon" sizes="60x60" href="/docs/images/apple-icon-60x60.png">
+<link rel="/docs/images/apple-touch-icon" sizes="72x72" href="/docs/images/apple-icon-72x72.png">
+<link rel="/docs/images/apple-touch-icon" sizes="76x76" href="/docs/images/apple-icon-76x76.png">
+<link rel="/docs/images/apple-touch-icon" sizes="114x114" href="/docs/images/apple-icon-114x114.png">
+<link rel="/docs/images/apple-touch-icon" sizes="120x120" href="/docs/images/apple-icon-120x120.png">
+<link rel="/docs/images/apple-touch-icon" sizes="144x144" href="/docs/images/apple-icon-144x144.png">
+<link rel="/docs/images/apple-touch-icon" sizes="152x152" href="/docs/images/apple-icon-152x152.png">
+<link rel="/docs/images/apple-touch-icon" sizes="180x180" href="/docs/images/apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192"  href="/docs/images/android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/docs/images/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="/docs/images/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/docs/images/favicon-16x16.png">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+<meta name="theme-color" content="#ffffff">
+
+<link rel="stylesheet" href="/docs/css/syntax.css">
+
+<!-- FONTS -->
+<link href="https://fonts.googleapis.com/css?family=PT+Sans:400,700&display=swap" rel="stylesheet">
+
+<style type="text/css">
+	.js .fouc {display: none !important;}
+</style>
+
+<script type="text/javascript">
+	document.documentElement.className = 'js';
+</script>
+
+<!-- Begin Inspectlet Embed Code -->
+<script type="text/javascript" id="inspectletjs">
+window.__insp = window.__insp || [];
+__insp.push(['wid', 479657659]);
+(function() {
+function ldinsp(){if(typeof window.__inspld != "undefined") return; window.__inspld = 1; var insp = document.createElement('script'); insp.type = 'text/javascript'; insp.async = true; insp.id = "inspsync"; insp.src = ('https:' == document.location.protocol ? 'https' : 'http') + '://cdn.inspectlet.com/inspectlet.js'; var x = document.getElementsByTagName('script')[0]; x.parentNode.insertBefore(insp, x); };
+setTimeout(ldinsp, 500); document.readyState != "complete" ? (window.attachEvent ? window.attachEvent('onload', ldinsp) : window.addEventListener('load', ldinsp, false)) : ldinsp();
+})();
+</script>
+<!-- End Inspectlet Embed Code -->
+
+
+  <!-- Initializes tooltips -->
+    <script>
+      $(function () {
+            $('[data-toggle="tooltip"]').tooltip({
+              delay: {show: 0, hide: 2000}
+            });
+        })
+    </script>
+
+</head>
+
+
+
+<body>
+
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PXBN5GK"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<!-- Navigation -->
+
+<nav class="stitch-docs-navbar" data-swiftype-index='false'>
+    <div class="nav-left">
+        <?xml version="1.0" encoding="utf-8"?>
+        <!-- Generator: Adobe Illustrator 23.1.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+        <svg version="1.1" id="logomark" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+             viewBox="0 0 380 380" enable-background="new 0 0 380 380" xml:space="preserve">
+        <path id="logomark_2_" fill="#FFFFFF" d="M120,177.1v-26.7h260V0H0v203.8h270.5v26.7H0V380h380V175.2H120V177.1z M193.3,39
+            c10.5,0,19,8.6,19,19s-8.6,19-19,19s-19-8.6-19-19C174.3,46.7,183.8,39,193.3,39z M112.4,96.2H281l-7.6,26.7H119L112.4,96.2z
+             M193.3,340c-10.5,0-19-8.6-19-19c0-10.5,8.6-19,19-19s19,8.6,19,19C212.4,331.4,202.9,340,193.3,340z M112.4,281.9l6.7-26.7h154.3
+            l7.6,26.7H112.4z"/>
+        </svg>
+        <a class="navbar-brand" href="/docs/">
+            <span class="projectTitle"> Stitch Docs</span>
+        </a>
+    </div>
+    <div class="mobile-nav-icon"></div>
+    <div id="close" class="mobile-close-out hide"></div>
+    <div class="nav-right">
+        <ul class="stitch-nav">
+            <!-- entries without drop-downs appear here -->
+            
+                
+                    
+                        <li>
+                            <a href="https://www.stitchdata.com" target="_blank">stitchdata.com</a>
+                        </li>
+                    
+                
+                    
+                        <li>
+                            <a href="https://github.com/stitchdata/docs#stitch-documentation" target="_blank"><i class="fab fa-github" aria-hidden="true"></i> Contribute
+</a>
+                        </li>
+                    
+                
+                    
+                        <li>
+                            <a href="https://www.stitchdata.com/changelog" target="_blank">Changelog</a>
+                        </li>
+                    
+                
+                    
+                        <li>
+                            <a href="/docs/announcements">Announcements</a>
+                        </li>
+                    
+                
+            
+            <li class="sign-up"><a href="https://stitchdata.com/signup">Sign up</a></li>
+            <li>
+                <!--start search-->
+                <div id="search-demo-container">
+                    <input type="text" id="search-input" placeholder="What can we help you find?">
+                    <div class="img"><i class="fa fa-search"></i></div>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+
+</nav>
+
+
+<!-- Page Content -->
+<div id="main">
+    <div class="sidebar-column">
+      <div class="sidebar-button"></div>
+        
+<!-- UI: page/button/section names, menu paths, etc -->
+
+
+<!-- Simplifies internal links -->
+
+
+<!-- Stitch -->
+
+
+<!-- UI Icons -->
+
+
+
+<!-- Tooltips and terms -->
+
+
+
+<!-- Mapping of Stitch replication/system columns -->
+
+
+
+<!-- Rejected Record table details & schema -->
+
+
+
+<!-- Stitch IP addresses  -->
+
+
+
+    	
+    		
+<!-- UI: page/button/section names, menu paths, etc -->
+
+
+<!-- Simplifies internal links -->
+
+
+<!-- Stitch -->
+
+
+<!-- UI Icons -->
+
+
+
+<!-- Tooltips and terms -->
+
+
+
+<!-- Mapping of Stitch replication/system columns -->
+
+
+
+<!-- Rejected Record table details & schema -->
+
+
+
+<!-- Stitch IP addresses  -->
+
+
+<div class="menu-list" data-swiftype-index='false'>
+
+<ul id="mysidebar" class="nav">
+    <!-- Stitch status widget -->
+    <a class="status-page" href="http://status.stitchdata.com" target="_blank">
+        <span class="color-dot"></span>
+        <span class="color-description"></span>
+    </a>
+
+    <li>
+    	<strong>In this guide:</strong>
+    </li>
+
+    
+	    <li>
+			<a href="#">
+		    	Introduction
+		    </a>
+		</li>
+	
+
+    
+
+    
+		
+            <li class="subfolders">
+                <a data-toggle="collapse" href="#understand-record-sequencing--menu" aria-expanded="false" aria-controls="understand-record-sequencing--menu">
+                    Understanding record sequencing
+                    <i class="fa fa-caret-down fa-1 pull-right" aria-hidden="true"></i>
+                </a>
+
+                <ul class="collapse" id="understand-record-sequencing--menu">
+
+                    <!-- This is a menu item that actually links to the section. It's
+                        in here because the menu doesn't link to the section, the anchor just opens the menu. -->
+            		<li>
+                        <a href="#understand-record-sequencing">Understanding record sequencing</a>
+                    </li>
+
+               		
+                        
+                    		<li>
+                                <a href="#sequence-replication-keys">Sequencing and Replication Keys</a>
+                            </li>
+                        
+                	
+                        
+                    		<li>
+                                <a href="#record-sequencing-primary-keys">Record sequencing, Primary Keys, and loading</a>
+                            </li>
+                        
+                	
+                </ul>
+
+            
+    	</li>
+    
+		
+            <li class="subfolders">
+                <a data-toggle="collapse" href="#define-record-sequences--menu" aria-expanded="false" aria-controls="define-record-sequences--menu">
+                    Defining record sequences
+                    <i class="fa fa-caret-down fa-1 pull-right" aria-hidden="true"></i>
+                </a>
+
+                <ul class="collapse" id="define-record-sequences--menu">
+
+                    <!-- This is a menu item that actually links to the section. It's
+                        in here because the menu doesn't link to the section, the anchor just opens the menu. -->
+            		<li>
+                        <a href="#define-record-sequences">Defining record sequences</a>
+                    </li>
+
+               		
+                        
+                    		<li>
+                                <a href="#generate-sequence-values">Generating sequence values</a>
+                            </li>
+                        
+                	
+                        
+                    		<li>
+                                <a href="#track-record-maximum-sequence">Tracking a record's maximum sequence</a>
+                            </li>
+                        
+                	
+                </ul>
+
+            
+    	</li>
+    
+		
+            	<li>
+            		<a href="#examples">
+		            	Example request
+		            </a>
+		        </li>
+    		
+    	</li>
+    
+
+    
+	    <hr>
+
+	    <li>
+	    	<strong>Related:</strong>
+	    </li>
+
+	    	
+	    		<li>
+            		<a href="/docs/developers/import-api/api">
+		            	Import API reference
+		            </a>
+		        </li>
+	    	
+	    		<li>
+            		<a href="/docs/developers/import-api/guides/structure-data-for-the-import-api">
+		            	Structuring data for the Import API
+		            </a>
+		        </li>
+	    	
+	    		<li>
+            		<a href="/docs/replication/loading/understanding-loading-behavior">
+		            	Understanding loading behavior
+		            </a>
+		        </li>
+	    	
+	
+</ul>
+
+</div>
+    	
+
+    </div>
+    <div class="content-column">
+
+        <div class="article">
+          
+            <div class="breadbox">
+                <div class="breadcrumb-container" data-swiftype-index='false'>
+                    <div id="breadcrumb-menu" class="menu-left">
+                        <!-- Credit to JoostS for this code: https://stackoverflow.com/questions/9612235/what-are-some-good-ways-to-implement-breadcrumbs-on-a-jekyll-site -->
+
+
+
+
+<a href="/docs">DOCS</a>
+
+  
+    > <a href="/docs/developers/">DEVELOPERS</a>
+  
+
+  
+    > <a href="/docs/developers/import-api/">IMPORT API</a>
+  
+
+  
+    > <a href="/docs/developers/import-api/guides/">GUIDES</a>
+  
+
+  
+    > <strong>SEQUENCING DATA FOR THE STITCH IMPORT API</strong>
+  
+
+
+                    </div>
+
+                    
+                </div>
+            </div>
+          
+
+          <div class="post-header">
+    <h1 class="post-title-main">Sequencing Data for the Stitch Import API</h1>
+</div>
+
+<div class="post-content">
+<!-- Controls display of page summary -->
+   
+
+<!-- Table of Contents -->
+    
+
+    
+
+      
+<!-- UI: page/button/section names, menu paths, etc -->
+
+
+<!-- Simplifies internal links -->
+
+
+<!-- Stitch -->
+
+
+<!-- UI Icons -->
+
+
+
+<!-- Tooltips and terms -->
+
+
+
+<!-- Mapping of Stitch replication/system columns -->
+
+
+
+<!-- Rejected Record table details & schema -->
+
+
+
+<!-- Stitch IP addresses  -->
+
+
+
+<!-- This only runs for destination and integration pgaes.
+    The include assigns a different page variable, and displays the correc
+    beta notice when applicable. -->
+    
+        <!-- This file is used to assign the correct
+	page variable for destination and integration content.
+
+	It'll also display the appropriate beta notice for
+	destinations/integrations that require it. -->
+
+    
+    
+
+
+    
+<!-- UI: page/button/section names, menu paths, etc -->
+
+<!-- Simplifies internal links -->
+
+<!-- Stitch -->
+
+<!-- UI Icons -->
+
+<!-- Tooltips and terms -->
+
+<!-- Mapping of Stitch replication/system columns -->
+
+<!-- Rejected Record table details & schema -->
+
+<!-- Stitch IP addresses  -->
+
+<p>Stitch uses record sequencing to determine in what order extracted records are considered for loading. This practice, along with de-duping data using Primary Keys, ensures that only the most recent version of a record is loaded into a destination. Newer data points can replace older ones, but not vice versa.</p>
+
+<p>Stitch uses the <code class="language-plaintext highlighter-rouge">sequence</code> property on records pushed to the Import API to accomplish this. Every record in a request must have this property.</p>
+
+<p>In this guide, we’ll cover:</p>
+
+<ul>
+  <li>
+    <p><a href="#understand-record-sequencing">The basics of record sequencing</a></p>
+  </li>
+  <li>
+    <p><a href="#define-record-sequences">How to define a record’s sequence</a></p>
+  </li>
+  <li>
+    <p><a href="#examples">An example request</a></p>
+  </li>
+</ul>
+
+
+
+    <hr>
+
+
+
+
+
+    
+        <h2 id="understand-record-sequencing">Understanding record sequencing</h2>
+    
+
+        
+<ul>
+  <li>
+    <p><a href="#sequence-replication-keys">Sequencing and Replication Keys</a></p>
+  </li>
+  <li>
+    <p><a href="#record-sequencing-primary-keys">Record sequencing, Primary Keys, and loading</a></p>
+  </li>
+</ul>
+
+
+
+<!-- If a section has subsections -->
+    
+        
+            
+                <h3 id="sequence-replication-keys">Sequencing and Replication Keys</h3>
+            
+
+            <p>Think of <code class="language-plaintext highlighter-rouge">sequence</code> like a <a href="/docs/replication/replication-keys">Replication Key</a>, but on a record-by-record basis.</p>
+
+<p>For the Import API, sequence functions similarly to an <code class="language-plaintext highlighter-rouge">updated_at</code> property: Only records that have a <code class="language-plaintext highlighter-rouge">sequence</code> value greater than an existing record with the same Primary Key will be replicated and loaded.</p>
+
+<p>For example: The record below has a <code class="language-plaintext highlighter-rouge">sequence</code> value of <code class="language-plaintext highlighter-rouge">1574800199000</code>:</p>
+
+<div class="code-header"><div class="copy-code-container"><div class="copy-code-button" data-code="{
+   &quot;action&quot;:&quot;upsert&quot;,
+   &quot;sequence&quot;:1574800199000,
+   &quot;data&quot;:{
+      &quot;id&quot;:1,
+      &quot;name&quot;:&quot;Finn&quot;,
+      &quot;age&quot;:15,
+      &quot;has_magic&quot;:false
+   }
+}" title="Copy to clipboard" tabindex="0"></div></div></div>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+   </span><span class="nl">"action"</span><span class="p">:</span><span class="s2">"upsert"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"sequence"</span><span class="p">:</span><span class="mi">1574800199000</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"data"</span><span class="p">:{</span><span class="w">
+      </span><span class="nl">"id"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"name"</span><span class="p">:</span><span class="s2">"Finn"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"age"</span><span class="p">:</span><span class="mi">15</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"has_magic"</span><span class="p">:</span><span class="kc">false</span><span class="w">
+   </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p>In this example, <code class="language-plaintext highlighter-rouge">sequence</code> is a Unix epoch in milliseconds that translates to <code class="language-plaintext highlighter-rouge">Tuesday, November 26, 2019 8:29:59 PM GMT-05:00</code>.</p>
+
+
+        <!-- If a subsection has its own subsections -->
+            
+        
+            
+                <h3 id="record-sequencing-primary-keys">Record sequencing, Primary Keys, and loading</h3>
+            
+
+            
+<div class="alert alert-info" role="alert">
+     <p><i class="fas fa-info-circle"></i>
+<strong>Note</strong>: This section only applies if the destination isn’t configured to use Append-Only loading.</p>
+    
+<p>If the destination uses or only supports Append-Only loading, data will not be de-duplicated using Primary Keys. The version of the record with the greatest sequence value will be loaded, but it will be appended to the destination table as a new row. This means that a table can contain several versions of a single record, showing how it has changed over time.</p>
+
+<p>Refer to the <a href="/docs/replication/loading/understanding-loading-behavior">Understanding loading behavior guide</a> for more info.</p>
+
+</div>
+
+<p>Every record sent to the Import API must have a <code class="language-plaintext highlighter-rouge">sequence</code> property. If Primary Keys are defined for the table records are sent to, Stitch will use the provided <code class="language-plaintext highlighter-rouge">sequence</code> value and the record’s Primary Key to de-duplicate data. This process ensures that only the most recent version of a record is loaded into a destination.</p>
+
+<p>For example: Below is a single request containing two data points, both for the same record (<code class="language-plaintext highlighter-rouge">id: 2</code>). Only data point 1 would be loaded into the destination, as it has a greater <code class="language-plaintext highlighter-rouge">sequence</code> value than data point 2:</p>
+
+<div class="code-header"><div class="copy-code-container"><div class="copy-code-button" data-code="{
+   &quot;action&quot;:&quot;upsert&quot;,           /* Data point 1 */
+   &quot;sequence&quot;:1574807445000,    /* 11/26/2019 10:30:45 PM */
+   &quot;data&quot;:{
+      &quot;id&quot;:2,
+      &quot;name&quot;:&quot;Jake&quot;,
+      &quot;has_magic&quot;:false
+   }
+},
+{
+   &quot;action&quot;:&quot;upsert&quot;,           /* Data point 2 */
+   &quot;sequence&quot;:1574807395000,    /* 11/26/2019 10:29:55 PM */
+   &quot;data&quot;:{
+      &quot;id&quot;:2,
+      &quot;name&quot;:&quot;Jake&quot;,
+      &quot;has_magic&quot;:true
+   }
+}" title="Copy to clipboard" tabindex="0"></div></div></div>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+   </span><span class="nl">"action"</span><span class="p">:</span><span class="s2">"upsert"</span><span class="p">,</span><span class="w">           </span><span class="err">/*</span><span class="w"> </span><span class="err">Data</span><span class="w"> </span><span class="err">point</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="err">*/</span><span class="w">
+   </span><span class="nl">"sequence"</span><span class="p">:</span><span class="mi">1574807445000</span><span class="p">,</span><span class="w">    </span><span class="err">/*</span><span class="w"> </span><span class="mi">11</span><span class="err">/</span><span class="mi">26</span><span class="err">/</span><span class="mi">2019</span><span class="w"> </span><span class="mi">10</span><span class="err">:</span><span class="mi">30</span><span class="err">:</span><span class="mi">45</span><span class="w"> </span><span class="err">PM</span><span class="w"> </span><span class="err">*/</span><span class="w">
+   </span><span class="nl">"data"</span><span class="p">:{</span><span class="w">
+      </span><span class="nl">"id"</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"name"</span><span class="p">:</span><span class="s2">"Jake"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"has_magic"</span><span class="p">:</span><span class="kc">false</span><span class="w">
+   </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="err">,</span><span class="w">
+</span><span class="p">{</span><span class="w">
+   </span><span class="nl">"action"</span><span class="p">:</span><span class="s2">"upsert"</span><span class="p">,</span><span class="w">           </span><span class="err">/*</span><span class="w"> </span><span class="err">Data</span><span class="w"> </span><span class="err">point</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="err">*/</span><span class="w">
+   </span><span class="nl">"sequence"</span><span class="p">:</span><span class="mi">1574807395000</span><span class="p">,</span><span class="w">    </span><span class="err">/*</span><span class="w"> </span><span class="mi">11</span><span class="err">/</span><span class="mi">26</span><span class="err">/</span><span class="mi">2019</span><span class="w"> </span><span class="mi">10</span><span class="err">:</span><span class="mi">29</span><span class="err">:</span><span class="mi">55</span><span class="w"> </span><span class="err">PM</span><span class="w"> </span><span class="err">*/</span><span class="w">
+   </span><span class="nl">"data"</span><span class="p">:{</span><span class="w">
+      </span><span class="nl">"id"</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"name"</span><span class="p">:</span><span class="s2">"Jake"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"has_magic"</span><span class="p">:</span><span class="kc">true</span><span class="w">
+   </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+
+
+        <!-- If a subsection has its own subsections -->
+            
+        
+    
+
+    
+        <hr>
+    
+
+    
+        <h2 id="define-record-sequences">Defining record sequences</h2>
+    
+
+        
+<ul>
+  <li>
+    <p><a href="#generate-sequence-values">Generating sequence values</a></p>
+  </li>
+  <li>
+    <p><a href="#track-record-maximum-sequence">Tracking a record’s maximum sequence</a></p>
+  </li>
+</ul>
+
+
+
+<!-- If a section has subsections -->
+    
+        
+            
+                <h3 id="generate-sequence-values">Generating sequence values</h3>
+            
+
+            <p>When developing your Import API script, you’ll need to define how values for the <code class="language-plaintext highlighter-rouge">sequence</code> property are generated.</p>
+
+<p>A simple solution is just to use the current timestamp, but before doing so, consider the following:</p>
+
+<ul>
+  <li>
+    <p><strong>How frequently are the records being updated?</strong> If records with identical Primary Key values are updated every few milliseconds and pushed simultaneously, the correct version of a record may not be loaded successfully. This means that records with the same Primary Key values can’t be sent during the same clock resolution.</p>
+
+    <p>For example: If the resolution is measured in milliseconds, records with identical Primary Key values cannot be sent during the same millisecond.</p>
+  </li>
+  <li>
+    <p><strong>Are records being pushed from multiple sources?</strong> If so, the time clocks of these sources must be synchronized. This is especially important if different sources are pushing records to the same table.</p>
+  </li>
+</ul>
+
+
+        <!-- If a subsection has its own subsections -->
+            
+        
+            
+                <h3 id="track-record-maximum-sequence">Tracking a record's maximum sequence</h3>
+            
+
+            <p>In addition to generating sequence values for records, you’ll also need to track the maximum sequence value for each record being pushed to the Import API. Sequence values need to continually increase or records in the destination won’t be updated with new data.</p>
+
+
+        <!-- If a subsection has its own subsections -->
+            
+        
+    
+
+    
+        <hr>
+    
+
+    
+        <h2 id="examples">Example request</h2>
+    
+
+        <p>This request for <a href="/docs/developers/import-api/api#batch-data">POST /v2/import/batch</a> the contains three data points: One for record <code class="language-plaintext highlighter-rouge">id: 1</code>, and two for <code class="language-plaintext highlighter-rouge">id: 2</code>.</p>
+
+<p>If these data points were received in this order, only data points 1 and 2 would continue to Stitch.</p>
+
+<p>Data point 3 would not, as its <code class="language-plaintext highlighter-rouge">sequence</code> value is less than the <code class="language-plaintext highlighter-rouge">sequence</code> value for data point 2, which also has a Primary Key value of <code class="language-plaintext highlighter-rouge">id: 2</code>.</p>
+
+<div class="code-header"><div class="code-description-container"><strong>Example request for POST /v2/import/batch</strong></div><div class="copy-code-container"><div class="copy-code-button" data-code="{
+   &quot;table_name&quot;:&quot;customers&quot;,
+      &quot;messages&quot;:[
+      {
+         &quot;action&quot;:&quot;upsert&quot;,           /* Data point 1 */
+         &quot;sequence&quot;:1574807356000,    /* 11/26/2019 10:29:16 PM */
+         &quot;data&quot;:{
+            &quot;id&quot;:1,
+            &quot;name&quot;:&quot;Finn&quot;,
+            &quot;has_magic&quot;:false
+         }
+      },
+      {
+         &quot;action&quot;:&quot;upsert&quot;,           /* Data point 2 */
+         &quot;sequence&quot;:1574807445000,    /* 11/26/2019 10:30:45 PM */
+         &quot;data&quot;:{
+            &quot;id&quot;:2,
+            &quot;name&quot;:&quot;Jake&quot;,
+            &quot;has_magic&quot;:false
+         }
+      },
+      {
+         &quot;action&quot;:&quot;upsert&quot;,           /* Data point 3 */
+         &quot;sequence&quot;:1574807395000,    /* 11/26/2019 10:29:55 PM */
+         &quot;data&quot;:{
+            &quot;id&quot;:2,
+            &quot;name&quot;:&quot;Jake&quot;,
+            &quot;has_magic&quot;:true
+         }
+      }
+   ],
+   &quot;key_names&quot;:[
+      &quot;id&quot;
+   ],
+   &quot;schema&quot;:{
+      &quot;properties&quot;:{
+         &quot;id&quot;:{
+            &quot;type&quot;:&quot;integer&quot;
+         },
+         &quot;name&quot;:{
+            &quot;type&quot;:&quot;string&quot;
+         },
+         &quot;has_magic&quot;:{
+            &quot;type&quot;:&quot;boolean&quot;
+         }
+      }
+   }
+}" title="Copy to clipboard" tabindex="0"></div></div></div>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+   </span><span class="nl">"table_name"</span><span class="p">:</span><span class="s2">"customers"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"messages"</span><span class="p">:[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+         </span><span class="nl">"action"</span><span class="p">:</span><span class="s2">"upsert"</span><span class="p">,</span><span class="w">           </span><span class="err">/*</span><span class="w"> </span><span class="err">Data</span><span class="w"> </span><span class="err">point</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="err">*/</span><span class="w">
+         </span><span class="nl">"sequence"</span><span class="p">:</span><span class="mi">1574807356000</span><span class="p">,</span><span class="w">    </span><span class="err">/*</span><span class="w"> </span><span class="mi">11</span><span class="err">/</span><span class="mi">26</span><span class="err">/</span><span class="mi">2019</span><span class="w"> </span><span class="mi">10</span><span class="err">:</span><span class="mi">29</span><span class="err">:</span><span class="mi">16</span><span class="w"> </span><span class="err">PM</span><span class="w"> </span><span class="err">*/</span><span class="w">
+         </span><span class="nl">"data"</span><span class="p">:{</span><span class="w">
+            </span><span class="nl">"id"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"name"</span><span class="p">:</span><span class="s2">"Finn"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"has_magic"</span><span class="p">:</span><span class="kc">false</span><span class="w">
+         </span><span class="p">}</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+         </span><span class="nl">"action"</span><span class="p">:</span><span class="s2">"upsert"</span><span class="p">,</span><span class="w">           </span><span class="err">/*</span><span class="w"> </span><span class="err">Data</span><span class="w"> </span><span class="err">point</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="err">*/</span><span class="w">
+         </span><span class="nl">"sequence"</span><span class="p">:</span><span class="mi">1574807445000</span><span class="p">,</span><span class="w">    </span><span class="err">/*</span><span class="w"> </span><span class="mi">11</span><span class="err">/</span><span class="mi">26</span><span class="err">/</span><span class="mi">2019</span><span class="w"> </span><span class="mi">10</span><span class="err">:</span><span class="mi">30</span><span class="err">:</span><span class="mi">45</span><span class="w"> </span><span class="err">PM</span><span class="w"> </span><span class="err">*/</span><span class="w">
+         </span><span class="nl">"data"</span><span class="p">:{</span><span class="w">
+            </span><span class="nl">"id"</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"name"</span><span class="p">:</span><span class="s2">"Jake"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"has_magic"</span><span class="p">:</span><span class="kc">false</span><span class="w">
+         </span><span class="p">}</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+         </span><span class="nl">"action"</span><span class="p">:</span><span class="s2">"upsert"</span><span class="p">,</span><span class="w">           </span><span class="err">/*</span><span class="w"> </span><span class="err">Data</span><span class="w"> </span><span class="err">point</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="err">*/</span><span class="w">
+         </span><span class="nl">"sequence"</span><span class="p">:</span><span class="mi">1574807395000</span><span class="p">,</span><span class="w">    </span><span class="err">/*</span><span class="w"> </span><span class="mi">11</span><span class="err">/</span><span class="mi">26</span><span class="err">/</span><span class="mi">2019</span><span class="w"> </span><span class="mi">10</span><span class="err">:</span><span class="mi">29</span><span class="err">:</span><span class="mi">55</span><span class="w"> </span><span class="err">PM</span><span class="w"> </span><span class="err">*/</span><span class="w">
+         </span><span class="nl">"data"</span><span class="p">:{</span><span class="w">
+            </span><span class="nl">"id"</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"name"</span><span class="p">:</span><span class="s2">"Jake"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"has_magic"</span><span class="p">:</span><span class="kc">true</span><span class="w">
+         </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+   </span><span class="p">],</span><span class="w">
+   </span><span class="nl">"key_names"</span><span class="p">:[</span><span class="w">
+      </span><span class="s2">"id"</span><span class="w">
+   </span><span class="p">],</span><span class="w">
+   </span><span class="nl">"schema"</span><span class="p">:{</span><span class="w">
+      </span><span class="nl">"properties"</span><span class="p">:{</span><span class="w">
+         </span><span class="nl">"id"</span><span class="p">:{</span><span class="w">
+            </span><span class="nl">"type"</span><span class="p">:</span><span class="s2">"integer"</span><span class="w">
+         </span><span class="p">},</span><span class="w">
+         </span><span class="nl">"name"</span><span class="p">:{</span><span class="w">
+            </span><span class="nl">"type"</span><span class="p">:</span><span class="s2">"string"</span><span class="w">
+         </span><span class="p">},</span><span class="w">
+         </span><span class="nl">"has_magic"</span><span class="p">:{</span><span class="w">
+            </span><span class="nl">"type"</span><span class="p">:</span><span class="s2">"boolean"</span><span class="w">
+         </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+   </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+
+
+<!-- If a section has subsections -->
+    
+
+    
+
+
+
+
+
+<!-- GitHub Feedback snippet -->
+
+</div>
+
+<hr class="footer-cta">
+<div class="footer-signup-cta" data-swiftype-index='false'>
+    <div class="wrapper">
+        <div>
+            <p>Try Stitch for free</p>
+        </div>
+        <div>
+            <a href="https://www.stitchdata.com/signup" class="btn-default btn-default--yellow">
+                Start your trial <span class="arrow"></span>
+            </a>
+        </div>
+    </div>
+</div>
+<footer data-swiftype-index='false'>
+    <div class="site-generation">
+        &copy;2020 Stitch. All rights reserved. 
+         Site last generated: Jul 23, 2020
+    </div>
+    
+</footer>
+        </div>
+    </div>
+</div>
+
+<!-- JAVASCRIPT -->
+<script type="text/javascript" src="/docs/js/docsearch.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+
+<!-- Used for creating heading anchors -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/2.0.0/anchor.min.js"></script>
+<script src="//cdn.statuspage.io/se-v2.js"></script>
+
+<script src="/docs/js/toc.js"></script>
+<script src="/docs/js/customscripts.js"></script>
+<script src="/docs/js/copyCode.js"></script>
+
+<script type="text/javascript">
+    $(".fouc").removeClass("fouc");
+</script>
+
+<!-- Intercom bubble -->
+<script>
+  window.intercomSettings = {
+    app_id: "okjpf68w"
+  };
+</script>
+<script>
+(function(){var w=window;var ic=w.Intercom;if(typeof ic==="function"){ic('reattach_activator');ic('update',intercomSettings);}else{var d=document;var i=function(){i.c(arguments)};i.q=[];i.c=function(args){i.q.push(args)};w.Intercom=i;function l(){var s=d.createElement('script');s.type='text/javascript';s.async=true;s.src='https://widget.intercom.io/widget/okjpf68w';var x=d.getElementsByTagName('script')[0];x.parentNode.insertBefore(s,x);}if(w.attachEvent){w.attachEvent('onload',l);}else{w.addEventListener('load',l,false);}}})()
+</script>
+
+<!-- Search -->
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install','SAg6gNWby6H1xYzjhfzB','2.0.0');
+</script>
+
+<div class="st-search-container"></div>
+
+</body>
+</html>
