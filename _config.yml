@@ -80,6 +80,9 @@ collections:
    output: true
   analysis-integrations:
    output: true
+  posts:
+   output: true
+   permalink: /changelog/:year/:month/:day/:title
   developer-content:
    output: true
   developer-files:
@@ -127,6 +130,13 @@ defaults:
       enterprise: false
       sidebar: stitchnav
       display-summary: "false"
+      toc: false
+
+  - scope:
+      type: posts
+    values:
+      layout: changelog-entry
+      sidebar: stitchnav
       toc: false
 
 ## Data Structure

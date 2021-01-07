@@ -1,0 +1,5 @@
+- name: "new_feature"
+  display_name: "New feature"
+
+- name: "bug_fix"
+  display_name: "Bug fix"

@@ -1,19 +1,75 @@
+# ---------------------------- #
+#   NETLIFY CMS CONFIGURATION  #
+# ---------------------------- #
+
+## This file contains the configuration settings for the Netlify CMS.
+
+# -------------------------- #
+#   Auth and Repo Settings   #
+# -------------------------- #
+
 backend:
   name: git-gateway
   branch: master
 
+
+# -------------------------- #
+#    Publishing Settings     #
+# -------------------------- #
+
 publish_mode: editorial_workflow
+
+
+# -------------------------- #
+#        Image Settings      #
+# -------------------------- #
 
 media_folder: "images/changelog"
 public_folder: "/images/changelog"
 
+
+
+# -------------------------- #
+#     Collection Settings    #
+# -------------------------- #
+
+## Only the folders (collections) listed in this section
+## will be accessible via the Netlify CMS. In this way
+## we can limit what CMS users have the ability to access and modify.
+
+## Docs: https://www.netlifycms.org/docs/configuration-options/#collections
+
+# Each collection in this list has the following fields:
+
+  # name: Used in routes, e.g., /admin/collections/blog
+  # label: Used in the UI
+  # folder: The path to the folder where the documents are stored
+  # create: Allow users to create new documents in this collection
+  # slug: Filename template, e.g., YYYY-MM-DD-title.md
+  # fields: The fields for each document, usually in front matter
+
 collections:
-  - name: "changelog" # Used in routes, e.g., /admin/collections/blog
-    label: "Changelog" # Used in the UI
-    folder: "_posts" # The path to the folder where the documents are stored
-    create: true # Allow users to create new documents in this collection
-    slug: "{{year}}-{{month}}-{{day}}-{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
-    fields: # The fields for each document, usually in front matter
+  - name: "entry_categories"
+    label: "Entry Category"
+    create: false
+    editor:
+      preview: false
+    files:
+      - label: "Categories"
+        name: "categories"
+        file: "_data/changelog/categories.yml"
+        fields:
+          - { label: 'Layout', name: 'layout', widget: 'hidden', default: 'author' }
+          - { label: 'Entry Name', name: 'name', widget: 'string' }
+          - { label: 'Entry Type', name: 'display_name', widget: 'string' }
+          - { label: 'Body', name: 'body', widget: 'markdown' }
+
+  - name: "changelog" 
+    label: "Changelog Entries"
+    folder: "_posts"
+    create: true 
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}" 
+    fields: 
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Publish Date", name: "date", widget: "datetime"}
       - {label: "Category", name: "category", widget: "string"}
