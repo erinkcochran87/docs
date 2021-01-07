@@ -72,5 +72,5 @@ collections:
     fields: 
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Publish Date", name: "date", widget: "datetime"}
-      - {label: "Type", name: "type", widget: "relation", collection: "entry_categories", search_fields: ["categories"], display_fields: ["categories.*.display_name"], , value_field: "categories.*.name" }
+      - {label: "Type", name: "type", widget: "relation", collection: "entry_categories", search_fields: ["categories"], display_fields: ["categories.*.display_name"], value_field: "categories.*.name" }
       - {label: "Body", name: "body", widget: "markdown"}
