@@ -102,6 +102,8 @@ collections:
 
       - label: "Type"
         name: "entry-type"
+        required: true
+        hint: "The changelog entry type. For example: New feature, bug fix, etc."
         widget: "relation"
         collection: "data"
         file: "entry-types"
@@ -111,6 +113,8 @@ collections:
 
       - label: "Category"
         name: "entry-category"
+        required: true
+        hint: "The changelog entry category. For example: Integration, destination, etc."
         widget: "relation"
         collection: "data"
         file: "entry-categories"
@@ -121,3 +125,4 @@ collections:
       - label: "Body"
         name: "body"
         widget: "markdown"
+        modes: "raw"
