@@ -88,15 +88,9 @@ collections:
 
   - name: "changelog" 
     label: "Changelog Entries"
-    label_singular: "Changelog Entry"
-    create: true
-
-  ## File and site details
     folder: "_posts"
-    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
-    extension: "md"
-    format: "frontmatter"
-    preview_path: "/docs/changelog"
+    create: true 
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}" 
     fields: 
       - label: "Title"
         name: "title"
