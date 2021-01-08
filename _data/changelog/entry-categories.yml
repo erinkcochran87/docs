@@ -8,7 +8,7 @@
 ## Refer to admin/config.yml to configure this field for
 ## the Netlify CMS.
 
-type:
+category:
   - name: "account"
     display_name: "Account"
 
