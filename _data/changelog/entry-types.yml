@@ -1,3 +1,13 @@
+# ------------------------------ #
+#     CHANGELOG ENTRY TYPES      #
+# ------------------------------ #
+
+## These are used in the changelog to assign a type
+## to a given entry.
+
+## Refer to admin/config.yml to configure this field for
+## the Netlify CMS.
+
 type:
   - name: "beta"
     display_name: "Beta"

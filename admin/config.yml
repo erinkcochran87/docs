@@ -49,20 +49,6 @@ public_folder: "/images/changelog"
   # fields: The fields for each document, usually in front matter
 
 collections:
-  # - name: "entry_types"
-  #   label: "Entry Types"
-  #   label_singluar: "Entry Type"
-  #   create: true
-  #   folder: "_data/changelog/entry-types.yml"
-  #   fields:
-  #     - label: "Type"
-  #       name: "name"
-  #       widget: "string"
-
-  #     - label: "Display Name"
-  #       name: "display_name"
-  #       widget: "string"
-
   - name: "data"
     label: "Data"
     files:
@@ -70,6 +56,23 @@ collections:
         label: "Entry Types"
         label_singluar: "Entry Type"
         file: "_data/changelog/entry-types.yml"
+        fields:
+          - label: "type"
+            name: "type"
+            widget: "list"
+            fields:
+              - name: "name"
+                label: "Type"
+                widget: "string"
+
+              - name: "display_name"
+                label: "Display Name"
+                widget: "string"
+
+      - name: "entry-categories"
+        label: "Entry Categories"
+        label_singluar: "Entry Category"
+        file: "_data/changelog/entry-categories.yml"
         fields:
           - label: "type"
             name: "type"
@@ -105,6 +108,15 @@ collections:
         search_fields: ["type.*.name"]
         display_fields: ["type.*.display_name"]
         value_field: "type.*.name"
+
+      - label: "Category"
+        name: "entry-category"
+        widget: "relation"
+        collection: "data"
+        file: "entry-categories"
+        search_fields: ["category.*.name"]
+        display_fields: ["category.*.display_name"]
+        value_field: "category.*.name"
 
       - label: "Body"
         name: "body"
