@@ -81,9 +81,9 @@ collections:
         name: "type"
         widget: "relation"
         collection: "entry_types"
-        search_fields: ["name"]
+        search_fields: ["type"]
         display_fields: ["display_name"]
-        value_field: "name"
+        value_field: "type"
 
       - label: "Body"
         name: "body"
