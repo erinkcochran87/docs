@@ -125,4 +125,4 @@ collections:
       - label: "Body"
         name: "body"
         widget: "markdown"
-        modes: "[raw]"
+        modes: ["raw"]
