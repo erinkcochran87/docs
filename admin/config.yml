@@ -49,20 +49,27 @@ public_folder: "/images/changelog"
   # fields: The fields for each document, usually in front matter
 
 collections:
-  - name: "entry_categories"
-    label: "Entry Category"
+  - name: "data"
+    label: "Data"
     create: false
-    editor:
-      preview: false
     files:
-      - label: "Categories"
-        name: "categories"
+      - name: "entry_categories"
+        label: "Entry Categories"
+        label_singlular: "Entry Category"
+        create: false
         file: "_data/changelog/categories.yml"
         fields:
-          - { label: 'Layout', name: 'layout', widget: 'hidden', default: 'author' }
-          - { label: 'Entry Name', name: 'name', widget: 'string' }
-          - { label: 'Entry Type', name: 'display_name', widget: 'string' }
-          - { label: 'Body', name: 'body', widget: 'markdown' }
+          - name: "entry_categories"
+            label: "Entry Categories"
+            widget: list
+            fields:
+              - label: 'Entry Name'
+                name: 'name'
+                widget: 'string'
+
+              - label: 'Entry Type'
+                name: 'display_name'
+                widget: 'string'
 
   - name: "changelog" 
     label: "Changelog Entries"
@@ -70,7 +77,23 @@ collections:
     create: true 
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}" 
     fields: 
-      - {label: "Title", name: "title", widget: "string"}
-      - {label: "Publish Date", name: "date", widget: "datetime"}
-      - {label: "Type", name: "type", widget: "relation", collection: "entry_categories", search_fields: ["categories"], display_fields: ["categories.*.display_name"], value_field: "categories.*.name" }
-      - {label: "Body", name: "body", widget: "markdown"}
+      - label: "Title"
+        name: "title"
+        widget: "string"
+
+      - label: "Publish Date"
+        name: "date"
+        widget: "datetime"
+
+      - label: "Type"
+        name: "type"
+        widget: "relation"
+        collection: "data"
+        file: "entry_categories"
+        search_fields: ["entry_categories.*.name"]
+        display_fields: ["entry_categories.*.display_name"]
+        value_field: "entry_categories.*.name"
+
+      - label: "Body"
+        name: "body"
+        widget: "markdown"
