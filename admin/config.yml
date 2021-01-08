@@ -49,19 +49,39 @@ public_folder: "/images/changelog"
   # fields: The fields for each document, usually in front matter
 
 collections:
-  - name: "entry_types"
-    label: "Entry Types"
-    label_singluar: "Entry Type"
-    create: true
-    folder: "_data/changelog/entry-types"
-    fields:
-      - label: "Type"
-        name: "name"
-        widget: "string"
+  # - name: "entry_types"
+  #   label: "Entry Types"
+  #   label_singluar: "Entry Type"
+  #   create: true
+  #   folder: "_data/changelog/entry-types.yml"
+  #   fields:
+  #     - label: "Type"
+  #       name: "name"
+  #       widget: "string"
 
-      - label: "Display Name"
-        name: "display_name"
-        widget: "string"
+  #     - label: "Display Name"
+  #       name: "display_name"
+  #       widget: "string"
+
+  - name: "data"
+    label: "Data"
+    files:
+      - name: "entry-types"
+        label: "Entry Types"
+        label_singluar: "Entry Type"
+        file: "_data/changelog/entry-types.yml"
+        fields:
+          - label: "type"
+            name: "type"
+            widget: "list"
+            fields:
+              - name: "name"
+                label: "Type"
+                widget: "string"
+
+              - name: "display_name"
+                label: "Display Name"
+                widget: "string"
 
   - name: "changelog" 
     label: "Changelog Entries"
@@ -78,12 +98,13 @@ collections:
         widget: "datetime"
 
       - label: "Type"
-        name: "type"
+        name: "entry-type"
         widget: "relation"
-        collection: "entry_types"
-        search_fields: ["name"]
-        display_fields: ["display_name"]
-        value_field: "name"
+        collection: "data"
+        file: "entry-types"
+        search_fields: ["type.*.name"]
+        display_fields: ["type.*.display_name"]
+        value_field: "type.*.name"
 
       - label: "Body"
         name: "body"
