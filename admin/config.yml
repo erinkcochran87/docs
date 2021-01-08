@@ -74,12 +74,12 @@ collections:
         label_singluar: "Entry Category"
         file: "_data/changelog/entry-categories.yml"
         fields:
-          - label: "type"
-            name: "type"
+          - label: "category"
+            name: "category"
             widget: "list"
             fields:
               - name: "name"
-                label: "Type"
+                label: "Category"
                 widget: "string"
 
               - name: "display_name"
