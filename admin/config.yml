@@ -55,12 +55,12 @@ collections:
     create: true
     folder: "_data/changelog/entry-types"
     fields:
-      - label: "type"
-        name: "Type"
+      - label: "Type"
+        name: "name"
         widget: "string"
 
-      - label: "display_name"
-        name: "Display Name"
+      - label: "Display Name"
+        name: "display_name"
         widget: "string"
 
   - name: "changelog" 
@@ -81,9 +81,9 @@ collections:
         name: "type"
         widget: "relation"
         collection: "entry_types"
-        search_fields: ["type"]
+        search_fields: ["name"]
         display_fields: ["display_name"]
-        value_field: "type"
+        value_field: "name"
 
       - label: "Body"
         name: "body"
