@@ -49,27 +49,19 @@ public_folder: "/images/changelog"
   # fields: The fields for each document, usually in front matter
 
 collections:
-  - name: "data"
-    label: "Data"
-    create: false
-    files:
-      - name: "entry_categories"
-        label: "Entry Categories"
-        label_singlular: "Entry Category"
-        create: false
-        file: "_data/changelog/categories.yml"
-        fields:
-          - name: "entry_categories"
-            label: "Entry Categories"
-            widget: list
-            fields:
-              - label: 'Entry Name'
-                name: 'name'
-                widget: 'string'
+  - name: "entry_types"
+    label: "Entry Types"
+    label_singluar: "Entry Type"
+    create: true
+    folder: "_data/changelog/entry-types"
+    fields:
+      - label: "type"
+        name: "Type"
+        widget: "string"
 
-              - label: 'Entry Type'
-                name: 'display_name'
-                widget: 'string'
+      - label: "display_name"
+        name: "Display Name"
+        widget: "string"
 
   - name: "changelog" 
     label: "Changelog Entries"
@@ -88,11 +80,10 @@ collections:
       - label: "Type"
         name: "type"
         widget: "relation"
-        collection: "data"
-        file: "entry_categories"
-        search_fields: ["entry_categories.*.name"]
-        display_fields: ["entry_categories.*.display_name"]
-        value_field: "entry_categories.*.name"
+        collection: "entry_types"
+        search_fields: ["name"]
+        display_fields: ["display_name"]
+        value_field: "name"
 
       - label: "Body"
         name: "body"
