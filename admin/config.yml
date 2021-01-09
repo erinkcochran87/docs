@@ -4,6 +4,10 @@
 
 ## This file contains the configuration settings for the Netlify CMS.
 
+site_url: https://stitchdata.com/docs
+logo_url: https://stitchdata.com/docs/images/stitch-logo.png
+
+
 # -------------------------- #
 #   Auth and Repo Settings   #
 # -------------------------- #
@@ -26,7 +30,6 @@ publish_mode: editorial_workflow
 
 media_folder: "images/changelog"
 public_folder: "/images/changelog"
-
 
 
 # -------------------------- #
@@ -92,7 +95,7 @@ collections:
     create: true
 
   ## File and site details
-    folder: "_posts"
+    folder: "_changelog/entries"
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     extension: "md"
     format: "frontmatter"
@@ -103,9 +106,14 @@ collections:
         widget: "string"
 
       - label: "Date"
-        name: "date"
+        name: "publish-date"
         widget: "datetime"
         hint: "The date the changelog entry should have in the changelog. Note: Setting this to a future date won't automatically publish the entry on the date."
+
+      - label: "Content Type"
+        name: "content-type"
+        widget: "hidden"
+        default: "changelog-entry"
 
       - label: "Type"
         name: "entry-type"
