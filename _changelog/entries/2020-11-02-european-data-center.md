@@ -1,7 +1,7 @@
 ---
 title: Availability of European Data Center
-layout: changelog-entry
-date: 2021-01-06
+content-type: "changelog-entry"
+publish-date: 2020-11-02
 entry-type: new_feature
 entry-category: account
 ---
