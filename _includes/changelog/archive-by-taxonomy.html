@@ -1,0 +1,59 @@
+{% assign taxonomy-items = site.data.changelog[page.archive-type][page.archive-type-singular] %}
+
+<nav class="menu browse by-{{ page.archive-type | slugify }} text-center" aria-label="{{ page.archive-type }}">
+	<strong aria-hidden="true">Jump to:</strong>
+  		{% for item in taxonomy-items %}
+  			<a href="#{{ item.name }}" class="post-tag">
+  				{{ item.display_name }}{% unless forloop.last == true %} - {% endunless %}
+  			</a>
+  		{% endfor %}
+</nav>
+
+{%- capture date-archive -%}
+	<a href="{{ link.changelog.archives | prepend: site.baseurl }}">date</a>
+{%- endcapture -%}
+
+{% case page.archive-type %}
+	{% when 'types' %}
+		{% capture other-taxonomy %}
+			<a href="{{ link.changelog.archive-by-category | prepend: site.baseurl }}">category</a>
+		{% endcapture %}
+
+		{% assign taxonomy-data = "entry-type" %}
+
+	{% when 'categories' %}
+		{% capture other-taxonomy %}
+			<a href="{{ link.changelog.archive-by-type | prepend: site.baseurl }}">type</a>
+		{% endcapture %}
+
+		{% assign taxonomy-data = "entry-category" %}
+{% endcase %}
+
+<p>
+	You can also browse entries by {{ other-taxonomy }} or {{ date-archive }}.
+</p>
+<hr>
+
+{% assign all-changelog-entries = site.changelog | where:"content-type","changelog-entry" | sort:"date" | reverse %}
+
+{% for taxonomy in taxonomy-items %}
+	<h2 id="{{ taxonomy.name }}">
+		{{ taxonomy.display_name }}
+	</h2>
+
+	<ul>
+		{% assign taxonomy-entries = all-changelog-entries | where:taxonomy-data,taxonomy.name %}
+
+		{% for item in taxonomy-entries %}
+		<li>
+			{{ site.data.changelog.metadata.archive-entry | flatify | markdownify }}
+		</li>
+		{% endfor %}
+	</ul>
+
+	<a href="#">Back to top</a>
+
+	{% unless forloop.last == true %}
+		<hr>
+	{% endunless %}
+{% endfor %}
