@@ -58,7 +58,7 @@ collections:
       - name: "entry-types"
         label: "Entry Types"
         label_singluar: "Entry Type"
-        file: "_data/changelog/entry-types.yml"
+        file: "_data/changelog/types.yml"
         fields:
           - label: "type"
             name: "type"
@@ -75,7 +75,7 @@ collections:
       - name: "entry-categories"
         label: "Entry Categories"
         label_singluar: "Entry Category"
-        file: "_data/changelog/entry-categories.yml"
+        file: "_data/changelog/categories.yml"
         fields:
           - label: "category"
             name: "category"
