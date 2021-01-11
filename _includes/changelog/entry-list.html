@@ -1,0 +1,28 @@
+
+<!-- This page formats the list of changelog entries for the changelog (/docs/changelog) -->
+
+{% assign changelog-entries = site.changelog | where:"content-type","changelog-entry" | sort:"date" | reverse %}
+
+<table class="changelog">
+	{% for entry in changelog-entries %}
+		<tr>
+			<td class="changelog-metadata" width="30%; fixed" align="right">
+				{{ entry.date | date: "%b %e, %Y" }}
+
+				{% assign entry-type = site.data.changelog.types.type | where:"name",entry.entry-type | first %}
+				<button type="button" class="btn btn-primary btn-sm">{{ entry-type.display_name }}</button>
+
+				{% assign entry-category = site.data.changelog.categories.category | where:"name",entry.entry-category | first %}
+				<button type="button" class="btn btn-primary btn-sm">{{ entry-category.display_name }}</button>
+
+			</td>
+			<td class="changelog-content">
+				<h4 id="{{ entry.date | append: "-" | append: entry.title | slugify }}">
+					{{ entry.title }}
+				</h4>
+
+				{{ entry.content | flatify | markdownify }}
+			</td>
+		</tr>
+	{% endfor %}
+</table>

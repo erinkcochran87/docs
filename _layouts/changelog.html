@@ -8,32 +8,19 @@ layout: default
 
 {% include misc/data-files.html %}
 
-<div class="post-content">
-	{% assign changelog-entries = site.changelog | where:"content-type","changelog-entry" | sort:"publish-date" %}
-
-	<table class="changelog">
-		{% for entry in changelog-entries %}
-			<tr>
-				<td class="changelog-metadata" width="30%; fixed" align="right">
-					{{ entry.publish-date | date: "%b %e, %G" }}
-
-					{% assign entry-type = site.data.changelog.entry-types.type | where:"name",entry.entry-type | first %}
-					<button type="button" class="btn btn-primary btn-sm">{{ entry-type.display_name }}</button>
-
-					{% assign entry-category = site.data.changelog.entry-categories.category | where:"name",entry.entry-category | first %}
-					<button type="button" class="btn btn-primary btn-sm">{{ entry-category.display_name }}</button>
-
-				</td>
-				<td class="changelog-content">
-					<h4 id="{{ entry.publish-date | append: "-" | append: entry.title | slugify }}">
-						{{ entry.title }}
-					</h4>
-
-					{{ entry.content | flatify | markdownify }}
-				</td>
-			</tr>
-		{% endfor %}
-	</table>
+<div class="post-content" style="width: 100%">
+	{% case page.content-type %}
+		{% when 'changelog-archive' %}
+			{% case page.archive-type %}
+				{% when 'date' %}
+					{% include changelog/archive-by-year.html %}
+				{% else %}
+					{% include changelog/archive-by-taxonomy.html %}
+			{% endcase %}
+			
+		{% when 'changelog-entry-list' %}
+			{% include changelog/entry-list.html %}
+	{% endcase %}
 </div>
 
 {% include layout/footer-cta.html %}
