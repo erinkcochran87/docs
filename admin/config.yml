@@ -110,10 +110,13 @@ collections:
         widget: "datetime"
         hint: "The date the changelog entry should have in the changelog. Note: Setting this to a future date won't automatically publish the entry on the date."
 
-      - label: "Content Type"
+      - &content-type
+        label: "Content Type"
         name: "content-type"
         widget: "hidden"
         default: "changelog-entry"
+
+      - *content-type
 
       - label: "Type"
         name: "entry-type"
