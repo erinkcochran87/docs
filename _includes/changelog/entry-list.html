@@ -10,10 +10,14 @@
 				{{ entry.date | date: "%b %e, %Y" }}
 
 				{% assign entry-type = site.data.changelog.types.type | where:"name",entry.entry-type | first %}
-				<button type="button" class="btn btn-primary btn-sm">{{ entry-type.display_name }}</button>
+					<a href="{{ link.changelog.archive-by-type | prepend: site.baseurl | append: "#" | append: entry.entry-type }}">
+						<button type="button" class="btn btn-primary btn-sm">{{ entry-type.display_name }}</button>
+					</a>
 
 				{% assign entry-category = site.data.changelog.categories.category | where:"name",entry.entry-category | first %}
-				<button type="button" class="btn btn-primary btn-sm">{{ entry-category.display_name }}</button>
+					<a href="{{ link.changelog.archive-by-category | prepend: site.baseurl | append: "#" | append: entry.entry-category }}">
+						<button type="button" class="btn btn-primary btn-sm">{{ entry-category.display_name }}</button>
+					</a>
 
 			</td>
 			<td class="changelog-content">
