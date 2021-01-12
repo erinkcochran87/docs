@@ -81,14 +81,31 @@ collections:
             name: "category"
             widget: "list"
             fields:
-              - &name-test
-                name: "blah"
+              - name: "name"
                 label: "Category"
                 widget: "string"
 
               - name: "display_name"
                 label: "Display Name"
                 widget: "string"
+
+  - name: "testing-filters"
+    label: "Testing Filters"
+    folder: "_posts"
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    create: true
+    filters:
+      - field: "entry-type"
+        value: "new_feature"
+
+      - field: "entry-category"
+        value: "integration"
+    fields: 
+      - &title
+        label: "Title"
+        name: "title"
+        widget: "string"
+
 
   - name: "changelog" 
     label: "Changelog Entries"
@@ -102,9 +119,7 @@ collections:
     format: "frontmatter"
     preview_path: "/docs/changelog"
     fields: 
-      - label: "Title"
-        name: "title"
-        widget: "string"
+      - *title
 
       - label: "Date"
         name: "publish-date"
@@ -115,8 +130,6 @@ collections:
         name: "content-type"
         widget: "hidden"
         default: "changelog-entry"
-
-      - *name-test
 
       - label: "Type"
         name: "entry-type"
