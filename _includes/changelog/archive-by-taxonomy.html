@@ -1,18 +1,11 @@
-{% assign taxonomy-items = site.data.changelog[page.archive-type][page.archive-type-singular] %}
+<!-- This formats a list of changelog entries by either entry type or category for the changelog (/docs/changelog/archives/entry-categories or entry-types) -->
 
-<nav class="menu browse by-{{ page.archive-type | slugify }} text-center" aria-label="{{ page.archive-type }}">
-	<strong aria-hidden="true">Jump to:</strong>
-  		{% for item in taxonomy-items %}
-  			<a href="#{{ item.name }}" class="post-tag">
-  				{{ item.display_name }}{% unless forloop.last == true %} - {% endunless %}
-  			</a>
-  		{% endfor %}
-</nav>
-
+<!-- Get the link for archives by date, which is used in category and type -->
 {%- capture date-archive -%}
 	<a href="{{ link.changelog.archives | prepend: site.baseurl }}">date</a>
 {%- endcapture -%}
 
+<!-- Depending on the archive type, get the link to the other archive type and assign a variable to the correct frontmatter parameter. -->
 {% case page.archive-type %}
 	{% when 'types' %}
 		{% capture other-taxonomy %}
@@ -29,22 +22,44 @@
 		{% assign taxonomy-data = "entry-category" %}
 {% endcase %}
 
+<!-- Assign a variable to the data file containing the data for the archive type -->
+{% assign taxonomy-items = site.data.changelog[page.archive-type][page.archive-type-singular] %}
+
+
+<!-- Get all the changelog entries, then group them by the variable assigned in the previous CASE statement. EX: `taxonomy-data = "entry-type"` -->
+{% assign all-changelog-entries = site.changelog | where:"content-type","changelog-entry" | sort:"date" | reverse %}
+	{% assign entries-by-taxonomy = all-changelog-entries | group_by: taxonomy-data %}
+
+<!-- A list of all archive type items (ex: categories) at the top of the page -->
+<p>
+	<strong>Jump to a {{ page.archive-type-singular }}:</strong>
+</p>
+
+<div class="btn-group">
+	{% for taxonomy in entries-by-taxonomy %}
+		{% assign taxonomy-name = taxonomy-items | where:"name",taxonomy.name | first %}
+		  <a href="#{{ taxonomy.name }}" class="btn btn-primary active" {% if forloop.first == true %}aria-current="page"{% endif %}>
+		  	{{ taxonomy-name.display_name }}
+		  </a>
+	{% endfor %}
+</div>
+
 <p>
 	You can also browse entries by {{ other-taxonomy }} or {{ date-archive }}.
 </p>
+
 <hr>
 
-{% assign all-changelog-entries = site.changelog | where:"content-type","changelog-entry" | sort:"date" | reverse %}
+<!-- Sections for each taxonomy item. -->
+{% for taxonomy in entries-by-taxonomy %}
+	{% assign taxonomy-name = taxonomy-items | where:"name",taxonomy.name | first %}
 
-{% for taxonomy in taxonomy-items %}
 	<h2 id="{{ taxonomy.name }}">
-		{{ taxonomy.display_name }}
+		{{ taxonomy-name.display_name }}
 	</h2>
 
 	<ul>
-		{% assign taxonomy-entries = all-changelog-entries | where:taxonomy-data,taxonomy.name %}
-
-		{% for item in taxonomy-entries %}
+		{% for item in taxonomy.items %}
 		<li>
 			{{ site.data.changelog.metadata.archive-entry | flatify | markdownify }}
 		</li>
