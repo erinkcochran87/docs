@@ -92,6 +92,7 @@ collections:
   - name: "testing-filters"
     label: "Testing Filters"
     folder: "_posts"
+    layout: changelog
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     create: true
     filters:
