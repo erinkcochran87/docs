@@ -100,9 +100,6 @@ collections:
     extension: "md"
     format: "frontmatter"
     preview_path: "/docs/changelog"
-
-    nested:
-      depth: 100
     fields: 
       - label: "Title"
         name: "title"
@@ -139,6 +136,11 @@ collections:
         search_fields: ["category.*.name"]
         display_fields: ["category.*.display_name"]
         value_field: "category.*.name"
+
+      - label: "Connection ID"
+        name: "connection-id"
+        hint: "If the Category is either INTEGRATION or DESTINATION, enter the unique name for the connection. For example: For `Facebook Ads`, enter `facebook-ads`."
+        widget: "string"
 
       - label: "Body"
         name: "body"
