@@ -144,4 +144,5 @@ collections:
 
       - label: "Body"
         name: "body"
+        hint: "The entry content. It's strongly recommended that you use Markdown instead of Rich Text."
         widget: "markdown"
