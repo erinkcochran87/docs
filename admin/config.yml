@@ -89,25 +89,6 @@ collections:
                 label: "Display Name"
                 widget: "string"
 
-  - name: "testing-filters"
-    label: "Testing Filters"
-    folder: "_posts"
-    layout: changelog
-    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
-    create: true
-    filters:
-      - field: "entry-type"
-        value: "new_feature"
-
-      - field: "entry-category"
-        value: "integration"
-    fields: 
-      - &title
-        label: "Title"
-        name: "title"
-        widget: "string"
-
-
   - name: "changelog" 
     label: "Changelog Entries"
     label_singular: "Changelog Entry"
@@ -119,12 +100,17 @@ collections:
     extension: "md"
     format: "frontmatter"
     preview_path: "/docs/changelog"
+
+    nested:
+      depth: 100
     fields: 
-      - *title
+      - label: "Title"
+        name: "title"
+        widget: "string"
 
       - label: "Date"
         name: "publish-date"
-        widget: "datetime"
+        widget: "date"
         hint: "The date the changelog entry should have in the changelog. Note: Setting this to a future date won't automatically publish the entry on the date."
 
       - label: "Content Type"
