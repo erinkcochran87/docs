@@ -139,6 +139,7 @@ collections:
 
       - label: "Connection ID"
         name: "connection-id"
+        required: false
         hint: "If the Category is either INTEGRATION or DESTINATION, enter the unique name for the connection. For example: For `Facebook Ads`, enter `facebook-ads`."
         widget: "string"
 
