@@ -55,43 +55,6 @@ public_folder: "/images/changelog"
   # fields: The fields for each document, usually in front matter
 
 collections:
-  - name: "data"
-    label: "Data"
-    files:
-      - name: "entry-types"
-        label: "Entry Types"
-        label_singluar: "Entry Type"
-        file: "_data/changelog/types.yml"
-        fields:
-          - label: "type"
-            name: "type"
-            widget: "list"
-            fields:
-              - name: "name"
-                label: "Type"
-                widget: "string"
-
-              - name: "display_name"
-                label: "Display Name"
-                widget: "string"
-
-      - name: "entry-categories"
-        label: "Entry Categories"
-        label_singluar: "Entry Category"
-        file: "_data/changelog/categories.yml"
-        fields:
-          - label: "category"
-            name: "category"
-            widget: "list"
-            fields:
-              - name: "name"
-                label: "Category"
-                widget: "string"
-
-              - name: "display_name"
-                label: "Display Name"
-                widget: "string"
-
   - name: "changelog" 
     label: "Changelog Entries"
     label_singular: "Changelog Entry"
@@ -158,3 +121,40 @@ collections:
         name: "body"
         hint: "The entry content. It's strongly recommended that you use Markdown instead of Rich Text."
         widget: "markdown"
+
+  - name: "data"
+    label: "Data"
+    files:
+      - name: "entry-types"
+        label: "Entry Types"
+        label_singluar: "Entry Type"
+        file: "_data/changelog/types.yml"
+        fields:
+          - label: "type"
+            name: "type"
+            widget: "list"
+            fields:
+              - name: "name"
+                label: "Type"
+                widget: "string"
+
+              - name: "display_name"
+                label: "Display Name"
+                widget: "string"
+
+      - name: "entry-categories"
+        label: "Entry Categories"
+        label_singluar: "Entry Category"
+        file: "_data/changelog/categories.yml"
+        fields:
+          - label: "category"
+            name: "category"
+            widget: "list"
+            fields:
+              - name: "name"
+                label: "Category"
+                widget: "string"
+
+              - name: "display_name"
+                label: "Display Name"
+                widget: "string"
