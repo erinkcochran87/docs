@@ -72,8 +72,8 @@ collections:
     view_groups:
       - label: "Year"
         field: "date"
-        pattern: "\d{4}"
-        
+        pattern: \d{4}
+
   ## CMS fields
     fields: 
       - label: "Title"
