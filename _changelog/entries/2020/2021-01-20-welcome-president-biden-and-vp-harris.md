@@ -1,6 +1,6 @@
 ---
 title: Welcome, President Biden and VP Harris!
-publish-date: 2021-01-20T20:04:55.022Z
+publish-date: 2021-01-20
 content-type: changelog-entry
 entry-type: improvement
 entry-category: security
