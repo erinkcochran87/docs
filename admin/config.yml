@@ -98,7 +98,7 @@ collections:
     create: true
 
   ## File and site details
-    folder: "_changelog/entries"
+    folder: "_changelog/entries/2020"
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     extension: "md"
     format: "frontmatter"
