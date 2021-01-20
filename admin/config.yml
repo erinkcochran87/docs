@@ -69,6 +69,11 @@ collections:
 
   ## CMS controls
     summary: "{{fields.date}}: {{title}}"
+    view_groups:
+      - label: "Year"
+        field: "date"
+        pattern: "\d{4}"
+        
   ## CMS fields
     fields: 
       - label: "Title"
