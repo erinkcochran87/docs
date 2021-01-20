@@ -12,7 +12,7 @@ category:
   - name: "account"
     display_name: "Account"
 
-  - name: "connect_api"
+  - name: "connect-api"
     display_name: "Connect API"
 
   - name: "destination"
@@ -20,6 +20,12 @@ category:
 
   - name: "integration"
     display_name: "Integration"
+
+  - name: "notifications"
+    display_name: "Notifications"
+
+  - name: "replication"
+    display_name: "Replication"
 
   - name: "security"
     display_name: "Security"

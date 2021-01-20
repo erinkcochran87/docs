@@ -12,10 +12,13 @@ logo_url: https://stitchdata.com/docs/images/stitch-logo.png
 #   Auth and Repo Settings   #
 # -------------------------- #
 
+# https://www.netlifycms.org/docs/backends-overview
+# This might solve the issue with OAuth causing a 404 when
+# redirected during auth. 
+
 backend:
   name: git-gateway
   branch: master
-
 
 # -------------------------- #
 #    Publishing Settings     #
