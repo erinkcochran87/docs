@@ -74,6 +74,9 @@ collections:
         field: "date"
         pattern: \d{4}
 
+      - label: "Type"
+        field: "type"
+
   ## CMS fields
     fields: 
       - label: "Title"
