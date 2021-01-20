@@ -68,7 +68,7 @@ collections:
     preview_path: "/changelog"
 
   ## CMS controls
-    summary: "{{month}} {{day}}, {{year}}: {{title}}"
+    summary: "{{fields.date}}: {{title}}"
   ## CMS fields
     fields: 
       - label: "Title"
@@ -76,8 +76,11 @@ collections:
         widget: "string"
 
       - label: "Date"
-        name: "publish-date"
-        widget: "date"
+        name: "date"
+        widget: "datetime"
+        date_format: "DD.MM.YYYY"
+        format: "LL"
+        picker_utc: true
         hint: "The date the changelog entry should have in the changelog. Note: Setting this to a future date won't automatically publish the entry on the date."
 
       - label: "Content Type"
