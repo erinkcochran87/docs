@@ -66,6 +66,10 @@ collections:
     extension: "md"
     format: "frontmatter"
     preview_path: "/changelog"
+
+  ## CMS controls
+    summary: "{{ month }} {{ day }}, {{ year }}: {{ title }}"
+  ## CMS fields
     fields: 
       - label: "Title"
         name: "title"
@@ -113,7 +117,6 @@ collections:
         name: "connection-version"
         required: false
         hint: "If the Category is either INTEGRATION or DESTINATION, enter the version of the integration the entry applies to. For example: If it's version 1, enter `1`."
-        comment: "If the Category is either INTEGRATION or DESTINATION, enter the version of the integration the entry applies to. For example: If it's version 1, enter `1`."
         widget: "number"
         value_type: "int"
         min: 1
