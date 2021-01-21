@@ -82,6 +82,19 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   {% include shared/regions/region-selection-javascript.html %}
 {% endif %}
 
+<!-- NETLIFY CMS -->
+<script>
+  if (window.netlifyIdentity) {
+    window.netlifyIdentity.on("init", user => {
+      if (!user) {
+        window.netlifyIdentity.on("login", () => {
+          document.location.href = "/docs/admin/";
+        });
+      }
+    });
+  }
+</script>
+
 <!-- Intercom bubble -->
 <script>
   window.intercomSettings = {
