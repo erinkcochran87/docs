@@ -83,7 +83,7 @@ collections:
         name: "date"
         widget: "datetime"
         date_format: "MMMM DD, YYYY"
-        format: "LL"
+        format: "YYYY-MM-DD"
         picker_utc: true
         hint: "The date the changelog entry should have in the changelog. Note: Setting this to a future date won't automatically publish the entry on the date."
 

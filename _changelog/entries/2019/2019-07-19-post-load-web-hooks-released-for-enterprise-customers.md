@@ -1,6 +1,6 @@
 ---
 title: Post-load web hooks released for Enterprise customers
-date: July 17, 2019
+date: 2019-07-19
 content-type: changelog-entry
 entry-type: new-feature
 entry-category: notifications
