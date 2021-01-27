@@ -12,6 +12,9 @@ category:
   - name: "account"
     display_name: "Account"
 
+  - name: "app"
+    display_name: "App / UI"
+
   - name: "connect-api"
     display_name: "Connect API"
 
