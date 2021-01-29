@@ -21,6 +21,9 @@ category:
   - name: "destination"
     display_name: "Destination"
 
+  - name: "documentation"
+    display_name: "Documentation"
+
   - name: "integration"
     display_name: "Integration"
 
