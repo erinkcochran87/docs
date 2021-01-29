@@ -7,7 +7,7 @@ site_title: Stitch Documentation
 description: "Guides and resources for setting up and managing your Stitch data pipeline."
 company_name: Stitch
 host: 127.0.0.1
-port: 4005
+port: 4000
 
 # -------------------------- #
 # Links / Permalink Settings #
