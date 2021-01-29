@@ -1,5 +1,5 @@
 ---
-title: Google BigQuery destination datatype Incompatibilities Fix
+title: "Google BigQuery (v1) destination: Data type incompatibilities fix"
 content-type: "changelog-entry"
 date: 2017-04-26
 entry-type: bug-fix

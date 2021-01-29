@@ -9,7 +9,7 @@ connection-version: 1
 ---
 {{ site.data.changelog.metadata.single-integration | flatify }}
 
-A new {{ this-connection.display_name }} is now available!
+A new {{ this-connection.display_name }} integration is now available!
 
 This integration lets you extract data from any {{ this-connection.display_name }} repository. You can choose from the following tables to replicate to your destination:
 
@@ -21,4 +21,4 @@ This integration lets you extract data from any {{ this-connection.display_name 
 - `reviews`
 - `stargazers`
 
-Create a new integration today with seven days of free historical data. [Learn more in our documentation]({{ this-connection.url | prepend: site.baseurl }}.
+Create a new integration today with seven days of free historical data. [Learn more in our documentation]({{ this-connection.url | prepend: site.baseurl }}).

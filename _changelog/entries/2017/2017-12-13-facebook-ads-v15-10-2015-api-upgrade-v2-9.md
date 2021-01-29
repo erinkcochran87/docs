@@ -1,5 +1,5 @@
 ---
-title: Facebook Ads (v15-10-2015) API upgrade to v2.9
+title: "Facebook Ads (v15-10-2015) integration: API upgrade to v2.9"
 content-type: "changelog-entry"
 date: 2017-12-13
 entry-type: improvement

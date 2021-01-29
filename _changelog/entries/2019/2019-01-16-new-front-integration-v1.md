@@ -4,7 +4,7 @@ content-type: "changelog-entry"
 date: 2019-01-16
 entry-type: new-feature
 entry-category: integration
-connection-id: responsys
+connection-id: frontapp
 connection-version: 1
 ---
 {{ site.data.changelog.metadata.single-integration | flatify }}

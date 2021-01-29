@@ -1,5 +1,5 @@
 ---
-title: SSL certificate verification for PostgreSQL destinations
+title: "PostgreSQL (v1) destinations: SSL certificate verification support" 
 content-type: "changelog-entry"
 date: 2018-11-12
 entry-type: new-feature

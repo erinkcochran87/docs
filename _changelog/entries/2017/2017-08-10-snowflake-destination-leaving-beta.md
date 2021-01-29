@@ -1,9 +1,9 @@
 ---
-title: Snowflake destination leaving open beta
+title: Snowflake (v1) destination leaving open beta
 content-type: "changelog-entry"
 date: 2017-08-10
 entry-type: beta
-entry-category: destinations
+entry-category: destination
 connection-id: snowflake
 connection-version: 1
 ---

@@ -1,5 +1,5 @@
 ---
-title: New version (v2) of Harvest integration
+title: "Harvest integration: New version (v2)"
 content-type: "changelog-entry"
 date: 2018-09-12
 entry-type: new-feature

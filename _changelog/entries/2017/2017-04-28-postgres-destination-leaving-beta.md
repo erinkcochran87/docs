@@ -1,9 +1,9 @@
 ---
-title: PostgreSQL destination leaving open beta
+title: PostgreSQL (v1) destination leaving open beta
 content-type: "changelog-entry"
 date: 2017-04-28
 entry-type: beta
-entry-category: destinations
+entry-category: destination
 connection-id: postgres
 connection-version: 1
 ---

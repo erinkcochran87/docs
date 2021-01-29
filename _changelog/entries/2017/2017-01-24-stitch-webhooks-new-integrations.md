@@ -41,4 +41,4 @@ Stitch Webhooks is a configurable incoming webhook integration that replicates d
 
 Additionally, we’ve added 14 new integrations to Stitch, powered by webhooks, as great examples of what you can replicate across different types of applications:
 
-{{ site.data.changelog.metadata.integration-list }}
+{{ site.data.changelog.metadata.integration-list | flatify }}

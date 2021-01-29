@@ -15,4 +15,4 @@ connections:
 
 Stitch is pleased to announce the release of several new integrations, which are now available to all customers:
 
-{{ site.data.changelog.metadata.integration-list }}
+{{ site.data.changelog.metadata.integration-list | flatify }}

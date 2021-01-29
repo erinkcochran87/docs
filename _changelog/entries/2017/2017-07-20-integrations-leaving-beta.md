@@ -49,6 +49,6 @@ Like baby birds leaving the nest, baby bears leaving their dens, or baby platipi
 
 Here's the list:
 
-{{ site.data.changelog.metadata.integration-list }}
+{{ site.data.changelog.metadata.integration-list | flatify }}
 
 ![](https://media.giphy.com/media/kNV2JASorNjoY/giphy.gif)

@@ -1,5 +1,5 @@
 ---
-title: New version (v1) of Facebook Ads integration
+title: "Facebook Ads integration: New version (v1)"
 content-type: "changelog-entry"
 date: 2017-09-11
 entry-type: new-feature

@@ -1,5 +1,5 @@
 ---
-title: New version (v2) of Marketo integration
+title: "Marketo integration: New version (v2)"
 content-type: "changelog-entry"
 date: 2018-06-26
 entry-type: new-feature

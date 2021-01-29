@@ -1,5 +1,5 @@
 ---
-title: Microsoft Azure SQL Data Warehouse destination now in open beta!
+title: Microsoft Azure SQL Data Warehouse (v1) destination now in open beta!
 content-type: "changelog-entry"
 date: 2018-12-04
 entry-type: beta

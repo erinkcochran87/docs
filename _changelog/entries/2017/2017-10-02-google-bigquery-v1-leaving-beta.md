@@ -1,9 +1,9 @@
 ---
-title: Google BigQuery destination leaving open beta
+title: Google BigQuery (v1) destination leaving open beta
 content-type: "changelog-entry"
 date: 2017-10-02
 entry-type: beta
-entry-category: destinations
+entry-category: destination
 connection-id: bigquery
 connection-version: 1
 ---

@@ -9,7 +9,7 @@ connection-version: 1
 ---
 {{ site.data.changelog.metadata.single-integration | flatify }}
 
-A new {{ this-connection.display_name }} is now available!
+A new {{ this-connection.display_name }} integration is now available!
 
 This integration can connect to your S3 bucket and replicate CSV files to your Stitch destination. Some highlights of this new integration include:
 

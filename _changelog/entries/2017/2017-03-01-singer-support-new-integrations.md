@@ -32,4 +32,4 @@ To learn more about Singer, check out the [launch blog post](https://blog.stitch
 
 By supporting this standard, Stitch now supports these integrations:
 
-{{ site.data.changelog.metadata.integration-list }}
+{{ site.data.changelog.metadata.integration-list | flatify }}

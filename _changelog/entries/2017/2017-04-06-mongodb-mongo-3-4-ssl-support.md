@@ -1,5 +1,5 @@
 ---
-title: "MongoDB (v11-01-2016): Support for Mongo 3.4 and SSL connections"
+title: "MongoDB (v11-01-2016) integrations: Support for Mongo 3.4 and SSL connections"
 content-type: "changelog-entry"
 date: 2017-04-06
 entry-type: updated-feature

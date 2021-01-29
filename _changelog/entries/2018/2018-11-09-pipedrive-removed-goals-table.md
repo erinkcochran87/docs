@@ -1,5 +1,5 @@
 ---
-title: "Removed goals table from Pipedrive integration"
+title: "Pipedrive (v1) integration: Removed goals table "
 content-type: "changelog-entry"
 date: 2018-11-09
 entry-type: removed

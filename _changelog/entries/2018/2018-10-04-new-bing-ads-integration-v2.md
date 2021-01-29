@@ -1,5 +1,5 @@
 ---
-title: New version (v2) of Bing Ads integration
+title: "Bing Ads integration: New version (v2)"
 content-type: "changelog-entry"
 date: 2018-10-04
 entry-type: new-feature
@@ -71,11 +71,11 @@ schema-changes:
 
 A new version (v{{ this-connection.this-version }}) of our Bing Ads integration is now available! This version takes advantage of the latest Bing Ads API, version 12.
 
-hHre's a high-level look at the updates to our integration:
+Here's a high-level look at the updates to our integration:
 
 - **Support for multi-user credentials**: The new integration allow for extracting data where you use one Microsoft account and manage accounts across different customers.
 
-- **Column restrictions**: Bing now prevents the extraction of reports with invalid field combinations. Stitch will automatically show these exclusions within the field selection interface when setting up your reports. Please see the [Bing documentation](https://docs.microsoft.com/en-us/bingads/guides/reports?view=bingads-12#columnrestrictions){:target="new"} for a full list of [column restrictions](https://docs.microsoft.com/en-us/bingads/guides/reports?view=bingads-12#columnrestrictions){:target="new"}.
+- **Column restrictions**: Bing now prevents the extraction of reports with invalid field combinations. Stitch will automatically show these exclusions within the field selection interface when setting up your reports. Refer to [Bing's documentation](https://docs.microsoft.com/en-us/bingads/guides/reports?view=bingads-12#columnrestrictions){:target="new"} for a full list of [column restrictions](https://docs.microsoft.com/en-us/bingads/guides/reports?view=bingads-12#columnrestrictions){:target="new"}.
 
 - **Schema updates**: The following changes have been made to table schemas:
 {% for table in page.schema-changes %}

@@ -10,11 +10,9 @@ Stitch customers now have some control over when extractions begin. This new fea
 
 For example: Setting a six (6) hour replication with an anchor time of 12:00 PM would create this schedule:
 
-Released today, this new feature lets users set an extraction to "anchor" the replication schedule to a specific time to ensure that Stitch is getting data predictably and when it's most needed. 
-
 - 12:00PM
 - 06:00PM
 - 12:00AM
 - 06:00AM
 
-Check out the [docs]({{ link.replication.anchor-scheduling | prepend: site.baseurl }}) for full details.
+Check out the [docs]({{ site.data.urls.replication.anchor-scheduling | prepend: site.baseurl }}) for full details.

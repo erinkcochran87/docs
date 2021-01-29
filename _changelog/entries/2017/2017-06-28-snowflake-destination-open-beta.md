@@ -1,5 +1,5 @@
 ---
-title: Snowflake destination now in open beta!
+title: Snowflake (v1) destination now in open beta!
 content-type: "changelog-entry"
 date: 2017-06-28
 entry-type: new-feature

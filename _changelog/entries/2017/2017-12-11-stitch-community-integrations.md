@@ -8,7 +8,7 @@ entry-category: integration
 
 Introducing: Stitch Community integrations!
 
-Just like other Singer taps, these integrations are able to be run in Stitch. Thanks to the success of the Singer open source project and the contributions from the Singer community, we're able to run these integrations on the Stitch infrastructure while being supported by the community rather than the Stitch team. 
+Just like other Singer taps, these integrations are able to be run in Stitch. Thanks to the success of the [inger open source project]({{ site.singer }}){:target="new"} and the contributions from the Singer community, we're able to run these integrations on the Stitch infrastructure while being supported by the community rather than the Stitch team. 
 
 Like Stitch Certified integrations (built and maintained by the Stitch team), Stitch Community integrations offer a number of benefits:
 
@@ -22,4 +22,4 @@ Like Stitch Certified integrations (built and maintained by the Stitch team), St
 
 The key difference is that Stitch provides commercial support for Certified integrations, but not for Community integrations. Commercial support is a guarantee that the Stitch team will fix bugs and adapt to new versions of third-party APIs. 
 
-For a full list of Stitch integrations - including both Certified and Community - refer to the [docs]({{ link.integrations.main | prepend: site.baseurl }}).
+For a full list of Stitch integrations - including both Certified and Community - refer to the [docs]({{ site.data.urls.integrations.main | prepend: site.baseurl }}).

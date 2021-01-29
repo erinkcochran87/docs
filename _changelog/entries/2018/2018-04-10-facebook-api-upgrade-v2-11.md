@@ -1,5 +1,5 @@
 ---
-title: Facebook Ads (v1) API upgrade to v2.11
+title: "Facebook Ads (v1) integrations: API upgrade to v2.11"
 content-type: "changelog-entry"
 date: 2018-04-10
 entry-type: updated-feature

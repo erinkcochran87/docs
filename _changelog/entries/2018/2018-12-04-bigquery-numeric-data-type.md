@@ -1,11 +1,11 @@
 ---
-title: Support for NUMERIC data type for Google BigQuery destinations
+title: "Google BigQuery (v1) destinations: NUMERIC data type support"
 content-type: "changelog-entry"
 date: 2018-12-04
 entry-type: updated-feature
 entry-category: destination
 connection-id: bigquery
-connection-version: 2
+connection-version: 1
 ---
 
 {{ site.data.changelog.metadata.single-destination | flatify }}

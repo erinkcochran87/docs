@@ -1,5 +1,5 @@
 ---
-title: Microsoft Azure SQL Data Warehouse leaving open beta
+title: Microsoft Azure SQL Data Warehouse destination leaving open beta
 content-type: "changelog-entry"
 date: 2019-02-07
 entry-type: "beta"

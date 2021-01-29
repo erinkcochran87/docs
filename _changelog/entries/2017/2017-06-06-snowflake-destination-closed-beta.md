@@ -1,5 +1,5 @@
 ---
-title: Snowflake destination now in closed beta!
+title: Snowflake (v1) destination now in closed beta!
 content-type: "changelog-entry"
 date: 2017-06-06
 entry-type: new-feature

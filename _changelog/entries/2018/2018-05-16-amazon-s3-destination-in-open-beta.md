@@ -1,5 +1,5 @@
 ---
-title: Amazon S3 destination now in open beta
+title: Amazon S3 (v1) destination now in open beta
 content-type: "changelog-entry"
 date: 2018-05-16
 entry-type: "beta"

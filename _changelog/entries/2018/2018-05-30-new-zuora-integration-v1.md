@@ -1,5 +1,5 @@
 ---
-title: New version (v1) of Zuora integration
+title: "Zuora integration: New version (v1)"
 content-type: "changelog-entry"
 date: 2018-05-30
 entry-type: new-feature
@@ -17,7 +17,7 @@ We’ve worked hard to ensure this new integration is the best way to extract da
 - Expanded table and field availability 
 - Choice of {{ this-connection.display_name }} API, allowing you to choose the API that best fits your needs
 - Replication of deleted records when using the AQuA API
-- [Table and field selection]({{ link.replication.syncing | prepend: site.baseurl }})
+- [Table and field selection]({{ site.data.urls.replication.syncing | prepend: site.baseurl }})
 - Enhanced schema validation
 
 Get started today by creating a new {{ this-connection.display_name }} integration or learn more in the [updated documentation]({{ this-connection.url | prepend: site.baseurl }}).

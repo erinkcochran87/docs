@@ -1,5 +1,5 @@
 ---
-title: "New MySQL (v1) feature: Binlog replication"
+title: "MySQL (v1) integrations: Binlog replication support"
 content-type: "changelog-entry"
 date: 2018-05-30
 entry-type: new-feature
@@ -14,4 +14,4 @@ connection-version: 1
 
 If you have binary logging enabled for your MySQL database, Stitch can now use it to help replicate your data. Log-based Incremental Replication allows for incremental replication of a table without a Replication Key and will capture and persist hard deletes.
 
-This feature is now available as a Replication Method on the _Table Settings_ of {{ this-connection.display_name }} integrations. Check out the [docs]({{ link.replication.log-based-incremental | prepend: site.baseurl }}) for more info.
+This feature is now available as a Replication Method on the **Table Settings** of {{ this-connection.display_name }} integrations. Check out the [docs]({{ site.data.urls.replication.log-based-incremental | prepend: site.baseurl }}) for more info.

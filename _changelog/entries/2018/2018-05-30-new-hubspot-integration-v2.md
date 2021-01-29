@@ -1,5 +1,5 @@
 ---
-title: New version (v2) of HubSpot integration
+title: "HubSpot integration: New version (v2)"
 content-type: "changelog-entry"
 date: 2018-05-30
 entry-type: new-feature
@@ -15,7 +15,7 @@ A new version (v{{ this-connection.this-version }}) of our {{ this-connection.di
 - Column-level selection 
 - More comprehensive data typing on custom properties
 - **Inclusion of all form submissions for `contacts`** – Older versions only replicated the newest form submissions. Now you can extract a complete picture of your contact form submissions.
-- Improved updates of `list_memberships`
+- Improved updates of the `list_memberships` table
 - Several schema changes:
 	- `hubspot_contacts_by_company` has been renamed to `contacts_by_company`
 	- The `isDeleted` fields have been removed from the `deals` and `companies` tables. The {{ this-connection.display_name }}  API does not provide accurate values for this data, so we've removed it to prevent confusion and potential discrepancies.
