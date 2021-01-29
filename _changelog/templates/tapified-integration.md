@@ -1,6 +1,6 @@
 ---
 title: New version (v1) of  integration
-content-type: "changelog-entry"
+#content-type: "changelog-entry"
 date: 2019-10-28
 entry-type: new-feature
 entry-category: integration
